@@ -1,5 +1,6 @@
 package modelo;
 
+import java.awt.Point;
 import java.util.Dictionary;
 
 public class Mapa {
@@ -18,5 +19,12 @@ public class Mapa {
 		
 		public void restarPunto(){
 	
+		}
+
+
+
+		public void agregar(Point punto, Celda celda) {
+			
+			
 		}
 }
