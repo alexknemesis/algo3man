@@ -4,11 +4,15 @@ import java.awt.Point;
 
 public class Juego {
 	
-	int nivel;
-	int puntaje;
-	int vida;
-	FabricaDeMapas fabrica;
-	Mapa mapa;
+	private int nivel;
+	private int puntaje;
+	private int vida;
+	private FabricaDeMapas fabrica;
+	private Mapa mapa;
+	
+	public Juego(){
+		
+	}
 	
 	public void avanzarNivel(){
 		
