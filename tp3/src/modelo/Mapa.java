@@ -11,7 +11,9 @@ public class Mapa {
 		private int N;
 		private int M;
 		
-		public Mapa(){
+		public Mapa(int N,int M){
+			this.N = N;
+			this.M = M;
 			
 		}
 		
