@@ -3,10 +3,14 @@ package modelo;
 import java.awt.Point;
 import java.util.ArrayList;
 
+import modelo.*;
+
+
+
 public class Juego {
 	
-	final vidasIniciales = 3;
-	final nivelInicial = 1;
+	final private int vidasIniciales = 3;
+	final private int nivelInicial = 1;
 	
 	private int nivel;
 	private int puntaje;
@@ -20,46 +24,58 @@ public class Juego {
 		this.puntaje = 0;
 		this.vidas = vidasIniciales;
 		
-		this.mapa = FabricaDeMapas.obtenerMapa();
+		this.mapa = FabricaDeMapas.obtenerMapa(1);
 		
-		this.fantasmas = new ArrayList();
+		this.fantasmas = new ArrayList<Fantasma>();
 		this.fantasmas.add(new FantasmaRojo());
 		// TODO agregar fantasmas
 		
-		this.pacman = new Pacman();
+		this.pacman = new Pacman(0, 0, 10, this);
 	}
 	
 	public void avanzarNivel(){
 		if(this.isGameOver())
-			throw new Exception();
+			throw new GameOverException();
 		
 		this.nivel++;
 		// TODO que pasa cuando se avanza un nivel?
 	}
 	
-	public void sumarPuntos(puntos){
+	public void sumarPuntos(int puntos){
 		if(this.isGameOver())
-			throw new Exception();
+			throw new GameOverException();
 		
 		this.puntaje += puntos;
 	}
 	
 	public void restarVida(){
 		if(this.isGameOver())
-			throw new Exception();
+			throw new GameOverException();
 		
 		this.vidas--;
 	}
 	
-	public Celda getCelda(Point punto){
+	public Celda getCelda(int x, int y){
 		return null;
 		
 	}
 	
-	public bool isGameOver(){
+	public boolean isGameOver(){
 		if(this.vidas == 0)
 			return true;
 		return false;
+	}
+	
+	public int getNivel(){
+		return this.nivel;
+	}
+	
+	public int getPuntaje(){
+		return this.puntaje;
+	}
+	
+	public int getVidas(){
+		return this.vidas;
 	}
 
 }

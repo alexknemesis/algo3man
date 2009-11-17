@@ -4,6 +4,7 @@ import junit.framework.TestCase;
 
 import modelo.Celda;
 import modelo.Juego;
+import modelo.GameOverException;
 
 public class JuegoTest extends TestCase {
 
@@ -22,14 +23,14 @@ public class JuegoTest extends TestCase {
 		assertEquals(this.juego.getVidas(),3);
 	}
 	
-	public Celda testGetCelda(){
+	public void testGetCelda(){
 		Celda celda = this.juego.getCelda(0,0);
 	}
 	
 	public void restarVida(){
 		try{
 			this.juego.restarVida();
-		} catch(Exception e){
+		} catch(GameOverException e){
 			fail("Tiro excepcion al restar una vida.");
 		}
 		
@@ -61,7 +62,7 @@ public class JuegoTest extends TestCase {
 	public void testSumarPuntos(){
 		try{
 			this.juego.sumarPuntos(500);
-		} catch (Exception e){
+		} catch (GameOverException e){
 			fail("Tiro excepcion al querer sumar puntos.");
 		}
 		assertEquals(this.juego.getPuntaje(),500);
@@ -84,7 +85,7 @@ public class JuegoTest extends TestCase {
 	public void testAvanzarNivel(){
 		try{
 			this.juego.avanzarNivel();
-		} catch (Exception e){
+		} catch (GameOverException e){
 			fail("Tiro excepcion al querer avanzar un nivel.");
 		}
 		assertEquals(this.juego.getNivel(),2);
