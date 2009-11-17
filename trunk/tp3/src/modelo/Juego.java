@@ -1,16 +1,13 @@
 package modelo;
 
-import java.awt.Point;
 import java.util.ArrayList;
-
-import modelo.*;
 
 
 
 public class Juego {
 	
-	final private int vidasIniciales = 3;
-	final private int nivelInicial = 1;
+	final private int VIDAS_INICIALES = 3;
+	final private int NIVEL_INICIAL = 1;
 	
 	private int nivel;
 	private int puntaje;
@@ -20,9 +17,9 @@ public class Juego {
 	private ArrayList fantasmas;
 	
 	public Juego(){
-		this.nivel = nivelInicial;
+		this.nivel = NIVEL_INICIAL;
 		this.puntaje = 0;
-		this.vidas = vidasIniciales;
+		this.vidas = VIDAS_INICIALES;
 		
 		this.mapa = FabricaDeMapas.obtenerMapa(1);
 		
