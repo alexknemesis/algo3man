@@ -25,7 +25,7 @@ public class FabricaDeMapas {
 		int i,j;
 	
 		
-		mapa = new Mapa(17,19);
+		mapa = new Mapa(17,19, null);
 		
 		celda = new CeldaVacia();
 		for (j=1;j<19;j++){
