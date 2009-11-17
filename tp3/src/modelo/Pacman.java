@@ -9,8 +9,8 @@ public class Pacman extends Personaje {
 
 	@Override
 	public void morir() {
-		// TODO Auto-generated method stub
-
+		this.getJuego().restarVida();
+		this.reiniciar();
 	}
 
 	@Override
