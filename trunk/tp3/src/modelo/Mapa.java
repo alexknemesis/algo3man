@@ -1,11 +1,11 @@
 package modelo;
 
 import java.awt.Point;
-import java.util.Dictionary;
+import java.util.TreeMap;
 
 public class Mapa {
 	
-		private Dictionary matriz;
+		private TreeMap matriz;
 		private Juego juego;
 		private int puntosSinComer;
 		private int N;
@@ -19,6 +19,7 @@ public class Mapa {
 			this.M = M;
 			this.juego = juego2;
 			this.puntosSinComer = (N*M);
+			this.matriz = new TreeMap(new Comparador());
 			
 			
 		}
@@ -36,7 +37,10 @@ public class Mapa {
 
 
 		public void agregar(Point punto, Celda celda) {
-			
+			if(punto.x > N | punto.y > M){
+				throw new RangoException();
+			}
+			this.matriz.put(punto, celda);
 			
 		}
 
@@ -49,9 +53,11 @@ public class Mapa {
 
 
 
-		public Point getCelda(Point punto) {
-			
-			return null;
+		public Celda getCelda(Point punto) {
+			if(punto.x > N | punto.y > M){
+				throw new RangoException();
+			}
+			return (Celda) this.matriz.get(punto);
 		}
 
 
