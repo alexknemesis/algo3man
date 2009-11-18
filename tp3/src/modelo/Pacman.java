@@ -18,5 +18,16 @@ public class Pacman extends Personaje {
 		// TODO Auto-generated method stub
 
 	}
-
+	
+	public void moverDerecha(){
+		
+	}
+	
+	public void moverIzquierda(){
+		
+	}
+	
+	public void moverAtras(){
+		
+	}
 }
