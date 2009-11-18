@@ -4,7 +4,7 @@ import java.awt.Point;
 
 public class Pacman extends Personaje {
 
-	public Pacman(Point punto, int velocidad, Juego juego) {
+	public Pacman(Point punto, Point velocidad, Juego juego) {
 		super(punto, velocidad, juego);
 		// TODO Auto-generated constructor stub
 	}
