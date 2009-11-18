@@ -7,10 +7,10 @@ public abstract class Personaje {
 	private Juego juego;
 	private Point posicion;
 	private Point posicionInicial;
-	private int velocidad;
+	private Point velocidad;
 	
-	public Personaje(Point punto, int velocidad, Juego juego){
-		if(punto.getX() < 0 || punto.getY() < 0 || velocidad < 0)
+	public Personaje(Point punto, Point velocidad, Juego juego){
+		if(punto.getX() < 0 || punto.getY() < 0)
 			throw new IllegalArgumentException();
 		
 		this.setVelocidad(velocidad);
@@ -23,12 +23,16 @@ public abstract class Personaje {
 		return this.juego;
 	}
 	
-	public int getVelocidad(){
-		return this.velocidad;
+	public double getVelocidadX(){
+		return this.velocidad.getX();
 	}
 	
-	public void setVelocidad(int velocidad){
-		this.velocidad = velocidad;
+	public double getVelocidadY(){
+		return this.velocidad.getY();
+	}
+	
+	public void setVelocidad(Point velocidad){
+		this.velocidad.setLocation(velocidad);
 	}
 	
 	public Point getPosicionInicial(){

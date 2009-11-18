@@ -4,7 +4,7 @@ import java.awt.Point;
 
 public class FantasmaCeleste extends Fantasma {
 
-	public FantasmaCeleste(Point punto, int velocidad, Juego juego) {
+	public FantasmaCeleste(Point punto, Point velocidad, Juego juego) {
 		super(punto, velocidad, juego);
 	}
 
