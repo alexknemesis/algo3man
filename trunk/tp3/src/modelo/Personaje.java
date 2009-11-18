@@ -15,8 +15,8 @@ public abstract class Personaje {
 		
 		this.setVelocidad(velocidad);
 		this.juego = juego;
-		this.setPosicion(x, y);
-		this.posicionInicial = this.posicion;
+		this.posicion = new Point(x,y);
+		this.posicionInicial = new Point(this.posicion);
 	}
 	
 	public Juego getJuego(){
@@ -40,15 +40,15 @@ public abstract class Personaje {
 	}
 	
 	public void setPosicion(Point punto){
-		this.posicion = punto;
+		this.posicion.setLocation(punto);
 	}
 	
 	public void setPosicion(int x, int y){
-		
+		this.setPosicion(new Point(x,y));
 	}
 	
 	public void reiniciar(){
-		this.posicion = this.posicionInicial;
+		this.setPosicion(this.posicionInicial);
 	}
 	
 	abstract public void morir();

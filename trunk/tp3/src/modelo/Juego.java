@@ -1,5 +1,6 @@
 package modelo;
 
+import java.awt.Point;
 import java.util.ArrayList;
 
 
@@ -14,7 +15,7 @@ public class Juego {
 	private int vidas;
 	private Mapa mapa;
 	private Pacman pacman;
-	private ArrayList fantasmas;
+	private ArrayList<Fantasma> fantasmas;
 	
 	public Juego(){
 		this.nivel = NIVEL_INICIAL;
@@ -36,6 +37,9 @@ public class Juego {
 		
 		this.nivel++;
 		// TODO que pasa cuando se avanza un nivel?
+		// cambia la velocidad de los personajes
+		// se resetean las posiciones de los personajes
+		// suma puntos
 	}
 	
 	public void sumarPuntos(int puntos){
@@ -53,8 +57,11 @@ public class Juego {
 	}
 	
 	public Celda getCelda(int x, int y){
-		return null;
-		
+		return this.getCelda(new Point(x, y));
+	}
+	
+	public Celda getCelda(Point punto){
+		return this.mapa.getCelda(punto);
 	}
 	
 	public boolean isGameOver(){
@@ -73,6 +80,10 @@ public class Juego {
 	
 	public int getVidas(){
 		return this.vidas;
+	}
+	
+	public ArrayList<Fantasma> getFantasmas(){
+		return this.fantasmas;
 	}
 
 }

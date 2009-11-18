@@ -17,6 +17,7 @@ public class PacmanTest extends TestCase {
 	
 	public void testMorir(){
 		this.pacman.morir();
+		assertEquals(2,this.juego.getVidas());
 		
 	}
 
