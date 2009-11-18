@@ -9,13 +9,13 @@ public abstract class Personaje {
 	private Point posicionInicial;
 	private int velocidad;
 	
-	public Personaje(int x, int y, int velocidad, Juego juego){
-		if(x < 0 || y < 0 || velocidad < 0)
+	public Personaje(Point punto, int velocidad, Juego juego){
+		if(punto.getX() < 0 || punto.getY() < 0 || velocidad < 0)
 			throw new IllegalArgumentException();
 		
 		this.setVelocidad(velocidad);
 		this.juego = juego;
-		this.posicion = new Point(x,y);
+		this.posicion = new Point(punto);
 		this.posicionInicial = new Point(this.posicion);
 	}
 	
@@ -41,10 +41,6 @@ public abstract class Personaje {
 	
 	public void setPosicion(Point punto){
 		this.posicion.setLocation(punto);
-	}
-	
-	public void setPosicion(int x, int y){
-		this.setPosicion(new Point(x,y));
 	}
 	
 	public void reiniciar(){

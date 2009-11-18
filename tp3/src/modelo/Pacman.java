@@ -1,9 +1,11 @@
 package modelo;
 
+import java.awt.Point;
+
 public class Pacman extends Personaje {
 
-	public Pacman(int x, int y, int velocidad, Juego juego) {
-		super(x, y, velocidad, juego);
+	public Pacman(Point punto, int velocidad, Juego juego) {
+		super(punto, velocidad, juego);
 		// TODO Auto-generated constructor stub
 	}
 
