@@ -1,14 +1,22 @@
 package modelo;
 
+import java.awt.Point;
+
 public class FantasmaVioleta extends Fantasma {
 
-	public FantasmaVioleta() {
-		// TODO Auto-generated constructor stub
+	public FantasmaVioleta(Point punto, int velocidad, Juego juego) {
+		super(punto, velocidad, juego);
 	}
 
 	public void vivir() {
 		// TODO Auto-generated method stub
 
+	}
+
+	@Override
+	public void morir() {
+		// TODO Auto-generated method stub
+		
 	}
 
 }
