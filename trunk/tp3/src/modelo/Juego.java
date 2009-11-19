@@ -15,7 +15,7 @@ public class Juego {
 	private int vidas;
 	private Mapa mapa;
 	private Pacman pacman;
-	private ArrayList<Fantasma> fantasmas;
+	private ArrayList fantasmas;
 	
 	public Juego(){
 		this.nivel = NIVEL_INICIAL;
@@ -24,7 +24,7 @@ public class Juego {
 		
 		this.mapa = FabricaDeMapas.obtenerMapa(1);
 		
-		this.fantasmas = new ArrayList<Fantasma>();
+		this.fantasmas = new ArrayList();
 		this.fantasmas.add(new FantasmaRojo(new Point(0,0), new Point(10,0), this));
 		// TODO agregar fantasmas
 		
@@ -82,7 +82,7 @@ public class Juego {
 		return this.vidas;
 	}
 	
-	public ArrayList<Fantasma> getFantasmas(){
+	public ArrayList getFantasmas(){
 		return this.fantasmas;
 	}
 
