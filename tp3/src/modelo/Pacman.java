@@ -18,19 +18,23 @@ public class Pacman extends Personaje {
 	@Override
 	public void vivir() {
 		// TODO Auto-generated method stub
+		moverseEnDireccionActual();
 
 	}
 	
 	public void moverDerecha(){
-		
+		this.setDireccion(DERECHA);
 	}
 	
 	public void moverIzquierda(){
-		
+		this.setDireccion(IZQUIERDA);
 	}
 	
-	public void moverAtras(){
-		
+	public void moverAbajo(){
+		this.setDireccion(ABAJO);
+	}
+	public void moverArriba(){
+		this.setDireccion(ARRIBA);
 	}
 
 	@Override

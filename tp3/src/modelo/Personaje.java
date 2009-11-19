@@ -80,6 +80,14 @@ public abstract class Personaje implements Objetivo {
 	public void reiniciar(){
 		this.setPosicion(this.posicionInicial);
 	}
+
+	public int getDireccion() {
+		return direccion;
+	}
+
+	public void setDireccion(int direccion) {
+		this.direccion = direccion;
+	}
 	
 	abstract public void morir();
 	abstract public void vivir();
