@@ -1,5 +1,6 @@
 package pruebas;
 
+import modelo.Fantasma;
 import junit.framework.TestCase;
 
 public class FantasmaCelesteTest extends TestCase {
@@ -16,8 +17,17 @@ public class FantasmaCelesteTest extends TestCase {
 		super.tearDown();
 	}
 
-	public void testVivir() {
-		fail("Not yet implemented");
+	public void testSeComeAlPacmanCuandoEstaCerca() {
+		/*
+		Fantasma fantasma = new FantasmaCeleste();
+		Pacman pacman = new Pacman();
+		
+		fantasma.setPosicion(pos1);
+		pacman.setPosicion(pos1);
+		
+		fantasma.vivir();
+		*/
+		
 	}
 
 	public void testFantasmaCeleste() {

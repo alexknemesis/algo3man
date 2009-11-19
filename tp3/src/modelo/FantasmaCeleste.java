@@ -2,6 +2,12 @@ package modelo;
 
 import java.awt.Point;
 
+
+/**
+ * @author grupo9
+ * Este tipo de fantasma se mueve siempre a la derecha.
+ *
+ */
 public class FantasmaCeleste extends Fantasma {
 
 	public FantasmaCeleste(Point punto, Point velocidad, Juego juego) {
