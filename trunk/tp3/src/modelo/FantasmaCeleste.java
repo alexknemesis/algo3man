@@ -13,19 +13,16 @@ public class FantasmaCeleste extends Fantasma {
 
 	}
 
-	@Override
 	public void morir() {
 		// TODO Auto-generated method stub
 		
 	}
 
-	@Override
 	protected int determinarSiguienteDireccion() {
 		// TODO Auto-generated method stub
 		return 0;
 	}
 
-	@Override
 	public int getDistancia(Point posicion) {
 		// TODO Auto-generated method stub
 		return 0;

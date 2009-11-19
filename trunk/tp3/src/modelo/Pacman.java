@@ -9,13 +9,11 @@ public class Pacman extends Personaje {
 		// TODO Auto-generated constructor stub
 	}
 
-	@Override
 	public void morir() {
 		this.getJuego().restarVida();
 		this.reiniciar();
 	}
 
-	@Override
 	public void vivir() {
 		// TODO Auto-generated method stub
 		moverseEnDireccionActual();
@@ -37,7 +35,6 @@ public class Pacman extends Personaje {
 		this.setDireccion(ARRIBA);
 	}
 
-	@Override
 	public int getDistancia(Point posicion) {
 		// TODO Auto-generated method stub
 		return 0;
