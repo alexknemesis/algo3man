@@ -7,7 +7,7 @@ public abstract class Fantasma extends Personaje {
 	
 	public void vivir(){
 		
-		if(juego.getCelda(this.posicion) == celdaActual){
+		if(juego.getCelda(this.posicion) == this.celdaActual){
 			moverseEnDireccionActual();
 			//TODO Comerse o ser comido por el pacman de acuerdo al estado
 		}else{
