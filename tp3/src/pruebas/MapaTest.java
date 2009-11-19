@@ -6,7 +6,6 @@ import modelo.Celda;
 import modelo.CeldaPared;
 import modelo.Juego;
 import modelo.Mapa;
-import modelo.MapaConstruirException;
 import modelo.RangoException;
 import modelo.RestarPuntoException;
 import junit.framework.Assert;
@@ -17,6 +16,7 @@ public class MapaTest extends TestCase {
 	Mapa mapa;
 	Mapa mapaTrucho;
 	Juego juego;
+	Celda miCelda = new CeldaPared();
 	
 	protected void setUp() throws Exception {
 		super.setUp();
@@ -24,27 +24,29 @@ public class MapaTest extends TestCase {
 		this.mapa = new Mapa(2,4,this.juego);
 		
 		Point punto = new Point(1,1);
-		Celda celda = new CeldaPared();
-		this.mapa.agregar(punto, celda);
+		
+		this.mapa.agregar(punto, this.miCelda);
 	}
 
 	public void testMapa_Fail() {
+		
 		try{
 			this.mapaTrucho = new Mapa(-1,-1,this.juego);
-			fail("Deber�a mandar excepci�n pero no lo hizo");
-		}catch (MapaConstruirException e){
+			fail("Deberia mandar excepcion pero no lo hizo");
+		}catch (RangoException e){
 			Assert.assertEquals(true, true);
 		}
 		
 	}
 	
 	public void testMapa_Ok() {
+		
 		try{
 			this.mapaTrucho = new Mapa(4,4,this.juego);
 			Assert.assertEquals(true, true);
 			
-		}catch (MapaConstruirException e){
-			fail("No deber�a mandar excepci�n pero no lo hizo");
+		}catch (RangoException e){
+			fail("No deber�a mandar excepcion pero lo hizo");
 			
 		}
 		
@@ -58,11 +60,12 @@ public class MapaTest extends TestCase {
 	}
 	
 	public void testRestarPunto_Fail() {
+		
 		this.mapaTrucho = new Mapa(1,1,this.juego);
 		this.mapaTrucho.restarPunto();
 		try{
 			this.mapaTrucho.restarPunto();
-			fail("Deber�a mandar excepci�n pero no lo hizo");
+			fail("Deberia mandar excepcion pero no lo hizo");
 		}catch(RestarPuntoException e){
 			Assert.assertEquals(true, true);
 		}
@@ -77,7 +80,7 @@ public class MapaTest extends TestCase {
 			
 			Assert.assertEquals(true, true);
 		}catch(RangoException e){
-			fail("No Deber�a mandar excepci�n pero no lo hizo");
+			fail("No Deberia mandar excepcion pero lo hizo");
 		}
 		
 	}
@@ -87,7 +90,7 @@ public class MapaTest extends TestCase {
 		Point punto = new Point(4,4);
 		try{
 			this.mapa.agregar(punto, celda);
-			fail("Deber�a mandar excepci�n pero no lo hizo");
+			fail("Deberia mandar excepcion pero lo hizo");
 			
 		}catch(RangoException e){
 			
@@ -95,6 +98,8 @@ public class MapaTest extends TestCase {
 		}
 		
 	}
+	
+	
 	
 	public void testGetFilas(){
 		Assert.assertEquals(this.mapa.getFilas(), 2);
@@ -106,31 +111,29 @@ public class MapaTest extends TestCase {
 		
 	}
 	
-	public void testgetCelda_Ok(){
+	public void testGetCelda_Fail_Param(){
+		
 		Point punto = new Point(1,1);
 		
 		try{
-			this.mapa.getCelda(punto);
-			Assert.assertEquals(true, true);
+			Celda otraCelda = this.mapa.getCelda(punto);
+			fail("Deberia mandar excepcion pero no lo hizo");
+			
 			
 		}catch (RangoException e){
-			fail("No deber�a mandar excepci�n pero no lo hizo");
+			Assert.assertEquals(true, true);
 			
 		}
 	}
 	
-	public void testgetCelda_Fail(){
-		Point punto = new Point(5,5);
+	public void testgetCelda_Ok(){
+			Point punto = new Point(1,1);
+			Celda otraCelda = this.mapa.getCelda(punto);
+			Assert.assertEquals(otraCelda,this.miCelda );
+			
 		
-		try{
-			this.mapa.getCelda(punto);
-			fail("No deber�a mandar excepci�n pero no lo hizo");
-			
-			
-		}catch (RangoException e){
-			Assert.assertEquals(true, true);
-			
-		}
 	}
+	
+	
 
 }

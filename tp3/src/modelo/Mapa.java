@@ -1,31 +1,29 @@
 package modelo;
 
 import java.awt.Point;
-import java.util.TreeMap;
 
 public class Mapa {
 	
-		private TreeMap matriz;
+		private Matriz matriz;
 		private Juego juego;
 		private int puntosSinComer;
-		private int N;
-		private int M;
+		
 		
 		public Mapa(int N,int M, Juego juego2){
 			if(N<=0 | M<=0){
-				throw new MapaConstruirException();
+				throw new RangoException();
 			}
-			this.N = N;
-			this.M = M;
+			
 			this.juego = juego2;
 			this.puntosSinComer = (N*M);
-			this.matriz = new TreeMap(new Comparador());
+			this.matriz = new Matriz(N,M);
 			
 			
 		}
 		
-		
-		
+
+
+
 		public void restarPunto(){
 			if (this.puntosSinComer == 0){
 				throw new RestarPuntoException();
@@ -37,11 +35,12 @@ public class Mapa {
 
 
 		public void agregar(Point punto, Celda celda) {
-			if(punto.x > N | punto.y > M){
+			
+			try{
+				this.matriz.agregar(celda, punto.x, punto.y);
+			}catch (RangoException e){
 				throw new RangoException();
 			}
-			this.matriz.put(punto, celda);
-			
 		}
 
 
@@ -54,23 +53,27 @@ public class Mapa {
 
 
 		public Celda getCelda(Point punto) {
-			if(punto.x > N | punto.y > M){
+			Celda celda;
+			try{
+				celda =this.matriz.getCelda(punto.x, punto.y);
+			}catch (RangoException e){
 				throw new RangoException();
 			}
-			return (Celda) this.matriz.get(punto);
+			
+			return celda;
 		}
 
 
 
 		public int getFilas() {
 			
-			return this.N;
+			return this.matriz.getFilas();
 		}
 
 
 
 		public int getColumnas() {
 			
-			return M;
+			return this.matriz.getColumnas();
 		}
 }
