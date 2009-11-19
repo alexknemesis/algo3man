@@ -9,7 +9,7 @@ public abstract class Fantasma extends Personaje {
 		
 		if(juego.getCelda(this.posicion) == celdaActual){
 			moverseEnDireccionActual();
-			//Comerse o ser comido por el pacman de acuerdo al estado
+			//TODO Comerse o ser comido por el pacman de acuerdo al estado
 		}else{
 			direccion = determinarSiguienteDireccion();
 			moverseEnDireccionActual();
