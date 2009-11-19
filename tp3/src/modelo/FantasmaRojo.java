@@ -17,4 +17,14 @@ public class FantasmaRojo extends Fantasma {
 		// TODO Auto-generated method stub
 
 	}
+
+	protected int determinarSiguienteDireccion() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	public int getDistancia(Point posicion) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
 }
