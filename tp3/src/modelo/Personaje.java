@@ -3,11 +3,41 @@ package modelo;
 import java.awt.Point;
 import modelo.Juego;
 
-public abstract class Personaje {
-	private Juego juego;
-	private Point posicion;
-	private Point posicionInicial;
-	private Point velocidad;
+public abstract class Personaje implements Objetivo {
+	protected static final int ARRIBA = 1; 
+	protected static final int ABAJO = 2; 
+	protected static final int DERECHA = 3; 
+	protected static final int IZQUIERDA = 4; 
+
+	protected int direccion;
+	protected String estado;
+	protected Celda celdaActual;
+	protected Juego juego;
+	protected Point posicion;
+	protected Point posicionInicial;
+	protected Point velocidad;
+
+	
+	protected void moverseEnDireccionActual() {
+		//TODO revisar colisiones (los personajes llegan hasta la mitad de una 
+		//celda)
+		switch (direccion){
+		case ARRIBA:
+			posicion.y -= velocidad.y;
+			;break;
+		case ABAJO:
+			posicion.y += velocidad.y;			
+			;break;
+		case DERECHA:   
+			posicion.x += velocidad.x;
+			;break;
+		case IZQUIERDA:   
+			posicion.x -= velocidad.x;
+			;break;
+		}
+		// TODO Auto-generated method stub
+	}
+
 	
 	public Personaje(Point punto, Point velocidad, Juego juego){
 		if(punto.getX() < 0 || punto.getY() < 0)
