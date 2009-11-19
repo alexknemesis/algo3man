@@ -12,7 +12,7 @@ import modelo.RestarPuntoException;
 import junit.framework.Assert;
 import junit.framework.TestCase;
 
-public class TestMapa extends TestCase {
+public class MapaTest extends TestCase {
 	
 	Mapa mapa;
 	Mapa mapaTrucho;
@@ -31,7 +31,7 @@ public class TestMapa extends TestCase {
 	public void testMapa_Fail() {
 		try{
 			this.mapaTrucho = new Mapa(-1,-1,this.juego);
-			fail("Debería mandar excepción pero no lo hizo");
+			fail("Deberï¿½a mandar excepciï¿½n pero no lo hizo");
 		}catch (MapaConstruirException e){
 			Assert.assertEquals(true, true);
 		}
@@ -44,7 +44,7 @@ public class TestMapa extends TestCase {
 			Assert.assertEquals(true, true);
 			
 		}catch (MapaConstruirException e){
-			fail("No debería mandar excepción pero no lo hizo");
+			fail("No deberï¿½a mandar excepciï¿½n pero no lo hizo");
 			
 		}
 		
@@ -62,7 +62,7 @@ public class TestMapa extends TestCase {
 		this.mapaTrucho.restarPunto();
 		try{
 			this.mapaTrucho.restarPunto();
-			fail("Debería mandar excepción pero no lo hizo");
+			fail("Deberï¿½a mandar excepciï¿½n pero no lo hizo");
 		}catch(RestarPuntoException e){
 			Assert.assertEquals(true, true);
 		}
@@ -77,7 +77,7 @@ public class TestMapa extends TestCase {
 			
 			Assert.assertEquals(true, true);
 		}catch(RangoException e){
-			fail("No Debería mandar excepción pero no lo hizo");
+			fail("No Deberï¿½a mandar excepciï¿½n pero no lo hizo");
 		}
 		
 	}
@@ -87,7 +87,7 @@ public class TestMapa extends TestCase {
 		Point punto = new Point(4,4);
 		try{
 			this.mapa.agregar(punto, celda);
-			fail("Debería mandar excepción pero no lo hizo");
+			fail("Deberï¿½a mandar excepciï¿½n pero no lo hizo");
 			
 		}catch(RangoException e){
 			
@@ -114,7 +114,7 @@ public class TestMapa extends TestCase {
 			Assert.assertEquals(true, true);
 			
 		}catch (RangoException e){
-			fail("No debería mandar excepción pero no lo hizo");
+			fail("No deberï¿½a mandar excepciï¿½n pero no lo hizo");
 			
 		}
 	}
@@ -124,7 +124,7 @@ public class TestMapa extends TestCase {
 		
 		try{
 			this.mapa.getCelda(punto);
-			fail("No debería mandar excepción pero no lo hizo");
+			fail("No deberï¿½a mandar excepciï¿½n pero no lo hizo");
 			
 			
 		}catch (RangoException e){
