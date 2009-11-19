@@ -32,4 +32,10 @@ public class Pacman extends Personaje {
 	public void moverAtras(){
 		
 	}
+
+	@Override
+	public int getDistancia(Point posicion) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
 }
