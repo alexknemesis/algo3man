@@ -1,7 +1,7 @@
-package modelo;
+package grupo9.algo3man.modelo;
 
 import java.awt.Point;
-import modelo.Juego;
+import grupo9.algo3man.modelo.Juego;
 
 public abstract class Personaje implements Objetivo {
 	protected static final int ARRIBA = 1; 
