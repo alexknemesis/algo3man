@@ -11,7 +11,6 @@ public abstract class Personaje implements Objetivo {
 
 	protected int direccion;
 	protected String estado;
-	protected Celda celdaActual;
 	protected Juego juego;
 	protected Point posicion;
 	protected Point posicionInicial;
@@ -19,8 +18,6 @@ public abstract class Personaje implements Objetivo {
 
 	
 	protected void moverseEnDireccionActual() {
-		//TODO revisar colisiones (los personajes llegan hasta la mitad de una 
-		//celda)
 		switch (direccion){
 		case ARRIBA:
 			posicion.y -= velocidad.y;
