@@ -1,10 +1,12 @@
-package pruebas;
+package grupo9.algo3man.test;
+
+
+import grupo9.algo3man.modelo.Juego;
+import grupo9.algo3man.modelo.Pacman;
 
 import java.awt.Point;
 
 import junit.framework.TestCase;
-import modelo.Juego;
-import modelo.Pacman;
 
 public class PacmanTest extends TestCase {
 

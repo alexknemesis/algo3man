@@ -1,10 +1,10 @@
-package modelo;
+package grupo9.algo3man.modelo;
 
 import java.awt.Point;
 
-public class FantasmaNaranja extends Fantasma {
+public class FantasmaRojo extends Fantasma {
 
-	public FantasmaNaranja(Point punto, Point velocidad, Juego juego) {
+	public FantasmaRojo(Point punto, Point velocidad, Juego juego) {
 		super(punto, velocidad, juego);
 	}
 
@@ -15,7 +15,7 @@ public class FantasmaNaranja extends Fantasma {
 
 	public void morir() {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	protected int determinarSiguienteDireccion() {
@@ -27,5 +27,4 @@ public class FantasmaNaranja extends Fantasma {
 		// TODO Auto-generated method stub
 		return 0;
 	}
-
 }

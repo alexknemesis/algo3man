@@ -1,10 +1,10 @@
-package pruebas;
+package grupo9.algo3man.test;
 
+
+import grupo9.algo3man.modelo.Celda;
+import grupo9.algo3man.modelo.GameOverException;
+import grupo9.algo3man.modelo.Juego;
 import junit.framework.TestCase;
-
-import modelo.Celda;
-import modelo.Juego;
-import modelo.GameOverException;
 
 public class JuegoTest extends TestCase {
 

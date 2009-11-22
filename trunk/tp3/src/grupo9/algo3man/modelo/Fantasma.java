@@ -1,10 +1,12 @@
-package modelo;
+package grupo9.algo3man.modelo;
 
 import java.awt.Point;
 
 
 public abstract class Fantasma extends Personaje {
 	
+	private Celda celdaActual;
+
 	public void vivir(){
 		
 		if(juego.getCelda(this.posicion) == this.celdaActual){

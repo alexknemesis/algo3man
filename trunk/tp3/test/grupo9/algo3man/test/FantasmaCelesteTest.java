@@ -1,6 +1,6 @@
-package pruebas;
+package grupo9.algo3man.test;
 
-import modelo.Fantasma;
+
 import junit.framework.TestCase;
 
 public class FantasmaCelesteTest extends TestCase {

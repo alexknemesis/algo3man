@@ -1,11 +1,12 @@
-package pruebas;
+package grupo9.algo3man.test;
 
+
+import grupo9.algo3man.modelo.Celda;
+import grupo9.algo3man.modelo.CeldaPared;
+import grupo9.algo3man.modelo.Matriz;
+import grupo9.algo3man.modelo.RangoException;
 import junit.framework.Assert;
 import junit.framework.TestCase;
-import modelo.Celda;
-import modelo.CeldaPared;
-import modelo.Matriz;
-import modelo.RangoException;
 
 public class MatrizTest extends TestCase {
 	

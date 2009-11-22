@@ -1,13 +1,15 @@
-package pruebas;
+package grupo9.algo3man.test;
+
+
+import grupo9.algo3man.modelo.Celda;
+import grupo9.algo3man.modelo.CeldaPared;
+import grupo9.algo3man.modelo.Juego;
+import grupo9.algo3man.modelo.Mapa;
+import grupo9.algo3man.modelo.RangoException;
+import grupo9.algo3man.modelo.RestarPuntoException;
 
 import java.awt.Point;
 
-import modelo.Celda;
-import modelo.CeldaPared;
-import modelo.Juego;
-import modelo.Mapa;
-import modelo.RangoException;
-import modelo.RestarPuntoException;
 import junit.framework.Assert;
 import junit.framework.TestCase;
 
