@@ -184,6 +184,118 @@ public class FabricaDeMapas {
 		punto = new Point(4,14);
 		mapa.agregar(punto, celda);
 		
+		//agrego pared posicion (4,15)
+		celda = new CeldaPared();
+		punto = new Point(4,15);
+		mapa.agregar(punto, celda);
+		
+		//agrego pared posicion (4,16)
+		celda = new CeldaPared();
+		punto = new Point(4,16);
+		mapa.agregar(punto, celda);
+		
+		//agrego pared posicion (5,4)
+		celda = new CeldaPared();
+		punto = new Point(5,4);
+		mapa.agregar(punto, celda);
+		
+		//agrego pared posicion (5,5)
+		celda = new CeldaPared();
+		punto = new Point(5,5);
+		mapa.agregar(punto, celda);
+		
+		//agrego punto ordinario posicion (5,6)
+		celda = new PuntoOrdinario();
+		punto = new Point(5,6);
+		mapa.agregar(punto, celda);
+		
+		//agrego pared posicion (5,7)
+		celda = new CeldaPared();
+		punto = new Point(5,7);
+		mapa.agregar(punto, celda);
+		
+		//agrego pared posicion (5,8)
+		celda = new CeldaPared();
+		punto = new Point(5,8);
+		mapa.agregar(punto, celda);
+		
+		//agrego punto ordinario posicion (5,9)
+		celda = new PuntoOrdinario();
+		punto = new Point(5,9);
+		mapa.agregar(punto, celda);
+		
+		//agrego pared posicion (5,10)
+		celda = new CeldaPared();
+		punto = new Point(5,10);
+		mapa.agregar(punto, celda);
+		
+		//agrego punto ordinario posicion (5,11)
+		celda = new PuntoOrdinario();
+		punto = new Point(5,11);
+		mapa.agregar(punto, celda);
+		
+		//agrego pared posicion (5,12)
+		celda = new CeldaPared();
+		punto = new Point(5,12);
+		mapa.agregar(punto, celda);
+		
+		//agrego pared posicion (5,13)
+		celda = new CeldaPared();
+		punto = new Point(5,13);
+		mapa.agregar(punto, celda);
+		
+		//agrego punto ordinario posicion (5,14)
+		celda = new PuntoOrdinario();
+		punto = new Point(5,14);
+		mapa.agregar(punto, celda);
+		
+		//agrego pared posicion (5,15)
+		celda = new CeldaPared();
+		punto = new Point(5,15);
+		mapa.agregar(punto, celda);
+		
+		//agrego pared posicion (5,16)
+		celda = new CeldaPared();
+		punto = new Point(5,16);
+		mapa.agregar(punto, celda);
+		
+		celda = new PuntoOrdinario();
+		//agrego las celdas desde (6,4) hasta (6,16)
+		for (j=4;j<16;j++){
+			punto = new Point(6,j);
+			mapa.agregar(punto, celda);
+		}
+		
+		//agrego pared posicion (7,4)
+		celda = new CeldaPared();
+		punto = new Point(7,4);
+		mapa.agregar(punto, celda);
+		
+		//agrego pared posicion (7,5)
+		celda = new CeldaPared();
+		punto = new Point(7,5);
+		mapa.agregar(punto, celda);
+		
+		//agrego pared posicion (7,6)
+		celda = new CeldaPared();
+		punto = new Point(7,6);
+		mapa.agregar(punto, celda);
+		
+		//agrego punto ordinario posicion (7,7)
+		celda = new PuntoOrdinario();
+		punto = new Point(7,7);
+		mapa.agregar(punto, celda);
+		
+		//agrego pared posicion (7,8)
+		celda = new CeldaPared();
+		punto = new Point(7,8);
+		mapa.agregar(punto, celda);
+		
+		//agrego pared posicion (7,9)
+		celda = new CeldaPared();
+		punto = new Point(7,9);
+		mapa.agregar(punto, celda);
+		
 		
 		
 		
