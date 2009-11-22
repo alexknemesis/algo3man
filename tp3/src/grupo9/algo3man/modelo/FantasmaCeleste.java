@@ -1,10 +1,16 @@
-package modelo;
+package grupo9.algo3man.modelo;
 
 import java.awt.Point;
 
-public class FantasmaVioleta extends Fantasma {
 
-	public FantasmaVioleta(Point punto, Point velocidad, Juego juego) {
+/**
+ * @author grupo9
+ * Este tipo de fantasma se mueve siempre a la derecha.
+ *
+ */
+public class FantasmaCeleste extends Fantasma {
+
+	public FantasmaCeleste(Point punto, Point velocidad, Juego juego) {
 		super(punto, velocidad, juego);
 	}
 
