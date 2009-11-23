@@ -6,4 +6,9 @@ public class CeldaVacia extends Celda {
 		
 	}
 
+	public boolean esTransitable() {
+		
+		return false;
+	}
+
 }
