@@ -6,4 +6,9 @@ public class CeldaPared extends Celda {
 		
 	}
 
+	public boolean esTransitable() {
+		
+		return false;
+	}
+
 }
