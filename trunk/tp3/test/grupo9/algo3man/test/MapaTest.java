@@ -18,7 +18,7 @@ public class MapaTest extends TestCase {
 	Mapa mapa;
 	Mapa mapaTrucho;
 	Juego juego;
-	Celda miCelda = new CeldaPared();
+	Celda miCelda;
 	
 	protected void setUp() throws Exception {
 		super.setUp();
@@ -26,6 +26,7 @@ public class MapaTest extends TestCase {
 		this.mapa = new Mapa(2,4,this.juego);
 		
 		Point punto = new Point(1,1);
+		this.miCelda = new CeldaPared(this.mapa,punto);
 		
 		this.mapa.agregar(punto, this.miCelda);
 	}
@@ -75,8 +76,9 @@ public class MapaTest extends TestCase {
 	}
 
 	public void testAgregar_Ok() {
-		Celda celda = new CeldaPared();
 		Point punto = new Point(2,2);
+		Celda celda = new CeldaPared(this.mapa,punto);
+		
 		try{
 			this.mapa.agregar(punto, celda);
 			
@@ -88,8 +90,9 @@ public class MapaTest extends TestCase {
 	}
 	
 	public void testAgregar_Fail() {
-		Celda celda = new CeldaPared();
 		Point punto = new Point(4,4);
+		Celda celda = new CeldaPared(mapa, punto);
+		
 		try{
 			this.mapa.agregar(punto, celda);
 			fail("Deberia mandar excepcion pero lo hizo");

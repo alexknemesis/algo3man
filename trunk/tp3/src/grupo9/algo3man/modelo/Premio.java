@@ -1,15 +1,31 @@
 package grupo9.algo3man.modelo;
 
-public class Premio extends Celda {
+import java.awt.Point;
 
-	public Premio() {
-		// TODO Auto-generated constructor stub
+public class Premio extends CeldaPunto {
+
+	public Premio(Mapa mapa, Point posicion) {
+		super(mapa, posicion);
+		
 	}
 
-	@Override
+	public void comer() {
+		
+		
+	}
+
+	public void transitar() {
+		
+		
+	}
+
 	public boolean esTransitable() {
-		// TODO Auto-generated method stub
+		
 		return false;
 	}
+
+	
+	
+	
 
 }
