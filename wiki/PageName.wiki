@@ -1,0 +1,16 @@
+transitar de celdas
+
+= Introduction =
+
+Sobre un par de transitar
+
+
+= Details =
+
+
+  
+1) El _transitar_ de *CeldaVacia* no tiene nada?. Poque cuando me muevo con el *pacman* este se muevo y llama al _transitar_ de la celda actual y el de vacia no va a hacer nada (no hay nada que sumar).
+
+2) En la lógica del _transitar_ de *CeldaPuerta* puse que cuando lo llamen tres veces se ponga a *transitable* en *false*. Pero cuando los fantasmas mueren la puerta tiene que abrirse de vuelta (y cerrarse cuando salga el fantasma revivido). ¿Los *Fantasmas* no deberían conocer a la puerta y decirle que se abra para ellos?.
+
+3) La celda teletrasportable: Cuando llego a esa celda y hago transitar tiene que cambiar la posición del personaje que lo llamó por otra. ¿Como sabe la celda que personaje lo llamó?. 
