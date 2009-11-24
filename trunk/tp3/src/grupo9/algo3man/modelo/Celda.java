@@ -16,7 +16,12 @@ import grupo9.algo3man.modelo.Objetivo;
 	public double getDistancia(Point posicion) {
 		return this.posicion.distance(posicion);
 	}
-	
+
+	public Point getPosicion() {
+		return posicion;
+	}
+
 	public abstract boolean esTransitable();
+
 
 }

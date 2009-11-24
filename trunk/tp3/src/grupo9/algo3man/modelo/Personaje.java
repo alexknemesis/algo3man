@@ -4,10 +4,10 @@ import java.awt.Point;
 import grupo9.algo3man.modelo.Juego;
 
 public abstract class Personaje implements Objetivo {
-	public static final int ARRIBA = 1; 
-	public static final int ABAJO = 2; 
-	public static final int DERECHA = 3; 
-	public static final int IZQUIERDA = 4; 
+	public static final int ARRIBA = 0; 
+	public static final int ABAJO = 1; 
+	public static final int DERECHA = 2; 
+	public static final int IZQUIERDA = 3; 
 
 	protected int direccion;
 	protected String estado;

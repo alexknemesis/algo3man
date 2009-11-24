@@ -16,6 +16,7 @@ public class Juego {
 	private Mapa mapa;
 	private Pacman pacman;
 	private ArrayList fantasmas;
+	private Point dimensionesMapa;
 	
 	public Juego(){
 		this.nivel = NIVEL_INICIAL;
@@ -24,8 +25,13 @@ public class Juego {
 		
 		this.mapa = FabricaDeMapas.obtenerMapa(1);
 		
+		
 		this.fantasmas = new ArrayList();
 		this.fantasmas.add(new FantasmaRojo(new Point(0,0), 1,Fantasma.DERECHA, this));
+		
+		//Para saber el tamaño del mapa
+		this.dimensionesMapa = new Point(this.mapa.getColumnas(), this.mapa.getFilas());
+		
 		// TODO agregar fantasmas
 		
 		this.pacman = new Pacman(new Point(0,0), 1,Pacman.IZQUIERDA, this);
@@ -87,6 +93,9 @@ public class Juego {
 	
 	public ArrayList getFantasmas(){
 		return this.fantasmas;
+	}
+	public Point getDimensiones(){
+		return this.dimensionesMapa;
 	}
 
 }
