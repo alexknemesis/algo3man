@@ -18,11 +18,14 @@ public class PacmanTest extends TestCase {
 		
 		this.juego = new Juego();
 		
-		this.pacman = new Pacman(new Point(0,0), 1, Pacman.IZQUIERDA, this.juego);
+		this.pacman = new Pacman(new Point(5,5), 1, Pacman.IZQUIERDA, this.juego);
 	}
 	
 	public void testVivir(){
 		this.pacman.vivir();
+		assertEquals(new Point(4,5), this.pacman.getPosicion());
+		this.pacman.vivir();
+		assertEquals(new Point(3,5), this.pacman.getPosicion());
 		
 	}
 	
