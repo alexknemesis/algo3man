@@ -24,6 +24,7 @@ public class PacmanTest extends TestCase {
 	}
 	
 	public void testVivir(){
+		this.pacman.vivir();
 		
 	}
 	

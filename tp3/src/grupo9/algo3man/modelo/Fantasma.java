@@ -7,17 +7,23 @@ public abstract class Fantasma extends Personaje {
 	
 	private Celda celdaActual;
 
-	public void vivir(){
+	public void vivir() {
+		// TODO Esto es una versión primitiva de la implementación del contador
+		// de tics, pero igual no creo que tenga mucha más vuelta..
 		
-		if(juego.getCelda(this.posicion) == this.celdaActual){
-			moverseEnDireccionActual();
+		this.contadorDeTics++;
+		if (this.contadorDeTics == this.velocidad){
+			this.contadorDeTics = 0;
 			//TODO Comerse o ser comido por el pacman de acuerdo al estado
-		}else{
-			direccion = determinarSiguienteDireccion();
-			moverseEnDireccionActual();
-			celdaActual = juego.getCelda(this.posicion);
+
+			this.direccion = determinarSiguienteDireccion();
+			this.moverseEnDireccionActual();
+			//TODO Comerse o ser comido por el pacman de acuerdo al estado
+
 		}
+
 	}
+
 		
 	public Fantasma(Point posicionInicial, int velocidad, int direccion, Juego juego) {
 		super(posicionInicial, velocidad, direccion, juego);	

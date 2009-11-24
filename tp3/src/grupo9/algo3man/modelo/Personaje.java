@@ -14,7 +14,13 @@ public abstract class Personaje implements Objetivo {
 	protected Juego juego;
 	protected Point posicion;
 	protected Point posicionInicial;
+
+	/* Cuenta las ejecuciones del vivir en contadorDeTics hasta igualar la 
+	 * velocidad.
+ 	 */
+
 	protected int velocidad;
+	protected int contadorDeTics; 
 
 	
 	protected void moverseEnDireccionActual() {
@@ -40,13 +46,10 @@ public abstract class Personaje implements Objetivo {
 		
 		if(posicionInicial.getX() < 0 || posicionInicial.getY() < 0)
 			throw new IllegalArgumentException();
-		if (velocidad <= 0)
-			throw new IllegalArgumentException();
-		
 		this.setVelocidad(velocidad);
 		this.juego = juego;
 		this.posicion = new Point(posicionInicial);
-		this.posicionInicial = new Point(this.posicionInicial);
+		this.posicionInicial = new Point(posicionInicial);
 		this.direccion = direccionInicial;
 	}
 	
@@ -59,6 +62,9 @@ public abstract class Personaje implements Objetivo {
 	}
 		
 	public void setVelocidad(int velocidad){
+		if (velocidad <= 0)
+			throw new IllegalArgumentException();
+		this.contadorDeTics=0;
 		this.velocidad = velocidad;
 	}
 	
