@@ -19,8 +19,8 @@ public abstract class Fantasma extends Personaje {
 		}
 	}
 		
-	public Fantasma(Point punto, Point velocidad, Juego juego) {
-		super(punto, velocidad, juego);	
+	public Fantasma(Point posicionInicial, int velocidad, int direccion, Juego juego) {
+		super(posicionInicial, velocidad, direccion, juego);	
 	}
 
 	protected abstract int determinarSiguienteDireccion();

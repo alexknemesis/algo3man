@@ -25,10 +25,10 @@ public class Juego {
 		this.mapa = FabricaDeMapas.obtenerMapa(1);
 		
 		this.fantasmas = new ArrayList();
-		this.fantasmas.add(new FantasmaRojo(new Point(0,0), new Point(10,0), this));
+		this.fantasmas.add(new FantasmaRojo(new Point(0,0), 1,4, this));
 		// TODO agregar fantasmas
 		
-		this.pacman = new Pacman(new Point(0,0), new Point(10,0), this);
+		this.pacman = new Pacman(new Point(0,0), 1,4, this);
 	}
 	
 	public void avanzarNivel(){

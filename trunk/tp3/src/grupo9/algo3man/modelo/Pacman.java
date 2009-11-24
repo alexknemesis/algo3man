@@ -4,8 +4,8 @@ import java.awt.Point;
 
 public class Pacman extends Personaje {
 
-	public Pacman(Point punto, Point velocidad, Juego juego) {
-		super(punto, velocidad, juego);
+	public Pacman(Point posicionInicial, int velocidad, int direccion, Juego juego) {
+		super(posicionInicial, velocidad, direccion, juego);
 		// TODO Auto-generated constructor stub
 	}
 
@@ -35,7 +35,7 @@ public class Pacman extends Personaje {
 		this.setDireccion(ARRIBA);
 	}
 
-	public int getDistancia(Point posicion) {
+	public double getDistancia(Point posicion) {
 		// TODO Auto-generated method stub
 		return 0;
 	}

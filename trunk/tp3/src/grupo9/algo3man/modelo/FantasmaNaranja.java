@@ -4,8 +4,8 @@ import java.awt.Point;
 
 public class FantasmaNaranja extends Fantasma {
 
-	public FantasmaNaranja(Point punto, Point velocidad, Juego juego) {
-		super(punto, velocidad, juego);
+	public FantasmaNaranja(Point punto, int velocidad,int direccion, Juego juego) {
+		super(punto, velocidad, 4, juego);
 	}
 
 	public void vivir() {
@@ -19,11 +19,6 @@ public class FantasmaNaranja extends Fantasma {
 	}
 
 	protected int determinarSiguienteDireccion() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	public int getDistancia(Point posicion) {
 		// TODO Auto-generated method stub
 		return 0;
 	}
