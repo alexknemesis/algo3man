@@ -1,10 +1,28 @@
 package grupo9.algo3man.modelo;
 
-public class PuntoOrdinario extends Celda {
+import java.awt.Point;
+
+public class PuntoOrdinario extends CeldaPunto {
+
+	public PuntoOrdinario(Mapa mapa, Point posicion) {
+		super(mapa, posicion);
+		
+	}
+
+	public void comer() {
+		
+		
+	}
+
+	public void transitar() {
+		
+		
+	}
 
 	public boolean esTransitable() {
 		
 		return true;
 	}
 
+	
 }

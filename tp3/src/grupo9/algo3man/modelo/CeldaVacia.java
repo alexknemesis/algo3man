@@ -1,14 +1,24 @@
 package grupo9.algo3man.modelo;
 
-public class CeldaVacia extends Celda {
+import java.awt.Point;
 
-	public CeldaVacia() {
+public class CeldaVacia extends CeldaTransitable {
+
+	
+
+	public CeldaVacia(Mapa mapa, Point posicion) {
+		super(mapa, posicion);
 		
 	}
 
 	public boolean esTransitable() {
 		
 		return false;
+	}
+
+	public void transitar() {
+		
+		
 	}
 
 }

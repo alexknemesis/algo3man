@@ -1,15 +1,23 @@
 package grupo9.algo3man.modelo;
 
-public class TeleTransportador extends Celda {
+import java.awt.Point;
 
-	public TeleTransportador() {
-		// TODO Auto-generated constructor stub
+public class TeleTransportador extends CeldaTransitable {
+
+	public TeleTransportador(Mapa mapa, Point posicion) {
+		super(mapa, posicion);
+		
 	}
 
-	@Override
+	public void transitar() {
+		
+		
+	}
+
 	public boolean esTransitable() {
-		// TODO Auto-generated method stub
+		
 		return false;
 	}
 
+	
 }
