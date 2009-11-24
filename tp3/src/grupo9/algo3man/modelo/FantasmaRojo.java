@@ -6,7 +6,7 @@ import java.awt.Point;
 
 /**
  * @author cripton
- * El fantasma rojo es el más agresivo y a su vez el más simple, simplemente va 
+ * El fantasma rojo (Blinky) es el más agresivo y a su vez el más simple, simplemente va 
  * hacia la dirección que lo acerca más al pacman.
  */
 public class FantasmaRojo extends Fantasma {
@@ -29,10 +29,10 @@ public class FantasmaRojo extends Fantasma {
 				irA = direccionParaMinimaDistanciaA(this.celdaPreferida);
 				break;
 			case HUYENDO:
-				irA = direccionParaMaximaDistanciaA(this.pacman);
+				irA = direccionParaMaximaDistanciaA(juego.getPacman());
 				break;
 			case CAZANDO:
-				irA = direccionParaMinimaDistanciaA(this.pacman);
+				irA = direccionParaMinimaDistanciaA(juego.getPacman());
 				break;
 			default: throw new IllegalArgumentException();
 		

@@ -9,7 +9,6 @@ public abstract class Fantasma extends Personaje {
 	public static final int HUYENDO = 3; 
 	
 	protected Objetivo objetivoActual;
-	protected Objetivo pacman;
 	protected Objetivo celdaPreferida;
 	
 	protected int estado;

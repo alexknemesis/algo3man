@@ -14,8 +14,23 @@ public class FantasmaVioleta extends Fantasma {
 	}
 
 	protected int determinarSiguienteDireccion() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
+		// TODO 
 
+		int irA=0;
+		switch (estado){
+			case DISPERSO:
+				irA = direccionParaMinimaDistanciaA(this.celdaPreferida);
+				break;
+			case HUYENDO:
+				irA = direccionParaMaximaDistanciaA(juego.getPacman());
+				break;
+			case CAZANDO:
+				//TODO implementar estrategia de caza del fantasma violeta
+				irA = direccionParaMinimaDistanciaA(juego.getPacman());
+				break;
+			default: throw new IllegalArgumentException();
+		
+		}
+		return irA;
+	}
 }
