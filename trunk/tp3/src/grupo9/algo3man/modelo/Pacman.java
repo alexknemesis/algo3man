@@ -15,8 +15,14 @@ public class Pacman extends Personaje {
 	}
 
 	public void vivir() {
-		// TODO Auto-generated method stub
-		moverseEnDireccionActual();
+		// TODO Esto es una versión primitiva de la implementación del contador
+		// de tics, pero igual no creo que tenga mucha más vuelta..
+		
+		this.contadorDeTics++;
+		if (this.contadorDeTics == this.velocidad){
+			this.contadorDeTics = 0;
+			this.moverseEnDireccionActual();
+		}
 
 	}
 	
