@@ -4,6 +4,16 @@ import java.awt.Point;
 
 
 public abstract class Fantasma extends Personaje {
+	public static final int CAZANDO = 1; 
+	public static final int DISPERSO = 2; 
+	public static final int HUYENDO = 3; 
+	
+	protected Objetivo objetivoActual;
+	protected Objetivo pacman;
+	protected Objetivo celdaPreferida;
+	
+	protected int estado;
+	
 	
 	public void vivir() {
 		// TODO Esto es una versión primitiva de la implementación del contador
@@ -21,12 +31,39 @@ public abstract class Fantasma extends Personaje {
 		}
 
 	}
-
-		
-	public Fantasma(Point posicionInicial, int velocidad, int direccion, Juego juego) {
-		super(posicionInicial, velocidad, direccion, juego);	
+	
+	// Seteo de las distintas estrategias del Pacman
+	public void cazarAlPacman(){
+		this.estado = CAZANDO;
 	}
 
+	public void huirDelPacman(){
+		this.estado = HUYENDO;
+	}
+	
+	public void dispersarse(){
+		this.estado = DISPERSO;
+		this.objetivoActual= celdaPreferida;
+	}
+	
+	public int getEstado(){
+		return this.estado;
+	}
+		
+	public Fantasma(Point posicionInicial, int velocidad, int direccion, Juego juego) {
+		super(posicionInicial, velocidad, direccion, juego);
+	}
+	
+	protected int direccionParaMinimaDistanciaA(Objetivo objetivo){
+		//TODO
+		return 0;
+	}
+
+	protected int direccionParaMaximaDistanciaA(Objetivo objetivo){
+		//TODO
+		return 0;
+	}
+	
 	protected abstract int determinarSiguienteDireccion();
 	
 }
