@@ -14,52 +14,52 @@ public abstract class Personaje implements Objetivo {
 	protected Juego juego;
 	protected Point posicion;
 	protected Point posicionInicial;
-	protected Point velocidad;
+	protected int velocidad;
 
 	
 	protected void moverseEnDireccionActual() {
 		switch (direccion){
 		case ARRIBA:
-			posicion.y -= velocidad.y;
+			posicion.y -= 1;
 			;break;
 		case ABAJO:
-			posicion.y += velocidad.y;			
+			posicion.y += 1;			
 			;break;
 		case DERECHA:   
-			posicion.x += velocidad.x;
+			posicion.x += 1;
 			;break;
 		case IZQUIERDA:   
-			posicion.x -= velocidad.x;
+			posicion.x -= 1;
 			;break;
 		}
 		// TODO Auto-generated method stub
 	}
 
 	
-	public Personaje(Point punto, Point velocidad, Juego juego){
-		if(punto.getX() < 0 || punto.getY() < 0)
+	public Personaje(Point posicionInicial, int velocidad, int direccionInicial, Juego juego){
+		
+		if(posicionInicial.getX() < 0 || posicionInicial.getY() < 0)
+			throw new IllegalArgumentException();
+		if (velocidad <= 0)
 			throw new IllegalArgumentException();
 		
 		this.setVelocidad(velocidad);
 		this.juego = juego;
-		this.posicion = new Point(punto);
-		this.posicionInicial = new Point(this.posicion);
+		this.posicion = new Point(posicionInicial);
+		this.posicionInicial = new Point(this.posicionInicial);
+		this.direccion = direccionInicial;
 	}
 	
 	public Juego getJuego(){
 		return this.juego;
 	}
 	
-	public double getVelocidadX(){
-		return this.velocidad.getX();
+	public int getVelocidad(){
+		return this.velocidad;
 	}
-	
-	public double getVelocidadY(){
-		return this.velocidad.getY();
-	}
-	
-	public void setVelocidad(Point velocidad){
-		this.velocidad.setLocation(velocidad);
+		
+	public void setVelocidad(int velocidad){
+		this.velocidad = velocidad;
 	}
 	
 	public Point getPosicionInicial(){
@@ -85,7 +85,11 @@ public abstract class Personaje implements Objetivo {
 	public void setDireccion(int direccion) {
 		this.direccion = direccion;
 	}
-	
+
+	public double getDistancia(Point posicion) {
+		return posicion.distance(this.posicion);
+	}
+
 	abstract public void morir();
 	abstract public void vivir();
 }
