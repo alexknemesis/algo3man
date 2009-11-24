@@ -2,12 +2,12 @@ package grupo9.algo3man.modelo;
 
 import java.awt.Point;
 
-public class FabricaDeMapas {
+public class FabricaDeMapas { //crea los mapas
 	
-	public static Mapa obtenerMapa(int num){
+	public static Mapa obtenerMapa(int num, Juego juego){//Necesita recibir por parámetro el juego
 		switch(num){
-		case 0: return crearMapa0();
-		case 1: return crearMapa1();
+		case 0: return crearMapa0(juego);
+		case 1: return crearMapa1(juego);
 		default: return null;
 		}
 		
@@ -18,7 +18,7 @@ public class FabricaDeMapas {
 	
 
 
-	private static Mapa crearMapa0() {
+	private static Mapa crearMapa0(Juego juego) {
 		Celda celda;
 		Mapa mapa;
 		Point punto;
@@ -26,7 +26,8 @@ public class FabricaDeMapas {
 		
 		//(i,j) i filas, j columnas
 		
-		mapa = new Mapa(17,19, null);
+		mapa = new Mapa(17,19, juego);
+		mapa.setPuntajePremio(200);
 		
 		
 		
@@ -592,7 +593,7 @@ public class FabricaDeMapas {
 
 
 
-	private static Mapa crearMapa1(){
+	private static Mapa crearMapa1(Juego juego){
 		
 		return null;
 		

@@ -18,12 +18,13 @@ public class Juego {
 	private ArrayList fantasmas;
 	private Point dimensionesMapa;
 	
+	
 	public Juego(){
 		this.nivel = NIVEL_INICIAL;
 		this.puntaje = 0;
 		this.vidas = VIDAS_INICIALES;
 		
-		this.mapa = FabricaDeMapas.obtenerMapa(1);
+		this.mapa = FabricaDeMapas.obtenerMapa(0, this);//El mapa tiene que tener una referencia a sí mismo
 		
 		
 		this.fantasmas = new ArrayList();
@@ -97,5 +98,9 @@ public class Juego {
 	public Point getDimensiones(){
 		return this.dimensionesMapa;
 	}
+
+
+
+	
 
 }

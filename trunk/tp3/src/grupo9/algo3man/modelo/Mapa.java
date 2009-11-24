@@ -7,6 +7,7 @@ public class Mapa {
 		private Matriz matriz;
 		private Juego juego;
 		private int puntosSinComer;
+		private int puntajePremio;//El puntaje de los premios se setea según el nivel
 		
 		
 		public Mapa(int N,int M, Juego juego2){
@@ -75,5 +76,26 @@ public class Mapa {
 		public int getColumnas() {
 			
 			return this.matriz.getColumnas();
+		}
+
+
+
+
+		public Juego getJuego() {
+			return this.juego;
+			
+		}
+		
+		public void setPuntajePremio(int puntos) {
+			this.puntajePremio = puntos;
+			
+		}
+
+
+
+
+		public int getPuntajePremio() {
+			
+			return this.puntajePremio;
 		}
 }
