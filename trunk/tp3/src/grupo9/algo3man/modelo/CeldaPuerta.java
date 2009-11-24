@@ -15,9 +15,12 @@ public class CeldaPuerta extends CeldaTransitable {
 	}
 
 	public void transitar() {//TODO si los fantasmas que pasaron por la puerta son tres 
-		this.cantQuePaso++;
-		if (this.cantQuePaso == this.MAXIMO_DEJAR_PASAR){
-			this.transitable = false;
+		
+		if (this.esTransitable()==true){
+				this.cantQuePaso++;
+				if (this.cantQuePaso == this.MAXIMO_DEJAR_PASAR){
+					this.transitable = false;
+				}
 		}
 		
 	}
