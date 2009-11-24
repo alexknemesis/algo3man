@@ -5,8 +5,6 @@ import java.awt.Point;
 
 public abstract class Fantasma extends Personaje {
 	
-	private Celda celdaActual;
-
 	public void vivir() {
 		// TODO Esto es una versión primitiva de la implementación del contador
 		// de tics, pero igual no creo que tenga mucha más vuelta..

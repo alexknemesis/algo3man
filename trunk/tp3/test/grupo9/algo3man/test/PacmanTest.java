@@ -3,7 +3,6 @@ package grupo9.algo3man.test;
 
 import grupo9.algo3man.modelo.Juego;
 import grupo9.algo3man.modelo.Pacman;
-import grupo9.algo3man.modelo.*;
 
 import java.awt.Point;
 
@@ -11,7 +10,6 @@ import junit.framework.TestCase;
 
 public class PacmanTest extends TestCase {
 
-	private static final int IZQUIERDA = 4;
 	protected Pacman pacman;
 	protected Juego juego;
 	
@@ -20,7 +18,7 @@ public class PacmanTest extends TestCase {
 		
 		this.juego = new Juego();
 		
-		this.pacman = new Pacman(new Point(0,0), 1, IZQUIERDA, this.juego);
+		this.pacman = new Pacman(new Point(0,0), 1, Pacman.IZQUIERDA, this.juego);
 	}
 	
 	public void testVivir(){
