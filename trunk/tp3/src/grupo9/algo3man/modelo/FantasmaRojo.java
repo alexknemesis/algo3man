@@ -6,7 +6,8 @@ import java.awt.Point;
 
 /**
  * @author cripton
- *
+ * El fantasma rojo es el más agresivo y a su vez el más simple, simplemente va 
+ * hacia la dirección que lo acerca más al pacman.
  */
 public class FantasmaRojo extends Fantasma {
 
@@ -18,10 +19,25 @@ public class FantasmaRojo extends Fantasma {
 		// TODO Auto-generated method stub
 
 	}
-
+	
 	protected int determinarSiguienteDireccion() {
-		// TODO Auto-generated method stub
-		return 0;
+		// TODO 
+
+		int irA=0;
+		switch (estado){
+			case DISPERSO:
+				irA = direccionParaMinimaDistanciaA(this.celdaPreferida);
+				break;
+			case HUYENDO:
+				irA = direccionParaMaximaDistanciaA(this.pacman);
+				break;
+			case CAZANDO:
+				irA = direccionParaMinimaDistanciaA(this.pacman);
+				break;
+			default: throw new IllegalArgumentException();
+		
+		}
+		return irA;
 	}
 
 }
