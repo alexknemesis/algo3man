@@ -12,6 +12,7 @@ public abstract class CeldaPunto extends CeldaTransitable {
 	}
 
 	public abstract void comer();
+	//Cambia el estado comido a true y resta un punto en el mapa
 				
 	
 
