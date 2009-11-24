@@ -10,7 +10,7 @@ public class PuntoPoder extends CeldaPunto {
 		
 	}
 
-	public void comer() {
+	protected void comer() {
 		this.comido = true;
 		this.mapa.restarPunto();
 		

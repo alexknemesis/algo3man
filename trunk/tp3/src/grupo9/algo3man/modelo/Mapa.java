@@ -7,7 +7,7 @@ public class Mapa {
 		private Matriz matriz;
 		private Juego juego;
 		private int puntosSinComer;
-		private int puntajePremio;//El puntaje de los premios se setea según el nivel
+		private int puntajePremio;//TODO El puntaje de los premios se setea según el nivel
 		
 		
 		public Mapa(int N,int M, Juego juego2){
@@ -81,7 +81,7 @@ public class Mapa {
 
 
 
-		public Juego getJuego() {
+		public Juego getJuego() { //TODO Obtiene el juego
 			return this.juego;
 			
 		}

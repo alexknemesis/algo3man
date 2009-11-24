@@ -9,7 +9,7 @@ public class Premio extends CeldaPunto {
 		
 	}
 
-	public void comer() {
+	protected void comer() {
 		this.comido = true;
 		this.mapa.restarPunto();
 		
