@@ -5,7 +5,9 @@ import java.awt.Point;
 
 /**
  * @author grupo9
- * Este tipo de fantasma se mueve siempre a la derecha.
+ * El fantasma celeste (Inky) es el más impredecible, su estrategia consiste en
+ * tratar de ir dos celdas adelante del pacman moviéndose paralelamente para 
+ * luego ir en su direccion e intentar atraparlo.
  *
  */
 public class FantasmaCeleste extends Fantasma {
@@ -20,8 +22,23 @@ public class FantasmaCeleste extends Fantasma {
 	}
 
 	protected int determinarSiguienteDireccion() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
+		// TODO 
 
+		int irA=0;
+		switch (estado){
+			case DISPERSO:
+				irA = direccionParaMinimaDistanciaA(this.celdaPreferida);
+				break;
+			case HUYENDO:
+				irA = direccionParaMaximaDistanciaA(juego.getPacman());
+				break;
+			case CAZANDO:
+				//TODO implementar estrategia de caza del fantasma celeste
+				irA = direccionParaMinimaDistanciaA(juego.getPacman());
+				break;
+			default: throw new IllegalArgumentException();
+		
+		}
+		return irA;
+	}
 }

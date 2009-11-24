@@ -77,6 +77,9 @@ public class Juego {
 	public int getPuntaje(){
 		return this.puntaje;
 	}
+	public Pacman getPacman(){
+		return this.pacman;
+	}
 	
 	public int getVidas(){
 		return this.vidas;
