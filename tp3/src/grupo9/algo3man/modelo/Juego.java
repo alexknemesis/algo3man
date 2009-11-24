@@ -8,7 +8,7 @@ import java.util.ArrayList;
 public class Juego {
 	
 	final private int VIDAS_INICIALES = 3;
-	final private int NIVEL_INICIAL = 1;
+	final private int NIVEL_INICIAL = 0;
 	
 	private int nivel;
 	private int puntaje;
@@ -24,7 +24,7 @@ public class Juego {
 		this.puntaje = 0;
 		this.vidas = VIDAS_INICIALES;
 		
-		this.mapa = FabricaDeMapas.obtenerMapa(0, this);//El mapa tiene que tener una referencia a sí mismo
+		this.mapa = FabricaDeMapas.obtenerMapa(this.nivel, this);//TODO El mapa tiene que tener una referencia a sí mismo
 		
 		
 		this.fantasmas = new ArrayList();
