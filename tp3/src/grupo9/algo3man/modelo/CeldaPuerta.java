@@ -4,9 +4,9 @@ import java.awt.Point;
 
 public class CeldaPuerta extends CeldaTransitable {
 	
-	boolean transitable;
+	private boolean transitable;
 	final private int MAXIMO_DEJAR_PASAR= 3;
-	int cantQuePaso; //TODO Cuenta la cantidad de fantasmas que pasaron
+	private int cantQuePaso; //TODO Cuenta la cantidad de fantasmas que pasaron
 	
 	public CeldaPuerta(Mapa mapa, Point posicion) {
 		super(mapa, posicion);
@@ -26,6 +26,8 @@ public class CeldaPuerta extends CeldaTransitable {
 	}
 
 	public boolean esTransitable() {
+		
+		
 		
 		return this.transitable;
 	}
