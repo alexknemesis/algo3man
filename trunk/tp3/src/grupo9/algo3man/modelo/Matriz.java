@@ -9,8 +9,10 @@ public class Matriz {
 	}
 
 	public void agregar(Celda micelda, int i, int j)  {
-		// revisar esta validacion.
-		if ((i >this.matriz.length) && (j > this.matriz[0].length)){
+
+		if ((i >this.getFilas()) || (j > this.getColumnas())){
+
+		
 			throw new RangoException();
 		}
 		
@@ -29,7 +31,7 @@ public class Matriz {
 	}
 
 	public Celda getCelda(int i, int j) {
-		if ((i >this.matriz.length) | (i < this.matriz.length)| (j >this.matriz.length) | (j < this.matriz.length)){
+		if ((i >this.getFilas()) | (i < this.getFilas())| (j >this.getColumnas()) | (j < this.getColumnas())){
 			throw new RangoException();
 		}
 		
