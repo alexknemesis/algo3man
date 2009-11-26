@@ -51,8 +51,9 @@ public abstract class Personaje implements Objetivo {
 			;break;
 		}
 
-		if(this.getJuego().getCelda(proximoLugar).esTransitable())
-			this.posicion.setLocation(proximoLugar);
+		if(this.getJuego().getCelda(proximoLugar)!= null)
+			if (this.getJuego().getCelda(proximoLugar).esTransitable())
+				this.posicion.setLocation(proximoLugar);
 	}
 	
 	public Juego getJuego(){

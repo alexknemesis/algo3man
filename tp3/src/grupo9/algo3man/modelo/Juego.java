@@ -9,7 +9,7 @@ public class Juego {
 	
 	final private int VIDAS_INICIALES = 3;
 	final private int NIVEL_INICIAL = 0;
-	final private int VELOCIDAD_INICIAL = 1;
+	final private int VELOCIDAD_INICIAL = 1; //TODO (cripton) Esto es lo más rápido que puede ir
 	final private int PUNTOS_NIVEL_GANADO = 1000;
 	
 	private int nivel;
