@@ -20,7 +20,6 @@ public class Juego {
 	private ArrayList fantasmas;
 	private Point dimensionesMapa;
 	
-	
 	public Juego(){
 		this.nivel = NIVEL_INICIAL;
 		this.puntaje = 0;
@@ -29,9 +28,10 @@ public class Juego {
 		this.mapa = FabricaDeMapas.obtenerMapa(this.nivel, this);
 		
 		Point iniFantasmas = this.mapa.getPosicionInicialFantasmas();
+		Point iniFantasmaRojo = this.mapa.getPosicionInicialFantasmaRojo();
 		Point iniPacman = this.mapa.getPosicionInicialPacman();
 		this.fantasmas = new ArrayList();
-		this.fantasmas.add(new FantasmaRojo(iniFantasmas, VELOCIDAD_INICIAL,Fantasma.DERECHA, this));
+		this.fantasmas.add(new FantasmaRojo(iniFantasmaRojo, VELOCIDAD_INICIAL,Fantasma.DERECHA, this));
 		this.fantasmas.add(new FantasmaCeleste(iniFantasmas, VELOCIDAD_INICIAL,Fantasma.DERECHA, this));
 		this.fantasmas.add(new FantasmaNaranja(iniFantasmas, VELOCIDAD_INICIAL,Fantasma.DERECHA, this));
 		this.fantasmas.add(new FantasmaVioleta(iniFantasmas, VELOCIDAD_INICIAL,Fantasma.DERECHA, this));
@@ -109,7 +109,8 @@ public class Juego {
 		return this.dimensionesMapa;
 	}
 
-
+	
+	
 
 	
 

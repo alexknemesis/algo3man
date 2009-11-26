@@ -26,8 +26,9 @@ public class FabricaDeMapas { //crea los mapas
 		
 		//(i,j) i filas, j columnas
 		
-		mapa = new Mapa(17,19, juego);
+		mapa = new Mapa(17,19, juego, new Point(10,10), new Point(6,10), new Point(7,10));
 		mapa.setPuntajePremio(200);
+		
 		
 		
 		
@@ -291,6 +292,8 @@ public class FabricaDeMapas { //crea los mapas
 			mapa.agregar(punto, celda);
 		}
 		
+		punto = new Point(6,10);
+		
 		
 		//agrego las celdas desde (7,4) hasta (7,6)
 		for (j=4;j<6;j++){
@@ -318,6 +321,7 @@ public class FabricaDeMapas { //crea los mapas
 		punto = new Point(7,10);
 		celda = new CeldaPuerta(mapa, punto);
 		mapa.agregar(punto, celda);
+		
 		
 		
 		//agrego las celdas desde (7,11) hasta (7,12)
@@ -358,28 +362,17 @@ public class FabricaDeMapas { //crea los mapas
 		celda = new PuntoOrdinario(mapa, punto);
 		mapa.agregar(punto, celda);
 		
-		//agrego pared posicion (8,8)
-		
-		punto = new Point(8,8);
-		celda = new CeldaPared(mapa, punto);
-		mapa.agregar(punto, celda);
 		
 		
-		//agrego las celdas desde (8,8) hasta (8,11)
-		for (j=8;j<11;j++){
+		
+		//agrego las celdas desde (8,8) hasta (8,112)
+		for (j=8;j<12;j++){
 			punto = new Point(8,j);
-			celda = new CeldaVacia(mapa, punto);
+			celda = new CeldaPared(mapa, punto);
 			mapa.agregar(punto, celda);
 		}
 		
-		
-		
-		//agrego pared posicion (8,12)
-		
-		punto = new Point(8,12);
-		celda = new CeldaPared(mapa, punto);
-		mapa.agregar(punto, celda);
-		
+	
 		//agrego punto ordinario posicion (8,13)
 		
 		punto = new Point(8,13);
@@ -445,6 +438,8 @@ public class FabricaDeMapas { //crea los mapas
 			mapa.agregar(punto, celda);
 		}
 		
+		punto = new Point(10,10);
+	
 		
 		//agrego las celdas desde (11,4) hasta (11,6)
 		for (j=4;j<6;j++){

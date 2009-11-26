@@ -6,11 +6,14 @@ public class Mapa {
 	
 		private Matriz matriz;
 		private Juego juego;
+		private Point iniPacman;
+		private Point iniFantasmas;
+		private Point iniFanRojo;
 		private int puntosSinComer;
 		private int puntajePremio;//TODO El puntaje de los premios se setea seg�n el nivel
 		
 		
-		public Mapa(int N,int M, Juego juego2){
+		public Mapa(int N,int M, Juego juego2,Point pac, Point rojo,Point fan){
 			if(N<=0 | M<=0){
 				throw new RangoException();
 			}
@@ -18,6 +21,9 @@ public class Mapa {
 			this.juego = juego2;
 			this.puntosSinComer = (N*M);
 			this.matriz = new Matriz(N,M);
+			this.iniFanRojo = rojo;
+			this.iniFantasmas = fan;
+			this.iniPacman = pac;
 			
 			
 		}
@@ -103,15 +109,25 @@ public class Mapa {
 
 
 		public Point getPosicionInicialFantasmas() {
-			// TODO Auto-generated method stub
-			return null;
+			
+			return this.iniFantasmas;
 		}
 
 
 
 
 		public Point getPosicionInicialPacman() {
-			// TODO Auto-generated method stub
-			return null;
+			
+			return this.iniPacman;
 		}
+
+
+
+
+		public Point getPosicionInicialFantasmaRojo() {
+			
+			return this.iniFanRojo;
+		}
+		
+	
 }
