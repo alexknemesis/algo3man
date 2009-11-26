@@ -15,11 +15,6 @@ public class FantasmaNaranja extends Fantasma {
 		
 	}
 
-	public void morir() {
-		// TODO Auto-generated method stub
-		
-	}
-
 	protected int determinarSiguienteDireccion() {
 		// TODO 
 

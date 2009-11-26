@@ -15,11 +15,7 @@ public class FantasmaRojo extends Fantasma {
 		super(posicionInicial, velocidad, direccion, juego);
 	}
 
-	public void morir() {
-		// TODO Auto-generated method stub
 
-	}
-	
 	protected int determinarSiguienteDireccion() {
 		// TODO 
 
