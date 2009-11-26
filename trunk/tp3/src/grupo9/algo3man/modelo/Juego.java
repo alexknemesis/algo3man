@@ -31,10 +31,17 @@ public class Juego {
 		Point iniFantasmaRojo = this.mapa.getPosicionInicialFantasmaRojo();
 		Point iniPacman = this.mapa.getPosicionInicialPacman();
 		this.fantasmas = new ArrayList();
-		this.fantasmas.add(new FantasmaRojo(iniFantasmaRojo, VELOCIDAD_INICIAL,Fantasma.DERECHA, this));
-		this.fantasmas.add(new FantasmaCeleste(iniFantasmas, VELOCIDAD_INICIAL,Fantasma.DERECHA, this));
-		this.fantasmas.add(new FantasmaNaranja(iniFantasmas, VELOCIDAD_INICIAL,Fantasma.DERECHA, this));
-		this.fantasmas.add(new FantasmaVioleta(iniFantasmas, VELOCIDAD_INICIAL,Fantasma.DERECHA, this));
+		
+		//TODO 
+		/*(cripton) me había faltado poner la posicion preferida en el constructor
+		 así que tenés que agregar las posiciones preferidas, no quería arreglarlo
+		 porque hay que agregar cosas en mapa, acá y creo que en nivel
+		*/
+		
+		this.fantasmas.add(new FantasmaRojo(iniFantasmaRojo, new Point (1,1), VELOCIDAD_INICIAL,Fantasma.DERECHA, this));
+		this.fantasmas.add(new FantasmaCeleste(iniFantasmas, new Point (1,1), VELOCIDAD_INICIAL,Fantasma.DERECHA, this));
+		this.fantasmas.add(new FantasmaNaranja(iniFantasmas, new Point (1,1), VELOCIDAD_INICIAL,Fantasma.DERECHA, this));
+		this.fantasmas.add(new FantasmaVioleta(iniFantasmas, new Point (1,1), VELOCIDAD_INICIAL,Fantasma.DERECHA, this));
 		
 		this.pacman = new Pacman(iniPacman, VELOCIDAD_INICIAL,Pacman.IZQUIERDA, this);
 		

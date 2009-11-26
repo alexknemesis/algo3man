@@ -12,8 +12,8 @@ import java.awt.Point;
  */
 public class FantasmaCeleste extends Fantasma {
 
-	public FantasmaCeleste(Point posicionInicial, int velocidad, int direccion, Juego juego) {
-		super(posicionInicial, velocidad, direccion, juego);
+	public FantasmaCeleste(Point posicionInicial, Point posicionPreferida, int velocidad, int direccion, Juego juego) {
+		super(posicionInicial, posicionPreferida, velocidad, direccion, juego);
 	}
 
 	protected int determinarSiguienteDireccion() {

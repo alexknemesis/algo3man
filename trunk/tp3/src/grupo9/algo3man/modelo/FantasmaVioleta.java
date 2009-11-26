@@ -9,8 +9,8 @@ import java.awt.Point;
  */
 public class FantasmaVioleta extends Fantasma {
 
-	public FantasmaVioleta(Point posicionInicial, int velocidad, int direccion, Juego juego) {
-		super(posicionInicial, velocidad, direccion, juego);
+	public FantasmaVioleta(Point posicionInicial, Point posicionPreferida, int velocidad, int direccion, Juego juego) {
+		super(posicionInicial, posicionPreferida, velocidad, direccion, juego);
 	}
 
 

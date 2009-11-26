@@ -13,6 +13,7 @@ import grupo9.algo3man.modelo.Objetivo;
 	
 	public Celda(Mapa mapa,Point posicion){
 		this.mapa = mapa;
+		this.posicion = posicion;
 	}
 		
 	public double getDistancia(Point posicion) {
