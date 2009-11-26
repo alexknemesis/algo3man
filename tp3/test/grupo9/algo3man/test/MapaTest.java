@@ -22,7 +22,7 @@ public class MapaTest extends TestCase {
 	
 	protected void setUp() throws Exception {
 		super.setUp();
-		this.juego = new Juego();
+		this.juego = null;
 		this.mapa = new Mapa(2,4,this.juego,new Point(10,10), new Point(6,10), new Point(7,10));
 		
 		Point punto = new Point(1,1);
@@ -57,7 +57,7 @@ public class MapaTest extends TestCase {
 
 	public void testRestarPunto_Ok() {
 		this.mapa.restarPunto();
-		Assert.assertEquals(this.mapa.getPuntos(), 15);
+		Assert.assertEquals(this.mapa.getPuntos(), 7);
 		
 		
 	}
@@ -76,7 +76,7 @@ public class MapaTest extends TestCase {
 	}
 
 	public void testAgregar_Ok() {
-		Point punto = new Point(2,2);
+		Point punto = new Point(1,3);
 		Celda celda = new CeldaPared(this.mapa,punto);
 		
 		try{
@@ -112,13 +112,13 @@ public class MapaTest extends TestCase {
 	}
 	
 	public void testGetColumnas(){
-		Assert.assertEquals(this.mapa.getColumnas(), 2);
+		Assert.assertEquals(this.mapa.getColumnas(), 4);
 		
 	}
 	
 	public void testGetCelda_Fail_Param(){
 		
-		Point punto = new Point(1,1);
+		Point punto = new Point(-1,-1);
 		
 		try{
 			Celda otraCelda = this.mapa.getCelda(punto);
