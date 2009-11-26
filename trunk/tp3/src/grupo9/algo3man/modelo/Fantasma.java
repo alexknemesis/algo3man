@@ -18,29 +18,28 @@ public abstract class Fantasma extends Personaje {
 		// TODO Esto es una versión primitiva de la implementación del contador
 		// de tics, pero igual no creo que tenga mucha más vuelta..
 		
+		this.checkPacmanEnCelda();
+		
 		this.contadorDeTics++;
 		if (this.contadorDeTics == this.velocidad){
 			this.contadorDeTics = 0;
 			
-			Pacman pacman = this.getJuego().getPacman();
-			Point posicionPacman = pacman.getPosicion();
-			if(this.getPosicion() == posicionPacman){
-				if(this.estado != HUYENDO)
-					pacman.morir();
-			}
-			else {
-				this.direccion = determinarSiguienteDireccion();
-			}
-				
+			this.direccion = determinarSiguienteDireccion();	
 			this.moverseEnDireccionActual();
 			
-			if(this.getPosicion() == posicionPacman){
-				if(this.estado != HUYENDO)
-					pacman.morir();
-			}
+			this.checkPacmanEnCelda();
 			
 		}
 
+	}
+	
+	private void checkPacmanEnCelda(){
+		Pacman pacman = this.getJuego().getPacman();
+		Point posicionPacman = pacman.getPosicion();
+		if(this.getPosicion() == posicionPacman){
+			if(this.estado != HUYENDO)
+				pacman.morir();
+		}
 	}
 	
 	public void reiniciar(){
