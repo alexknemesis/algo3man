@@ -5,11 +5,13 @@ public class Matriz {
 	private Celda matriz[][];
 	
 	public Matriz(int N,int M){
-		matriz = new Celda[N][M];
+		this.matriz = new Celda[N][M];
 	}
 
 	public void agregar(Celda micelda, int i, int j)  {
-
+		int cant1 = this.getFilas();
+		int cant2 = this.getColumnas();
+		
 		if ((i >this.getFilas()) || (j > this.getColumnas())){
 
 		
@@ -31,7 +33,7 @@ public class Matriz {
 	}
 
 	public Celda getCelda(int i, int j) {
-		if ((i >this.getFilas()) | (i < this.getFilas())| (j >this.getColumnas()) | (j < this.getColumnas())){
+		if ((i >this.getFilas()) || (i < 0) || (j >this.getColumnas()) || (j < 0)){
 			throw new RangoException();
 		}
 		
