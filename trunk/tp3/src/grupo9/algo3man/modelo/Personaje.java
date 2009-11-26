@@ -21,7 +21,17 @@ public abstract class Personaje implements Objetivo {
 
 	protected int velocidad;
 	protected int contadorDeTics; 
-
+	
+	public Personaje(Point posicionInicial, int velocidad, int direccionInicial, Juego juego){
+		
+		if(posicionInicial.getX() < 0 || posicionInicial.getY() < 0)
+			throw new IllegalArgumentException();
+		this.setVelocidad(velocidad);
+		this.juego = juego;
+		this.posicion = new Point(posicionInicial);
+		this.posicionInicial = new Point(posicionInicial);
+		this.direccion = direccionInicial;
+	}
 	
 	protected void moverseEnDireccionActual() {
 		switch (direccion){
@@ -39,18 +49,6 @@ public abstract class Personaje implements Objetivo {
 			;break;
 		}
 		// TODO Auto-generated method stub
-	}
-
-	
-	public Personaje(Point posicionInicial, int velocidad, int direccionInicial, Juego juego){
-		
-		if(posicionInicial.getX() < 0 || posicionInicial.getY() < 0)
-			throw new IllegalArgumentException();
-		this.setVelocidad(velocidad);
-		this.juego = juego;
-		this.posicion = new Point(posicionInicial);
-		this.posicionInicial = new Point(posicionInicial);
-		this.direccion = direccionInicial;
 	}
 	
 	public Juego getJuego(){
