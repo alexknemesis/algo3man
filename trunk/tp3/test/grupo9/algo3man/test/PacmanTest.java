@@ -7,6 +7,7 @@ import grupo9.algo3man.modelo.Pacman;
 
 import java.awt.Point;
 
+import junit.framework.Assert;
 import junit.framework.TestCase;
 
 public class PacmanTest extends TestCase {
@@ -26,7 +27,7 @@ public class PacmanTest extends TestCase {
 		this.pacman.setPosicion(new Point(3,3));
 		this.pacman.moverArriba();
 		this.pacman.vivir();
-		assertEquals(new Point(3,2), this.pacman.getPosicion());
+		assertEquals(new Point(2,3), this.pacman.getPosicion());
 	}
 	
 	public void testMataFantasma(){
@@ -38,7 +39,7 @@ public class PacmanTest extends TestCase {
 	}
 	
 	public void testComePuntoPoder(){
-		this.pacman.moverAbajo();
+		this.pacman.moverDerecha();
 		this.pacman.setPosicion(new Point(3,1));
 		this.pacman.vivir();
 		assertEquals(this.pacman.getEstado(), this.pacman.VICTIMARIO);
@@ -48,6 +49,14 @@ public class PacmanTest extends TestCase {
 		this.pacman.morir();
 		assertEquals(2,this.juego.getVidas());
 		assertEquals(this.pacman.getPosicion(), this.pacman.getPosicionInicial());
+	}
+	
+	public void testPacmanNoSeMuevePorPared(){
+		this.pacman.moverArriba();
+		this.pacman.vivir();
+		Assert.assertEquals(this.pacman.getPosicion().x, 9);
+		Assert.assertEquals(this.pacman.getPosicion().y, 9);
+		
 	}
 
 }
