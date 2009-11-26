@@ -109,6 +109,11 @@ public class Juego {
 		return this.dimensionesMapa;
 	}
 
+	public Mapa getMapa() {
+		return this.mapa;
+		
+	}
+
 	
 	
 
