@@ -109,7 +109,7 @@ public class JuegoTest extends TestCase {
 		} catch (GameOverException e){
 			fail("Tiro excepcion al querer avanzar un nivel.");
 		}
-		assertEquals(this.juego.getNivel(),2);
+		assertEquals(this.juego.getNivel(),1);
 	}
 	
 	public void testAvanzarNivelEnGameOver(){
