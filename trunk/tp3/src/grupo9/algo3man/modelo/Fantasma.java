@@ -13,6 +13,9 @@ public abstract class Fantasma extends Personaje {
 	
 	protected int estado;
 	
+	public void morir(){
+		this.reiniciar();
+	}
 	
 	public void vivir() {
 		// TODO Esto es una versión primitiva de la implementación del contador
@@ -36,7 +39,7 @@ public abstract class Fantasma extends Personaje {
 	private void checkPacmanEnCelda(){
 		Pacman pacman = this.getJuego().getPacman();
 		Point posicionPacman = pacman.getPosicion();
-		if(this.getPosicion() == posicionPacman){
+		if(this.getPosicion().equals(posicionPacman)){
 			if(this.estado != HUYENDO)
 				pacman.morir();
 		}
