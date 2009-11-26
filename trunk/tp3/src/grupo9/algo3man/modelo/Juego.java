@@ -28,14 +28,15 @@ public class Juego {
 		
 		this.mapa = FabricaDeMapas.obtenerMapa(this.nivel, this);
 		
-		//TODO setear posicion inicial de los fantasmas y el pacman desde el mapa.
+		Point iniFantasmas = this.mapa.getPosicionInicialFantasmas();
+		Point iniPacman = this.mapa.getPosicionInicialPacman();
 		this.fantasmas = new ArrayList();
-		this.fantasmas.add(new FantasmaRojo(new Point(0,0), VELOCIDAD_INICIAL,Fantasma.DERECHA, this));
-		this.fantasmas.add(new FantasmaCeleste(new Point(0,0), VELOCIDAD_INICIAL,Fantasma.DERECHA, this));
-		this.fantasmas.add(new FantasmaNaranja(new Point(0,0), VELOCIDAD_INICIAL,Fantasma.DERECHA, this));
-		this.fantasmas.add(new FantasmaVioleta(new Point(0,0), VELOCIDAD_INICIAL,Fantasma.DERECHA, this));
+		this.fantasmas.add(new FantasmaRojo(iniFantasmas, VELOCIDAD_INICIAL,Fantasma.DERECHA, this));
+		this.fantasmas.add(new FantasmaCeleste(iniFantasmas, VELOCIDAD_INICIAL,Fantasma.DERECHA, this));
+		this.fantasmas.add(new FantasmaNaranja(iniFantasmas, VELOCIDAD_INICIAL,Fantasma.DERECHA, this));
+		this.fantasmas.add(new FantasmaVioleta(iniFantasmas, VELOCIDAD_INICIAL,Fantasma.DERECHA, this));
 		
-		this.pacman = new Pacman(new Point(0,0), VELOCIDAD_INICIAL,Pacman.IZQUIERDA, this);
+		this.pacman = new Pacman(iniPacman, VELOCIDAD_INICIAL,Pacman.IZQUIERDA, this);
 		
 		//Para saber el tamaño del mapa
 		this.dimensionesMapa = new Point(this.mapa.getColumnas(), this.mapa.getFilas());

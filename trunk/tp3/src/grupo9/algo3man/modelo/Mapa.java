@@ -7,7 +7,7 @@ public class Mapa {
 		private Matriz matriz;
 		private Juego juego;
 		private int puntosSinComer;
-		private int puntajePremio;//TODO El puntaje de los premios se setea según el nivel
+		private int puntajePremio;//TODO El puntaje de los premios se setea segï¿½n el nivel
 		
 		
 		public Mapa(int N,int M, Juego juego2){
@@ -97,5 +97,21 @@ public class Mapa {
 		public int getPuntajePremio() {
 			
 			return this.puntajePremio;
+		}
+
+
+
+
+		public Point getPosicionInicialFantasmas() {
+			// TODO Auto-generated method stub
+			return null;
+		}
+
+
+
+
+		public Point getPosicionInicialPacman() {
+			// TODO Auto-generated method stub
+			return null;
 		}
 }
