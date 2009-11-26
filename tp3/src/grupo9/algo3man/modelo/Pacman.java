@@ -21,6 +21,7 @@ public class Pacman extends Personaje {
 		if (this.contadorDeTics == this.velocidad){
 			this.contadorDeTics = 0;
 			this.moverseEnDireccionActual();
+			this.juego.getCelda(this.getPosicion()).transitar();
 		}
 
 	}

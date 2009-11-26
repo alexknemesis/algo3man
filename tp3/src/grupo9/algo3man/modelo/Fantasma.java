@@ -21,12 +21,20 @@ public abstract class Fantasma extends Personaje {
 		this.contadorDeTics++;
 		if (this.contadorDeTics == this.velocidad){
 			this.contadorDeTics = 0;
-			//TODO Comerse o ser comido por el pacman de acuerdo al estado
-
-			this.direccion = determinarSiguienteDireccion();
+			
+			Pacman pacman = this.getJuego().getPacman();
+			Point posicionPacman = pacman.getPosicion();
+			if(this.getPosicion() == posicionPacman)
+				pacman.morir();
+			else {
+				this.direccion = determinarSiguienteDireccion();
+			}
+				
 			this.moverseEnDireccionActual();
-			//TODO Comerse o ser comido por el pacman de acuerdo al estado
-
+			
+			if(this.getPosicion() == posicionPacman)
+				pacman.morir();
+			
 		}
 
 	}
