@@ -34,21 +34,25 @@ public abstract class Personaje implements Objetivo {
 	}
 	
 	protected void moverseEnDireccionActual() {
+		Point proximoLugar = this.posicion;
+		
 		switch (direccion){
 		case ARRIBA:
-			posicion.y -= 1;
+			proximoLugar.y -= 1;
 			;break;
 		case ABAJO:
-			posicion.y += 1;			
+			proximoLugar.y += 1;			
 			;break;
 		case DERECHA:   
-			posicion.x += 1;
+			proximoLugar.x += 1;
 			;break;
 		case IZQUIERDA:   
-			posicion.x -= 1;
+			proximoLugar.x -= 1;
 			;break;
 		}
-		// TODO Auto-generated method stub
+
+		if(this.getJuego().getCelda(proximoLugar).esTransitable())
+			this.posicion.setLocation(proximoLugar);
 	}
 	
 	public Juego getJuego(){
