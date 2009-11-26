@@ -27,11 +27,11 @@ public class Pacman extends Personaje {
 		// TODO Esto es una versión primitiva de la implementación del contador
 		// de tics, pero igual no creo que tenga mucha más vuelta..
 		
+		this.checkFantasmaEnCelda();
+		
 		this.contadorDeTics++;
 		if (this.contadorDeTics == this.velocidad){
 			this.contadorDeTics = 0;
-			
-			this.checkFantasmaEnCelda();
 			
 			this.moverseEnDireccionActual();
 			this.juego.getCelda(this.getPosicion()).transitar();
