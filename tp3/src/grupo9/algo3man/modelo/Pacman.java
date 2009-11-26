@@ -74,4 +74,8 @@ public class Pacman extends Personaje {
 		// TODO Auto-generated method stub
 		return 0;
 	}
+
+	public int getEstado() {
+		return this.estado;
+	}
 }

@@ -43,6 +43,11 @@ public abstract class Fantasma extends Personaje {
 
 	}
 	
+	public void reiniciar(){
+		this.setPosicion(this.posicionInicial);
+		this.cazarAlPacman();
+	}
+	
 	// Seteo de las distintas estrategias del Pacman
 	public void cazarAlPacman(){
 		this.estado = CAZANDO;
