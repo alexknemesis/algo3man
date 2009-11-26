@@ -34,8 +34,7 @@ public abstract class Personaje implements Objetivo {
 	}
 	
 	protected void moverseEnDireccionActual() {
-		Point proximoLugar = new Point(this.posicion.x,this.posicion.y);
-		//TODO Error Grave aca. Referenciabamos la variable posicion y la modificabamos igual
+		Point proximoLugar = new Point(this.posicion);
 		
 		switch (direccion){
 		case ARRIBA:
