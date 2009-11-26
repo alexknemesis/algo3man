@@ -2,8 +2,13 @@ package grupo9.algo3man.test;
 
 
 import grupo9.algo3man.modelo.Celda;
+import grupo9.algo3man.modelo.Fantasma;
 import grupo9.algo3man.modelo.GameOverException;
 import grupo9.algo3man.modelo.Juego;
+
+import java.awt.Point;
+import java.util.ArrayList;
+
 import junit.framework.TestCase;
 
 public class JuegoTest extends TestCase {
@@ -19,7 +24,7 @@ public class JuegoTest extends TestCase {
 	
 	public void testConstructor(){
 		assertEquals(this.juego.getPuntaje(),0);
-		assertEquals(this.juego.getNivel(),1);
+		assertEquals(this.juego.getNivel(),0);
 		assertEquals(this.juego.getVidas(),3);
 	}
 	
@@ -27,14 +32,30 @@ public class JuegoTest extends TestCase {
 		Celda celda = this.juego.getCelda(0,0);
 	}
 	
-	public void restarVida(){
+	public void testRestarVida(){
 		try{
 			this.juego.restarVida();
 		} catch(GameOverException e){
 			fail("Tiro excepcion al restar una vida.");
 		}
 		
-		assertEquals(this.juego.getVidas(),2);
+		assertEquals(this.juego.getVidas(),2);			
+	}
+	
+	public void testReiniciarPersonajes(){
+		this.juego.getPacman().setPosicion(new Point(0,5));
+		ArrayList fantasmas = this.juego.getFantasmas();
+		for(int i=0; i< fantasmas.size(); i++){
+			((Fantasma)(fantasmas.get(i))).setPosicion(new Point(0,6));
+		}
+		
+		this.juego.reiniciarPersonajes();
+		
+		for(int i=0; i< fantasmas.size(); i++){
+			assertEquals(((Fantasma)(fantasmas.get(i))).getPosicion(), ((Fantasma)(fantasmas.get(i))).getPosicionInicial());
+		}
+		
+		assertEquals(this.juego.getPacman().getPosicion(), this.juego.getPacman().getPosicionInicial());
 	}
 
 	public void restarVidaFinal(){

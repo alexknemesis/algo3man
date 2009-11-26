@@ -9,6 +9,8 @@ public class Juego {
 	
 	final private int VIDAS_INICIALES = 3;
 	final private int NIVEL_INICIAL = 0;
+	final private int VELOCIDAD_INICIAL = 1;
+	final private int PUNTOS_NIVEL_GANADO = 1000;
 	
 	private int nivel;
 	private int puntaje;
@@ -24,18 +26,19 @@ public class Juego {
 		this.puntaje = 0;
 		this.vidas = VIDAS_INICIALES;
 		
-		this.mapa = FabricaDeMapas.obtenerMapa(this.nivel, this);//TODO El mapa tiene que tener una referencia a sí mismo
+		this.mapa = FabricaDeMapas.obtenerMapa(this.nivel, this);
 		
-		
+		//TODO setear posicion inicial de los fantasmas y el pacman desde el mapa.
 		this.fantasmas = new ArrayList();
-		this.fantasmas.add(new FantasmaRojo(new Point(0,0), 1,Fantasma.DERECHA, this));
+		this.fantasmas.add(new FantasmaRojo(new Point(0,0), VELOCIDAD_INICIAL,Fantasma.DERECHA, this));
+		this.fantasmas.add(new FantasmaCeleste(new Point(0,0), VELOCIDAD_INICIAL,Fantasma.DERECHA, this));
+		this.fantasmas.add(new FantasmaNaranja(new Point(0,0), VELOCIDAD_INICIAL,Fantasma.DERECHA, this));
+		this.fantasmas.add(new FantasmaVioleta(new Point(0,0), VELOCIDAD_INICIAL,Fantasma.DERECHA, this));
+		
+		this.pacman = new Pacman(new Point(0,0), VELOCIDAD_INICIAL,Pacman.IZQUIERDA, this);
 		
 		//Para saber el tamaÃ±o del mapa
 		this.dimensionesMapa = new Point(this.mapa.getColumnas(), this.mapa.getFilas());
-		
-		// TODO agregar fantasmas
-		
-		this.pacman = new Pacman(new Point(0,0), 1,Pacman.IZQUIERDA, this);
 	}
 	
 	public void avanzarNivel(){
@@ -43,10 +46,8 @@ public class Juego {
 			throw new GameOverException();
 		
 		this.nivel++;
-		// TODO que pasa cuando se avanza un nivel?
-		// cambia la velocidad de los personajes
-		// se resetean las posiciones de los personajes
-		// suma puntos
+		this.reiniciarPersonajes();
+		this.sumarPuntos(PUNTOS_NIVEL_GANADO);
 	}
 	
 	public void sumarPuntos(int puntos){
@@ -61,6 +62,14 @@ public class Juego {
 			throw new GameOverException();
 		
 		this.vidas--;
+		this.reiniciarPersonajes();
+	}
+	
+	public void reiniciarPersonajes(){
+		this.pacman.reiniciar();
+		for(int i=0; i< this.fantasmas.size(); i++){
+			((Fantasma)(this.fantasmas.get(i))).reiniciar();
+		}
 	}
 	
 	public Celda getCelda(int x, int y){
