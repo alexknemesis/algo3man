@@ -18,7 +18,7 @@ public class PacmanTest extends TestCase {
 		
 		this.juego = new Juego();
 		
-		this.pacman = new Pacman(new Point(5,5), 1, Pacman.IZQUIERDA, this.juego);
+		this.pacman = this.juego.getPacman();
 	}
 	
 	public void testVivir(){
@@ -32,18 +32,6 @@ public class PacmanTest extends TestCase {
 	public void testMorir(){
 		this.pacman.morir();
 		assertEquals(2,this.juego.getVidas());
-	}
-	
-	public void testMoverDerecha(){
-		
-	}
-	
-	public void testMoverIzquierda(){
-		
-	}
-	
-	public void testMoverAtras(){
-		
 	}
 
 }

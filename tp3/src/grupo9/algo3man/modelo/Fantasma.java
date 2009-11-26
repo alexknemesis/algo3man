@@ -24,16 +24,20 @@ public abstract class Fantasma extends Personaje {
 			
 			Pacman pacman = this.getJuego().getPacman();
 			Point posicionPacman = pacman.getPosicion();
-			if(this.getPosicion() == posicionPacman)
-				pacman.morir();
+			if(this.getPosicion() == posicionPacman){
+				if(this.estado != HUYENDO)
+					pacman.morir();
+			}
 			else {
 				this.direccion = determinarSiguienteDireccion();
 			}
 				
 			this.moverseEnDireccionActual();
 			
-			if(this.getPosicion() == posicionPacman)
-				pacman.morir();
+			if(this.getPosicion() == posicionPacman){
+				if(this.estado != HUYENDO)
+					pacman.morir();
+			}
 			
 		}
 
