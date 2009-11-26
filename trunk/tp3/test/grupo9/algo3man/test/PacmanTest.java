@@ -1,6 +1,7 @@
 package grupo9.algo3man.test;
 
 
+import grupo9.algo3man.modelo.Fantasma;
 import grupo9.algo3man.modelo.Juego;
 import grupo9.algo3man.modelo.Pacman;
 
@@ -21,17 +22,30 @@ public class PacmanTest extends TestCase {
 		this.pacman = this.juego.getPacman();
 	}
 	
-	public void testVivir(){
+	public void testMoverVivir(){
 		this.pacman.vivir();
 		assertEquals(new Point(4,5), this.pacman.getPosicion());
+	}
+	
+	public void testMataFantasma(){
+		this.pacman.setVictimario();
+		((Fantasma) this.juego.getFantasmas().get(0)).setPosicion(new Point(0,0));
+		this.pacman.setPosicion(new Point(0,0));
 		this.pacman.vivir();
-		assertEquals(new Point(3,5), this.pacman.getPosicion());
-		
+		assertEquals(((Fantasma) this.juego.getFantasmas().get(0)).getPosicion(), ((Fantasma) this.juego.getFantasmas().get(0)).getPosicionInicial());		
+	}
+	
+	public void testComePuntoPoder(){
+		this.pacman.moverAbajo();
+		this.pacman.setPosicion(new Point());
+		this.pacman.vivir();
+		assertEquals(this.pacman.getEstado(), this.pacman.VICTIMARIO);
 	}
 	
 	public void testMorir(){
 		this.pacman.morir();
 		assertEquals(2,this.juego.getVidas());
+		assertEquals(this.pacman.getPosicion(), this.pacman.getPosicionInicial());
 	}
 
 }
