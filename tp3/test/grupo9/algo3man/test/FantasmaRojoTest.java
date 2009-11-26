@@ -48,6 +48,7 @@ public class FantasmaRojoTest extends TestCase {
 	public void testCazarAlPacman() {
 		this.fantasma.cazarAlPacman();
 		assertTrue(this.fantasma.getEstado() == Fantasma.CAZANDO);
+		this.fantasma.vivir();
 	}
 
 	/**
@@ -56,6 +57,8 @@ public class FantasmaRojoTest extends TestCase {
 	public void testHuirDelPacman() {
 		this.fantasma.huirDelPacman();
 		assertTrue(this.fantasma.getEstado() == Fantasma.HUYENDO);
+		this.fantasma.vivir();
+
 	}
 
 	/**
@@ -64,15 +67,7 @@ public class FantasmaRojoTest extends TestCase {
 	public void testDispersarse() {
 		this.fantasma.dispersarse();
 		assertTrue(this.fantasma.getEstado() == Fantasma.DISPERSO);
-		System.out.println(this.fantasma.getPosicion());
 		this.fantasma.vivir();
-		System.out.println(this.fantasma.getPosicion());
-		this.fantasma.vivir();
-		System.out.println(this.fantasma.getPosicion());
-		this.fantasma.vivir();
-		System.out.println(this.fantasma.getPosicion());
-		this.fantasma.vivir();
-
 	}
 
 }
