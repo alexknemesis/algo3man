@@ -67,8 +67,9 @@ public abstract class Fantasma extends Personaje {
 		return this.estado;
 	}
 		
-	public Fantasma(Point posicionInicial, int velocidad, int direccion, Juego juego) {
+	public Fantasma(Point posicionInicial, Point posicionPreferida, int velocidad, int direccion, Juego juego) {
 		super(posicionInicial, velocidad, direccion, juego);
+		celdaPreferida = juego.getCelda(posicionPreferida);
 	}
 	
 	protected int direccionParaMinimaDistanciaA(Objetivo objetivo){
