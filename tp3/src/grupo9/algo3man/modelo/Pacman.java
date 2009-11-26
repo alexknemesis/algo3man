@@ -11,7 +11,6 @@ public class Pacman extends Personaje {
 
 	public void morir() {
 		this.getJuego().restarVida();
-		this.reiniciar();
 	}
 
 	public void vivir() {

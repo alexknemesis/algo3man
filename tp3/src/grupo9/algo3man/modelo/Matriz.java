@@ -9,6 +9,7 @@ public class Matriz {
 	}
 
 	public void agregar(Celda micelda, int i, int j)  {
+		// revisar esta validacion.
 		if ((i >this.matriz.length) && (j > this.matriz[0].length)){
 			throw new RangoException();
 		}

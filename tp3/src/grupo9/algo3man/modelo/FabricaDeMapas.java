@@ -4,7 +4,7 @@ import java.awt.Point;
 
 public class FabricaDeMapas { //crea los mapas
 	
-	public static Mapa obtenerMapa(int num, Juego juego){//Necesita recibir por parámetro el juego
+	public static Mapa obtenerMapa(int num, Juego juego){
 		switch(num){
 		case 0: return crearMapa0(juego);
 		case 1: return crearMapa1(juego);
