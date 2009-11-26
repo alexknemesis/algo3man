@@ -4,7 +4,7 @@
 package grupo9.algo3man.test;
 
 import grupo9.algo3man.modelo.Fantasma;
-import grupo9.algo3man.modelo.FantasmaCeleste;
+import grupo9.algo3man.modelo.FantasmaNaranja;
 import grupo9.algo3man.modelo.Juego;
 import junit.framework.TestCase;
 
@@ -12,24 +12,24 @@ import junit.framework.TestCase;
  * @author cripton
  *
  */
-public class FantasmaCelesteTest extends TestCase {
+public class FantasmaNaranjaTest extends TestCase {
 
 	/* (non-Javadoc)
 	 * @see junit.framework.TestCase#setUp()
 	 */
 	private Juego juego;
-	private FantasmaCeleste fantasma;
+	private FantasmaNaranja fantasma;
 
 	protected void setUp() throws Exception {
 		super.setUp();
 		
 		this.juego = new Juego();
-		this.fantasma = (FantasmaCeleste) this.juego.getFantasmas().get(1);
-		assertTrue(this.fantasma instanceof FantasmaCeleste);
+		this.fantasma = (FantasmaNaranja) this.juego.getFantasmas().get(2);
+		assertTrue(this.fantasma instanceof FantasmaNaranja);
 	}
 
 	/**
-	 * Test method for {@link grupo9.algo3man.modelo.FantasmaCeleste#determinarSiguienteDireccion()}.
+	 * Test method for {@link grupo9.algo3man.modelo.FantasmaNaranja#determinarSiguienteDireccion()}.
 	 */
 	public void testDeterminarSiguienteDireccion() {
 		fail("Not yet implemented");
@@ -68,25 +68,6 @@ public class FantasmaCelesteTest extends TestCase {
 		this.fantasma.dispersarse();
 		assertTrue(this.fantasma.getEstado() == Fantasma.DISPERSO);
 		this.fantasma.vivir();
-	}
-
-
-
-	public void testSeComeAlPacmanCuandoEstaCerca() {
-		/*
-		Fantasma fantasma = new FantasmaCeleste();
-		Pacman pacman = new Pacman();
-		
-		fantasma.setPosicion(pos1);
-		pacman.setPosicion(pos1);
-		
-		fantasma.vivir();
-		*/
-		
-	}
-
-	public void testFantasmaCeleste() {
-		fail("Not yet implemented");
 	}
 
 }
