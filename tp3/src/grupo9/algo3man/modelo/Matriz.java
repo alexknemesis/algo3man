@@ -5,12 +5,15 @@ public class Matriz {
 	private Celda matriz[][];
 	
 	public Matriz(int N,int M){
+		if (N<0 || M<0){
+			throw new RangoException();
+		}
+		
 		this.matriz = new Celda[N][M];
 	}
 
 	public void agregar(Celda micelda, int i, int j)  {
-		int cant1 = this.getFilas();
-		int cant2 = this.getColumnas();
+		
 		
 		if ((i >this.getFilas()) || (j > this.getColumnas())){
 
