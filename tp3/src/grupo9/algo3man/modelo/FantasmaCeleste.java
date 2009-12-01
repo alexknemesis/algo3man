@@ -36,4 +36,10 @@ public class FantasmaCeleste extends Fantasma {
 		}
 		return irA;
 	}
+	protected Celda determinarCeldaObjetivo(){
+		Point posiNuevaCelda;
+		
+		
+		return null;
+	}
 }

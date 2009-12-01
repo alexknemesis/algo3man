@@ -16,8 +16,7 @@ public class FantasmaNaranja extends Fantasma {
 	}
 
 	protected int determinarSiguienteDireccion() {
-		// TODO 
-
+		
 		int irA=0;
 		switch (estado){
 			case DISPERSO:
