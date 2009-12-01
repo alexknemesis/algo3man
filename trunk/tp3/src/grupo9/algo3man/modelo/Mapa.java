@@ -13,13 +13,13 @@ public class Mapa {
 		private int puntajePremio;//TODO El puntaje de los premios se setea segï¿½n el nivel
 		
 		
-		public Mapa(int N,int M, Juego juego2,Point pac, Point rojo,Point fan){
+		public Mapa(int N,int M, Juego juego2,Point pac, Point rojo,Point fan,int puntos){
 			if(N<=0 | M<=0){
-				throw new RangoException();
+				throw new RangoException();//TODO agregué que setee la cantidad de puntos
 			}
 			
 			this.juego = juego2;
-			this.puntosSinComer = (N*M);
+			this.puntosSinComer = puntos;
 			this.matriz = new Matriz(N,M);
 			this.iniFanRojo = rojo;
 			this.iniFantasmas = fan;

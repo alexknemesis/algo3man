@@ -23,7 +23,7 @@ public class MapaTest extends TestCase {
 	protected void setUp() throws Exception {
 		super.setUp();
 		this.juego = null;
-		this.mapa = new Mapa(2,4,this.juego,new Point(10,10), new Point(6,10), new Point(7,10));
+		this.mapa = new Mapa(2,4,this.juego,new Point(10,10), new Point(6,10), new Point(7,10),8);
 		
 		Point punto = new Point(1,1);
 		this.miCelda = new CeldaPared(this.mapa,punto);
@@ -34,7 +34,7 @@ public class MapaTest extends TestCase {
 	public void testMapa_Fail() {
 		
 		try{
-			this.mapaTrucho = new Mapa(-1,-1,this.juego,new Point(10,10), new Point(6,10), new Point(7,10));
+			this.mapaTrucho = new Mapa(-1,-1,this.juego,new Point(10,10), new Point(6,10), new Point(7,10),0);
 			fail("Deberia mandar excepcion pero no lo hizo");
 		}catch (RangoException e){
 			Assert.assertEquals(true, true);
@@ -45,7 +45,7 @@ public class MapaTest extends TestCase {
 	public void testMapa_Ok() {
 		
 		try{
-			this.mapaTrucho = new Mapa(4,4,this.juego,new Point(10,10), new Point(6,10), new Point(7,10));
+			this.mapaTrucho = new Mapa(4,4,this.juego,new Point(10,10), new Point(6,10), new Point(7,10),0);
 			Assert.assertEquals(true, true);
 			
 		}catch (RangoException e){
@@ -64,7 +64,7 @@ public class MapaTest extends TestCase {
 	
 	public void testRestarPunto_Fail() {
 		
-		this.mapaTrucho = new Mapa(1,1,this.juego,new Point(10,10), new Point(6,10), new Point(7,10));
+		this.mapaTrucho = new Mapa(1,1,this.juego,new Point(10,10), new Point(6,10), new Point(7,10),1);
 		this.mapaTrucho.restarPunto();
 		try{
 			this.mapaTrucho.restarPunto();

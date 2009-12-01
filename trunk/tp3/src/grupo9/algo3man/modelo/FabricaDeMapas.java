@@ -26,7 +26,8 @@ public class FabricaDeMapas { //crea los mapas
 		
 		//(i,j) i filas, j columnas
 		
-		mapa = new Mapa(17,19, juego, new Point(9,9), new Point(5,9), new Point(6,9));
+		mapa = new Mapa(17,19, juego, new Point(9,9), new Point(5,9), new Point(6,9),104);
+		//TODO Agregué la cantidad de puntos para comer
 		mapa.setPuntajePremio(200);
 		
 		

@@ -58,5 +58,7 @@ public class PacmanTest extends TestCase {
 		Assert.assertEquals(this.pacman.getPosicion().y, 9);
 		
 	}
+	
+	
 
 }
