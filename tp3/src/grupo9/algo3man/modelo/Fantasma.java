@@ -10,6 +10,7 @@ public abstract class Fantasma extends Personaje {
 	
 	protected Objetivo objetivoActual;
 	protected Objetivo celdaPreferida;
+	protected Pacman pacman;
 	
 	protected int estado;
 	
@@ -37,7 +38,6 @@ public abstract class Fantasma extends Personaje {
 	}
 	
 	private void checkPacmanEnCelda(){
-		Pacman pacman = this.getJuego().getPacman();
 		Point posicionPacman = pacman.getPosicion();
 		if(this.getPosicion().equals(posicionPacman)){
 			if(this.estado != HUYENDO)
@@ -70,6 +70,7 @@ public abstract class Fantasma extends Personaje {
 	public Fantasma(Point posicionInicial, Point posicionPreferida, int velocidad, int direccion, Juego juego) {
 		super(posicionInicial, velocidad, direccion, juego);
 		celdaPreferida = juego.getCelda(posicionPreferida);
+		pacman = juego.getPacman();
 	}
 	
 	protected int direccionParaMinimaDistanciaA(Objetivo objetivo){

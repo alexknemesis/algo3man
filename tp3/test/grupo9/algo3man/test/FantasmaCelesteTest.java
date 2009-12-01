@@ -3,9 +3,13 @@
  */
 package grupo9.algo3man.test;
 
+import java.awt.Point;
+
 import grupo9.algo3man.modelo.Fantasma;
 import grupo9.algo3man.modelo.FantasmaCeleste;
 import grupo9.algo3man.modelo.Juego;
+import grupo9.algo3man.modelo.Pacman;
+import grupo9.algo3man.modelo.Personaje;
 import junit.framework.TestCase;
 
 /**
@@ -19,12 +23,14 @@ public class FantasmaCelesteTest extends TestCase {
 	 */
 	private Juego juego;
 	private FantasmaCeleste fantasma;
+	private Pacman pacman;
 
 	protected void setUp() throws Exception {
 		super.setUp();
 		
 		this.juego = new Juego();
 		this.fantasma = (FantasmaCeleste) this.juego.getFantasmas().get(1);
+		this.pacman = juego.getPacman();
 		assertTrue(this.fantasma instanceof FantasmaCeleste);
 	}
 
@@ -70,20 +76,25 @@ public class FantasmaCelesteTest extends TestCase {
 		this.fantasma.vivir();
 	}
 
+	public void testMataAlPacman(){
+		this.fantasma.setPosicion(new Point(5,5));
+		this.fantasma.cazarAlPacman();
+		this.fantasma.setDireccion(Personaje.DERECHA);
+		
+		this.pacman.setPosicion(new Point(5,7));
+		this.pacman.setVictima();
+		this.pacman.setDireccion(Personaje.IZQUIERDA);
 
-
-	public void testSeComeAlPacmanCuandoEstaCerca() {
-		/*
-		Fantasma fantasma = new FantasmaCeleste();
-		Pacman pacman = new Pacman();
+		this.fantasma.vivir();
+		System.out.println(this.fantasma.getPosicion());
+		this.fantasma.vivir();
+		System.out.println(this.fantasma.getPosicion());
+		this.fantasma.vivir();
+		System.out.println(this.fantasma.getPosicion());
 		
-		fantasma.setPosicion(pos1);
-		pacman.setPosicion(pos1);
-		
-		fantasma.vivir();
-		*/
-		
+		assertEquals(((Fantasma) this.juego.getFantasmas().get(1)).getPosicion(), ((Fantasma) this.juego.getFantasmas().get(1)).getPosicionInicial());		
 	}
+
 
 	public void testFantasmaCeleste() {
 		fail("Not yet implemented");

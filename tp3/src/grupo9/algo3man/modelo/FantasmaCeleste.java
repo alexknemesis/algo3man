@@ -25,11 +25,11 @@ public class FantasmaCeleste extends Fantasma {
 				irA = direccionParaMinimaDistanciaA(this.celdaPreferida);
 				break;
 			case HUYENDO:
-				irA = direccionParaMaximaDistanciaA(juego.getPacman());
+				irA = direccionParaMaximaDistanciaA(pacman);
 				break;
 			case CAZANDO:
 				//TODO implementar estrategia de caza del fantasma celeste
-				irA = direccionParaMinimaDistanciaA(juego.getPacman());
+				irA = direccionParaMinimaDistanciaA(pacman);
 				break;
 			default: throw new IllegalArgumentException();
 		

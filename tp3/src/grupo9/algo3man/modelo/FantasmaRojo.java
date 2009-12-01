@@ -25,10 +25,10 @@ public class FantasmaRojo extends Fantasma {
 				irA = direccionParaMinimaDistanciaA(this.celdaPreferida);
 				break;
 			case HUYENDO:
-				irA = direccionParaMaximaDistanciaA(juego.getPacman());
+				irA = direccionParaMaximaDistanciaA(pacman);
 				break;
 			case CAZANDO:
-				irA = direccionParaMinimaDistanciaA(juego.getPacman());
+				irA = direccionParaMinimaDistanciaA(pacman);
 				break;
 			default: throw new IllegalArgumentException();
 		
