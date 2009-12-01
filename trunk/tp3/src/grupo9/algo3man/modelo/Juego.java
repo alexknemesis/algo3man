@@ -81,10 +81,12 @@ public class Juego {
 	}
 	
 	public Celda getCelda(int x, int y){
+		// Puede tirar RangoException
 		return this.getCelda(new Point(x, y));
 	}
 	
 	public Celda getCelda(Point punto){
+		// Puede tirar RangoException
 		return this.mapa.getCelda(punto);
 	}
 	
