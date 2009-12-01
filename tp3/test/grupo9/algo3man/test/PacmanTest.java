@@ -42,7 +42,7 @@ public class PacmanTest extends TestCase {
 		this.pacman.moverDerecha();
 		this.pacman.setPosicion(new Point(3,1));
 		this.pacman.vivir();
-		assertEquals(this.pacman.getEstado(), this.pacman.VICTIMARIO);
+		assertEquals(this.pacman.getEstado(), Pacman.VICTIMARIO);
 	}
 	
 	public void testMorir(){
