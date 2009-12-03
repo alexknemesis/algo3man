@@ -8,25 +8,44 @@ public abstract class Fantasma extends Personaje {
 	public static final int DISPERSO = 2; 
 	public static final int HUYENDO = 3; 
 	
+	protected static final int TICS_ANTES_DE_CAZAR = 20; 
+	
 	protected Objetivo objetivoActual;
 	protected Objetivo celdaPreferida;
 	protected Pacman pacman;
 	
 	protected int estado;
+	protected int ticsParaSalirDeDisperso;
+	protected int contadorTicsParaSalirDeDisperso;
 	
 	public void morir(){
 		this.reiniciar();
 	}
 	
 	public void vivir() {
-		// TODO Esto es una versión primitiva de la implementación del contador
-		// de tics, pero igual no creo que tenga mucha más vuelta..
 		
 		this.checkPacmanEnCelda();
 		
+		/* ACTUALIZACION: El fantasma sabe cuando cambia de estado, empezando en
+		 * modo DISPERSO
+		 */
+		
+		if (this.contadorTicsParaSalirDeDisperso < this.ticsParaSalirDeDisperso){
+			this.contadorTicsParaSalirDeDisperso++;
+		}
+
+		// Esto es una versión primitiva de la implementación del contador
+		// de tics, pero igual no creo que tenga mucha más vuelta..
+
 		this.contadorDeTics++;
+		
 		if (this.contadorDeTics == this.velocidad){
 			this.contadorDeTics = 0;
+			
+			/*ACTUALIZACION: El fantasma setea su propio estado de acuerdo al
+			 * estado del Pacman.
+			 */
+			determinarEstado();
 			
 			this.direccion = determinarSiguienteDireccion();	
 			this.moverseEnDireccionActual();
@@ -37,30 +56,45 @@ public abstract class Fantasma extends Personaje {
 
 	}
 	
+	private void determinarEstado() {
+		//Cambia el estado solo si salió del modo disperso
+		if(this.contadorTicsParaSalirDeDisperso == this.ticsParaSalirDeDisperso){
+			if (pacman.getEstado() == Pacman.VICTIMA){ 
+				this.cazarAlPacman();
+			}else{
+				this.huirDelPacman();
+			}
+		}
+	}
+
 	private void checkPacmanEnCelda(){
-		Point posicionPacman = pacman.getPosicion();
+		Point posicionPacman = this.pacman.getPosicion();
 		if(this.getPosicion().equals(posicionPacman)){
 			if(this.estado != HUYENDO)
-				pacman.morir();
+				this.pacman.morir();
 		}
 	}
 	
 	public void reiniciar(){
 		this.setPosicion(this.posicionInicial);
-		this.cazarAlPacman();
+		this.dispersarse();
 	}
 	
 	// Seteo de las distintas estrategias del Pacman
-	public void cazarAlPacman(){
+	/* ACTUALIZACION: nadie le dice al fantasma lo que tiene que hacer!
+	 * (paso métodos de caza a protected)
+	 */
+	protected void cazarAlPacman(){
 		this.estado = CAZANDO;
 	}
 
-	public void huirDelPacman(){
+	protected void huirDelPacman(){
 		this.estado = HUYENDO;
 	}
 	
-	public void dispersarse(){
+	protected void dispersarse(){
 		this.estado = DISPERSO;
+		this.contadorTicsParaSalirDeDisperso = 0;
 	}
 	
 	public int getEstado(){
@@ -69,8 +103,9 @@ public abstract class Fantasma extends Personaje {
 		
 	public Fantasma(Point posicionInicial, Point posicionPreferida, int velocidad, int direccion, Juego juego) {
 		super(posicionInicial, velocidad, direccion, juego);
-		celdaPreferida = juego.getCelda(posicionPreferida);
-		pacman = juego.getPacman();
+		this.celdaPreferida = juego.getCelda(posicionPreferida);
+		this.pacman = juego.getPacman();
+		this.dispersarse();
 	}
 	
 	protected int direccionParaMinimaDistanciaA(Objetivo objetivo){
@@ -79,16 +114,16 @@ public abstract class Fantasma extends Personaje {
 		Celda [] celdasAlrededor;
 			
 		//Inicializo la variable con la máxima distancia que puede existir en el juego
-		distanciaMinima = juego.getDimensiones().distance(new Point(0,0));
+		distanciaMinima = this.juego.getDimensiones().distance(new Point(0,0));
 
 		direccionAMinimaDistancia = -1;
 		
 		celdasAlrededor = new Celda[4];
 		
-		celdasAlrededor[ARRIBA] = juego.getCelda(this.posicion.x,this.posicion.y - 1);
-		celdasAlrededor[ABAJO] = juego.getCelda(this.posicion.x,this.posicion.y + 1);
-		celdasAlrededor[IZQUIERDA] = juego.getCelda(this.posicion.x,this.posicion.y - 1);
-		celdasAlrededor[DERECHA] = juego.getCelda(this.posicion.x,this.posicion.y + 1);
+		celdasAlrededor[ARRIBA] = this.juego.getCelda(this.posicion.x,this.posicion.y - 1);
+		celdasAlrededor[ABAJO] = this.juego.getCelda(this.posicion.x,this.posicion.y + 1);
+		celdasAlrededor[IZQUIERDA] = this.juego.getCelda(this.posicion.x,this.posicion.y - 1);
+		celdasAlrededor[DERECHA] = this.juego.getCelda(this.posicion.x,this.posicion.y + 1);
 		
 		//Descarto moverme hacia atrás
 		celdasAlrededor[direccionContraria(this.direccion)]= null;
@@ -127,16 +162,16 @@ public abstract class Fantasma extends Personaje {
 		Celda [] celdasAlrededor;
 			
 		//Inicializo la variable con la máxima distancia que puede existir en el juego
-		distanciaMaxima = juego.getDimensiones().distance(new Point(0,0));
+		distanciaMaxima = this.juego.getDimensiones().distance(new Point(0,0));
 
 		direccionAMaximaDistancia = -1;
 		
 		celdasAlrededor = new Celda[4];
 		
-		celdasAlrededor[ARRIBA] = juego.getCelda(this.posicion.x,this.posicion.y - 1);
-		celdasAlrededor[ABAJO] = juego.getCelda(this.posicion.x,this.posicion.y + 1);
-		celdasAlrededor[IZQUIERDA] = juego.getCelda(this.posicion.x,this.posicion.y - 1);
-		celdasAlrededor[DERECHA] = juego.getCelda(this.posicion.x,this.posicion.y + 1);
+		celdasAlrededor[ARRIBA] = this.juego.getCelda(this.posicion.x,this.posicion.y - 1);
+		celdasAlrededor[ABAJO] = this.juego.getCelda(this.posicion.x,this.posicion.y + 1);
+		celdasAlrededor[IZQUIERDA] = this.juego.getCelda(this.posicion.x,this.posicion.y - 1);
+		celdasAlrededor[DERECHA] = this.juego.getCelda(this.posicion.x,this.posicion.y + 1);
 		
 		//Descarto moverme hacia atrás
 		celdasAlrededor[direccionContraria(this.direccion)]= null;

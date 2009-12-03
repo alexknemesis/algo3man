@@ -6,11 +6,13 @@ import java.awt.Point;
  * @author cripton
  * El fantasma violeta (Pinky) es el emboscador, su objetivo está en 4 casillas
  * adelante de la dirección del pacman.
+ * Es el segundo en ir a cazar al pacman(pasar a modo CAZANDO)
  */
 public class FantasmaVioleta extends Fantasma {
 
 	public FantasmaVioleta(Point posicionInicial, Point posicionPreferida, int velocidad, int direccion, Juego juego) {
 		super(posicionInicial, posicionPreferida, velocidad, direccion, juego);
+		this.ticsParaSalirDeDisperso = TICS_ANTES_DE_CAZAR * 2;
 	}
 
 

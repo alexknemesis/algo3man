@@ -8,12 +8,13 @@ import java.awt.Point;
  * El fantasma celeste (Inky) es el más impredecible, su estrategia consiste en
  * tratar de ir dos celdas adelante del pacman moviéndose paralelamente para 
  * luego ir en su direccion e intentar atraparlo.
- *
+ * Es el tercero en ir a cazar al pacman(pasar a modo CAZANDO)
  */
 public class FantasmaCeleste extends Fantasma {
 
 	public FantasmaCeleste(Point posicionInicial, Point posicionPreferida, int velocidad, int direccion, Juego juego) {
 		super(posicionInicial, posicionPreferida, velocidad, direccion, juego);
+		this.ticsParaSalirDeDisperso = TICS_ANTES_DE_CAZAR * 3;
 	}
 
 	protected int determinarSiguienteDireccion() {
