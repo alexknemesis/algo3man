@@ -19,5 +19,15 @@ public class TeleTransportador extends CeldaTransitable {
 		return false;
 	}
 
+	public boolean daPoder() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public int daPuntos() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
 	
 }

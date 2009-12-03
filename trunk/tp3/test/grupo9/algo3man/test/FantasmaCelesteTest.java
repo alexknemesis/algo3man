@@ -82,7 +82,7 @@ public class FantasmaCelesteTest extends TestCase {
 		this.fantasma.setDireccion(Personaje.DERECHA);
 		
 		this.pacman.setPosicion(new Point(5,7));
-		this.pacman.setVictima();
+		//this.pacman.setVictima(); Hay un problema en setVictima no se como cambia la lógica al cambiarle la visibilidad
 		this.pacman.setDireccion(Personaje.IZQUIERDA);
 
 		this.fantasma.vivir();
