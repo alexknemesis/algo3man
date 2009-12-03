@@ -7,12 +7,13 @@ import java.awt.Point;
  * El fantasma naranja (Clyde) es el indeciso, cuando está a menor distancia que
  * (6) casillas (radiales) su objetivo es su celda preferida, si está a más de 
  * (6) su objetivo es el Pacman.
+ * Es el último en ir a cazar al pacman(pasar a modo CAZANDO)
  */
 public class FantasmaNaranja extends Fantasma {
 
 	public FantasmaNaranja(Point posicionInicial, Point posicionPreferida, int velocidad, int direccion, Juego juego) {
 		super(posicionInicial, posicionPreferida, velocidad, direccion, juego);
-		
+		this.ticsParaSalirDeDisperso = TICS_ANTES_DE_CAZAR * 4;
 	}
 
 	protected int determinarSiguienteDireccion() {
