@@ -4,6 +4,7 @@ import java.awt.Point;
 
 public class Premio extends CeldaPunto {
 	
+	final private int PUNTAJE = 100;
 	public Premio(Mapa mapa, Point posicion) {
 		super(mapa, posicion);
 		
@@ -15,25 +16,20 @@ public class Premio extends CeldaPunto {
 		
 	}
 
-	public void transitar() {
-		this.comer();
-		this.mapa.getJuego().sumarPuntos(this.mapa.getPuntajePremio());
-		
-	}
-
 	public boolean esTransitable() {
 		
 		return true;
 	}
 
 	public boolean daPoder() {
-		// TODO Auto-generated method stub
 		return false;
 	}
 
 	public int daPuntos() {
-		// TODO Auto-generated method stub
-		return 0;
+		if(this.isComido())
+			return 0;
+		else
+			return this.PUNTAJE;
 	}
 
 	

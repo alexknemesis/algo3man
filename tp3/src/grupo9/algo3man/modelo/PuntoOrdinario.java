@@ -4,7 +4,7 @@ import java.awt.Point;
 
 public class PuntoOrdinario extends CeldaPunto {
 	
-	final private int PUNTAJE_ORDINARIO = 10;
+	final private int PUNTAJE = 10;
 	public PuntoOrdinario(Mapa mapa, Point posicion) {
 		super(mapa, posicion);
 		
@@ -21,12 +21,17 @@ public class PuntoOrdinario extends CeldaPunto {
 	}
 
 	public boolean daPoder() {
-		return false;
+		if(this.isComido())
+			return false;
+		else
+			return true;
 	}
 
 	public int daPuntos() {
-		return this.PUNTAJE_ORDINARIO;
+		if(this.isComido())
+			return 0;
+		else
+			return this.PUNTAJE;
 	}
-
 	
 }

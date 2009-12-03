@@ -4,11 +4,14 @@ import java.awt.Point;
 
 public abstract class CeldaPunto extends CeldaTransitable {
 	
-	boolean comido;
+	protected boolean comido;
 	public CeldaPunto(Mapa mapa, Point posicion) {
 		super(mapa, posicion);
 		this.comido = false;
 		
+	}
+	protected boolean isComido(){
+		return comido;
 	}
 
 	protected abstract void comer();

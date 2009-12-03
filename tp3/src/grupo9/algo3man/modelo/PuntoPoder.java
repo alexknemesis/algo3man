@@ -1,11 +1,10 @@
 package grupo9.algo3man.modelo;
 
 import java.awt.Point;
-import java.util.ArrayList;
 
 public class PuntoPoder extends CeldaPunto {
 	
-	final private int PUNTAJE_PODER = 50;
+	final private int PUNTAJE = 50;
 	public PuntoPoder(Mapa mapa, Point posicion) {
 		super(mapa, posicion);
 		
@@ -17,16 +16,21 @@ public class PuntoPoder extends CeldaPunto {
 	}
 
 	public boolean esTransitable() {
-		
 		return true;
 	}
 	
 	public boolean daPoder() {
-		return true;
+		if(this.isComido())
+			return false;
+		else
+			return true;
 	}
 
 	public int daPuntos() {
-		return this.PUNTAJE_PODER;
+		if(this.isComido())
+			return 0;
+		else
+			return this.PUNTAJE;
 	}
 
 	
