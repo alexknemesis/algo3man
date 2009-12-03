@@ -34,7 +34,13 @@ public class Pacman extends Personaje {
 			this.contadorDeTics = 0;
 			
 			this.moverseEnDireccionActual();
-			this.juego.getCelda(this.getPosicion()).transitar();
+			int puntos = this.juego.getCelda(this.getPosicion()).daPuntos();
+			this.juego.sumarPuntos(puntos);
+			
+			if(this.juego.getCelda(this.getPosicion()).daPoder()){
+				this.setVictimario();
+				//TODO alterar fantasmas
+			}
 			
 			this.checkFantasmaEnCelda();
 		}
@@ -63,10 +69,10 @@ public class Pacman extends Personaje {
 		this.setDireccion(ARRIBA);
 	}
 	
-	public void setVictimario(){
+	private void setVictimario(){
 		this.estado = VICTIMARIO;
 	}
-	public void setVictima(){
+	private void setVictima(){
 		this.estado = VICTIMA;
 	}
 

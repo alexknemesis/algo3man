@@ -14,25 +14,19 @@ public class PuntoPoder extends CeldaPunto {
 	protected void comer() {
 		this.comido = true;
 		this.mapa.restarPunto();
-		
-		
-	}
-
-	public void transitar() {
-		this.comer();
-		this.mapa.getJuego().sumarPuntos(this.PUNTAJE_PODER);
-		this.mapa.getJuego().getPacman().setVictimario();
-		ArrayList fantasmas = this.mapa.getJuego().getFantasmas();
-		for(int i=0; i < fantasmas.size(); i++){
-			((Fantasma) fantasmas.get(i)).huirDelPacman();
-		}
-		
-		// TODO implementar timer para volver a la normalidad
 	}
 
 	public boolean esTransitable() {
 		
 		return true;
+	}
+	
+	public boolean daPoder() {
+		return true;
+	}
+
+	public int daPuntos() {
+		return this.PUNTAJE_PODER;
 	}
 
 	

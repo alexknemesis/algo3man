@@ -16,9 +16,12 @@ public class CeldaVacia extends CeldaTransitable {
 		return false;
 	}
 
-	public void transitar() {
-		
-		
+	public boolean daPoder() {
+		return false;
+	}
+
+	public int daPuntos() {
+		return 0;
 	}
 
 }

@@ -26,10 +26,8 @@ import grupo9.algo3man.modelo.Objetivo;
 
 	public abstract boolean esTransitable();
 
-	public void transitar() {
-		// Override en celdas que hagan algo.
-	}
-	
+	public abstract boolean daPoder();
+	public abstract int daPuntos();
 	
 
 
