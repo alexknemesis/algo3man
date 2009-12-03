@@ -16,15 +16,16 @@ public class PuntoOrdinario extends CeldaPunto {
 		
 	}
 
-	public void transitar() {
-		this.comer();
-		this.mapa.getJuego().sumarPuntos(this.PUNTAJE_ORDINARIO);
-		
+	public boolean esTransitable() {
+		return true;
 	}
 
-	public boolean esTransitable() {
-		
-		return true;
+	public boolean daPoder() {
+		return false;
+	}
+
+	public int daPuntos() {
+		return this.PUNTAJE_ORDINARIO;
 	}
 
 	

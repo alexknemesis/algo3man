@@ -2,7 +2,7 @@ package grupo9.algo3man.modelo;
 
 import java.awt.Point;
 
-public class CeldaPuerta extends CeldaTransitable {//TODO Es transitable una única vez cuando salen los fantasmas de las casitas
+public class CeldaPuerta extends CeldaTransitable {//TODO Es transitable una ï¿½nica vez cuando salen los fantasmas de las casitas
 	
 	
 	
@@ -11,17 +11,16 @@ public class CeldaPuerta extends CeldaTransitable {//TODO Es transitable una úni
 		
 	}
 
-	public void transitar() {//TODO No hace nada porque aunque transita no es transitable 
-		
-		
-		
+	public boolean esTransitable() {
+		return false;
 	}
 
-	public boolean esTransitable() {
-		
-		
-		
+	public boolean daPoder() {
 		return false;
+	}
+
+	public int daPuntos() {
+		return 0;
 	}
 
 	

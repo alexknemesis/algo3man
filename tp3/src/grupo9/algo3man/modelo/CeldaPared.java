@@ -14,6 +14,14 @@ public class CeldaPared extends Celda {
 		
 		return false;
 	}
+	
+	public boolean daPoder() {
+		return false;
+	}
+
+	public int daPuntos() {
+		return 0;
+	}
 
 	
 	
