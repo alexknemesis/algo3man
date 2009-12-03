@@ -26,6 +26,16 @@ public class Premio extends CeldaPunto {
 		return true;
 	}
 
+	public boolean daPoder() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public int daPuntos() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
 	
 	
 	

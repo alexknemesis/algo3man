@@ -29,7 +29,7 @@ import grupo9.algo3man.modelo.Objetivo;
 	public abstract boolean daPoder();
 	public abstract int daPuntos();
 	
-	public void comer(){
+	protected void comer(){
 		
 	}
 
