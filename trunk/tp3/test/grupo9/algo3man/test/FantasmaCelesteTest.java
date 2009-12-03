@@ -45,44 +45,16 @@ public class FantasmaCelesteTest extends TestCase {
 	 * Test method for {@link grupo9.algo3man.modelo.Fantasma#vivir()}.
 	 */
 	public void testVivir() {
-		fail("Not yet implemented");
-	}
-
-	/**
-	 * Test method for {@link grupo9.algo3man.modelo.Fantasma#cazarAlPacman()}.
-	 */
-	public void testCazarAlPacman() {
-		this.fantasma.cazarAlPacman();
-		assertTrue(this.fantasma.getEstado() == Fantasma.CAZANDO);
-		this.fantasma.vivir();
-	}
-
-	/**
-	 * Test method for {@link grupo9.algo3man.modelo.Fantasma#huirDelPacman()}.
-	 */
-	public void testHuirDelPacman() {
-		this.fantasma.huirDelPacman();
-		assertTrue(this.fantasma.getEstado() == Fantasma.HUYENDO);
-		this.fantasma.vivir();
-
-	}
-
-	/**
-	 * Test method for {@link grupo9.algo3man.modelo.Fantasma#dispersarse()}.
-	 */
-	public void testDispersarse() {
-		this.fantasma.dispersarse();
-		assertTrue(this.fantasma.getEstado() == Fantasma.DISPERSO);
-		this.fantasma.vivir();
+		fail("Not yet implemented ");
 	}
 
 	public void testMataAlPacman(){
 		this.fantasma.setPosicion(new Point(5,5));
-		this.fantasma.cazarAlPacman();
+		
 		this.fantasma.setDireccion(Personaje.DERECHA);
 		
 		this.pacman.setPosicion(new Point(5,7));
-		//this.pacman.setVictima(); Hay un problema en setVictima no se como cambia la lógica al cambiarle la visibilidad
+		//this.pacman.setVictima(); Hay un problema en setVictima no se como cambia la lï¿½gica al cambiarle la visibilidad
 		this.pacman.setDireccion(Personaje.IZQUIERDA);
 
 		this.fantasma.vivir();

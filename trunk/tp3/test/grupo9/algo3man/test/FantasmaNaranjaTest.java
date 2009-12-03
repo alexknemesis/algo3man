@@ -42,32 +42,5 @@ public class FantasmaNaranjaTest extends TestCase {
 		fail("Not yet implemented");
 	}
 
-	/**
-	 * Test method for {@link grupo9.algo3man.modelo.Fantasma#cazarAlPacman()}.
-	 */
-	public void testCazarAlPacman() {
-		this.fantasma.cazarAlPacman();
-		assertTrue(this.fantasma.getEstado() == Fantasma.CAZANDO);
-		this.fantasma.vivir();
-	}
-
-	/**
-	 * Test method for {@link grupo9.algo3man.modelo.Fantasma#huirDelPacman()}.
-	 */
-	public void testHuirDelPacman() {
-		this.fantasma.huirDelPacman();
-		assertTrue(this.fantasma.getEstado() == Fantasma.HUYENDO);
-		this.fantasma.vivir();
-
-	}
-
-	/**
-	 * Test method for {@link grupo9.algo3man.modelo.Fantasma#dispersarse()}.
-	 */
-	public void testDispersarse() {
-		this.fantasma.dispersarse();
-		assertTrue(this.fantasma.getEstado() == Fantasma.DISPERSO);
-		this.fantasma.vivir();
-	}
 
 }
