@@ -29,8 +29,7 @@ public class FantasmaCeleste extends Fantasma {
 				irA = direccionParaMaximaDistanciaA(pacman);
 				break;
 			case CAZANDO:
-				//TODO implementar estrategia de caza del fantasma celeste
-				irA = direccionParaMinimaDistanciaA(pacman);
+				irA = direccionParaMinimaDistanciaA(determinarCeldaObjetivo());
 				break;
 			default: throw new IllegalArgumentException();
 		
@@ -39,8 +38,36 @@ public class FantasmaCeleste extends Fantasma {
 	}
 	protected Celda determinarCeldaObjetivo(){
 		Point posiNuevaCelda;
+		Celda celdaObjetivo;
 		
+		posiNuevaCelda=new Point(pacman.getPosicion());
 		
-		return null;
+		switch (pacman.getDireccion()){
+			case Pacman.ABAJO:
+				posiNuevaCelda= new Point(this.getPosicion().x, this.pacman.getPosicion().y + 2);
+				
+				break;
+			case Pacman.ARRIBA:
+				posiNuevaCelda= new Point(this.getPosicion().x, this.pacman.getPosicion().y - 4);
+				
+				break;
+			case Pacman.IZQUIERDA:
+				posiNuevaCelda= new Point(this.pacman.getPosicion().x - 2, this.getPosicion().y);
+				
+				break;
+			case Pacman.DERECHA:
+				posiNuevaCelda= new Point(this.pacman.getPosicion().x + 2, this.getPosicion().y);
+				
+				break;
+		}
+
+		// Me quedo con la celda que encontré, si se va del mapa me quedo con la posición del pacman
+		try{ 
+			celdaObjetivo = this.juego.getCelda(posiNuevaCelda);
+		}catch(RangoException re){
+			celdaObjetivo = this.juego.getCelda(this.pacman.getPosicion());
+		}
+		return celdaObjetivo;
 	}
+	
 }
