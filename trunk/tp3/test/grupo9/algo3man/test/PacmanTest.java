@@ -31,7 +31,9 @@ public class PacmanTest extends TestCase {
 	}
 	
 	public void testMataFantasma(){
-		this.pacman.setVictimario();
+		this.pacman.moverDerecha();
+		this.pacman.setPosicion(new Point(3,1));
+		this.pacman.vivir();
 		((Fantasma) this.juego.getFantasmas().get(0)).setPosicion(new Point(3,2));
 		this.pacman.setPosicion(new Point(3,2));
 		this.pacman.vivir();
