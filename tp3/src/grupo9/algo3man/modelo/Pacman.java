@@ -34,8 +34,11 @@ public class Pacman extends Personaje {
 			this.contadorDeTics = 0;
 			
 			this.moverseEnDireccionActual();
+			
+			this.juego.getCelda(this.getPosicion()).comer();
 			int puntos = this.juego.getCelda(this.getPosicion()).daPuntos();
 			this.juego.sumarPuntos(puntos);
+			
 			
 			if(this.juego.getCelda(this.getPosicion()).daPoder()){
 				this.setVictimario();
