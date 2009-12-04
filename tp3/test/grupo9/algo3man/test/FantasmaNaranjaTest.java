@@ -3,7 +3,6 @@
  */
 package grupo9.algo3man.test;
 
-import grupo9.algo3man.modelo.Fantasma;
 import grupo9.algo3man.modelo.FantasmaNaranja;
 import grupo9.algo3man.modelo.Juego;
 import junit.framework.TestCase;
@@ -25,7 +24,6 @@ public class FantasmaNaranjaTest extends TestCase {
 		
 		this.juego = new Juego();
 		this.fantasma = (FantasmaNaranja) this.juego.getFantasmas().get(2);
-		assertTrue(this.fantasma instanceof FantasmaNaranja);
 	}
 
 	/**

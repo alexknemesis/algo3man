@@ -10,13 +10,7 @@ public class FabricaDeMapas { //crea los mapas
 		case 1: return crearMapa1(juego);
 		default: return null;
 		}
-		
-		
-		
-		
 	}
-	
-
 
 	private static Mapa crearMapa0(Juego juego) {
 		Celda celda;
@@ -26,14 +20,9 @@ public class FabricaDeMapas { //crea los mapas
 		
 		//(i,j) i filas, j columnas
 		
-		mapa = new Mapa(17,19, juego, new Point(9,9), new Point(5,9), new Point(6,9),104);
+		mapa = new Mapa(17,19, juego, new Point(9,9), new Point(6,9),104);
 		//TODO Agregué la cantidad de puntos para comer
 		mapa.setPuntajePremio(200);
-		
-		
-		
-		
-		
 		
 		// TODO agrego las celdas desde (0,0) hasta (0,18)
 		for (j=0;j<18;j++){
@@ -583,6 +572,8 @@ public class FabricaDeMapas { //crea los mapas
 			celda = new CeldaPared(mapa, punto);
 			mapa.agregar(punto, celda);
 		}
+		
+		mapa.crearPersonajes();
 		
 		return mapa;
 	}

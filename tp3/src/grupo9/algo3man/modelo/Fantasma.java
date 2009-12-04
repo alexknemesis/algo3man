@@ -12,11 +12,17 @@ public abstract class Fantasma extends Personaje {
 	
 	protected Objetivo objetivoActual;
 	protected Objetivo celdaPreferida;
-	protected Pacman pacman;
+	//protected Pacman pacman;
 	
 	protected int estado;
 	protected int ticsParaSalirDeDisperso;
 	protected int contadorTicsParaSalirDeDisperso;
+	
+	public Fantasma(Point posicionInicial, Celda celdaPreferida, int velocidad, int direccion, Juego juego) {
+		super(posicionInicial, velocidad, direccion, juego);
+		this.celdaPreferida = celdaPreferida;
+		this.dispersarse();
+	}
 	
 	public void morir(){
 		this.reiniciar();
@@ -59,7 +65,7 @@ public abstract class Fantasma extends Personaje {
 	private void determinarEstado() {
 		//Cambia el estado solo si salió del modo disperso
 		if(this.contadorTicsParaSalirDeDisperso == this.ticsParaSalirDeDisperso){
-			if (pacman.getEstado() == Pacman.VICTIMA){ 
+			if (juego.getPacman().getEstado() == Pacman.VICTIMA){ 
 				this.cazarAlPacman();
 			}else{
 				this.huirDelPacman();
@@ -68,10 +74,10 @@ public abstract class Fantasma extends Personaje {
 	}
 
 	private void checkPacmanEnCelda(){
-		Point posicionPacman = this.pacman.getPosicion();
+		Point posicionPacman = this.juego.getPacman().getPosicion();
 		if(this.getPosicion().equals(posicionPacman)){
 			if(this.estado != HUYENDO)
-				this.pacman.morir();
+				this.juego.getPacman().morir();
 		}
 	}
 	
@@ -101,13 +107,6 @@ public abstract class Fantasma extends Personaje {
 		return this.estado;
 	}
 		
-	public Fantasma(Point posicionInicial, Point posicionPreferida, int velocidad, int direccion, Juego juego) {
-		super(posicionInicial, velocidad, direccion, juego);
-		this.celdaPreferida = juego.getCelda(posicionPreferida);
-		this.pacman = juego.getPacman();
-		this.dispersarse();
-	}
-	
 	protected int direccionParaMinimaDistanciaA(Objetivo objetivo){
 		int direccionAMinimaDistancia;
 		double distanciaMinima;

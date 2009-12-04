@@ -19,7 +19,6 @@ public class PacmanTest extends TestCase {
 		super.setUp();
 		
 		this.juego = new Juego();
-		
 		this.pacman = this.juego.getPacman();
 	}
 	
@@ -34,10 +33,11 @@ public class PacmanTest extends TestCase {
 		this.pacman.moverDerecha();
 		this.pacman.setPosicion(new Point(3,1));
 		this.pacman.vivir();
-		((Fantasma) this.juego.getFantasmas().get(0)).setPosicion(new Point(3,2));
+		Fantasma fantasma1 = this.juego.getFantasmas().get(0);
+		fantasma1.setPosicion(new Point(3,2));		
 		this.pacman.setPosicion(new Point(3,2));
 		this.pacman.vivir();
-		assertEquals(((Fantasma) this.juego.getFantasmas().get(0)).getPosicion(), ((Fantasma) this.juego.getFantasmas().get(0)).getPosicionInicial());		
+		assertEquals(fantasma1.getPosicion(), fantasma1.getPosicionInicial());		
 	}
 	
 	public void testComePuntoPoder(){

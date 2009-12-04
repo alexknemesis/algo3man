@@ -50,7 +50,7 @@ public class Pacman extends Personaje {
 	}
 	
 	private void checkFantasmaEnCelda(){
-		ArrayList fantasmas = this.juego.getFantasmas();
+		ListaFantasma fantasmas = this.juego.getFantasmas();
 		for(int i=0; i< fantasmas.size(); i++){
 			if(((Fantasma)(fantasmas.get(i))).getPosicion().equals(this.getPosicion()) && (this.estado == VICTIMARIO))
 				((Fantasma)(fantasmas.get(i))).morir();

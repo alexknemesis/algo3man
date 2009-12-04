@@ -12,15 +12,14 @@ import java.awt.Point;
  */
 public class FantasmaRojo extends Fantasma {
 
-	public FantasmaRojo(Point posicionInicial, Point posicionPreferida, int velocidad, int direccion, Juego juego) {
+	public FantasmaRojo(Point posicionInicial, Celda posicionPreferida, int velocidad, int direccion, Juego juego) {
 		super(posicionInicial, posicionPreferida, velocidad, direccion, juego);
 		this.ticsParaSalirDeDisperso = TICS_ANTES_DE_CAZAR * 1;
 	}
 
 
 	protected int determinarSiguienteDireccion() {
-		// TODO 
-
+		Pacman pacman = juego.getPacman();
 		int irA=0;
 		switch (estado){
 			case DISPERSO:

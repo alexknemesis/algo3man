@@ -12,7 +12,7 @@ import java.awt.Point;
  */
 public class FantasmaCeleste extends Fantasma {
 
-	public FantasmaCeleste(Point posicionInicial, Point posicionPreferida, int velocidad, int direccion, Juego juego) {
+	public FantasmaCeleste(Point posicionInicial, Celda posicionPreferida, int velocidad, int direccion, Juego juego) {
 		super(posicionInicial, posicionPreferida, velocidad, direccion, juego);
 		this.ticsParaSalirDeDisperso = TICS_ANTES_DE_CAZAR * 3;
 	}
@@ -26,7 +26,7 @@ public class FantasmaCeleste extends Fantasma {
 				irA = direccionParaMinimaDistanciaA(this.celdaPreferida);
 				break;
 			case HUYENDO:
-				irA = direccionParaMaximaDistanciaA(pacman);
+				irA = direccionParaMaximaDistanciaA(this.juego.getPacman());
 				break;
 			case CAZANDO:
 				irA = direccionParaMinimaDistanciaA(determinarCeldaObjetivo());
@@ -40,23 +40,25 @@ public class FantasmaCeleste extends Fantasma {
 		Point posiNuevaCelda;
 		Celda celdaObjetivo;
 		
+		Pacman pacman = juego.getPacman();
+		
 		posiNuevaCelda=new Point(pacman.getPosicion());
 		
 		switch (pacman.getDireccion()){
 			case Pacman.ABAJO:
-				posiNuevaCelda= new Point(this.getPosicion().x, this.pacman.getPosicion().y + 2);
+				posiNuevaCelda= new Point(this.getPosicion().x, pacman.getPosicion().y + 2);
 				
 				break;
 			case Pacman.ARRIBA:
-				posiNuevaCelda= new Point(this.getPosicion().x, this.pacman.getPosicion().y - 4);
+				posiNuevaCelda= new Point(this.getPosicion().x, pacman.getPosicion().y - 4);
 				
 				break;
 			case Pacman.IZQUIERDA:
-				posiNuevaCelda= new Point(this.pacman.getPosicion().x - 2, this.getPosicion().y);
+				posiNuevaCelda= new Point(pacman.getPosicion().x - 2, this.getPosicion().y);
 				
 				break;
 			case Pacman.DERECHA:
-				posiNuevaCelda= new Point(this.pacman.getPosicion().x + 2, this.getPosicion().y);
+				posiNuevaCelda= new Point(pacman.getPosicion().x + 2, this.getPosicion().y);
 				
 				break;
 		}
@@ -65,7 +67,7 @@ public class FantasmaCeleste extends Fantasma {
 		try{ 
 			celdaObjetivo = this.juego.getCelda(posiNuevaCelda);
 		}catch(RangoException re){
-			celdaObjetivo = this.juego.getCelda(this.pacman.getPosicion());
+			celdaObjetivo = this.juego.getCelda(pacman.getPosicion());
 		}
 		return celdaObjetivo;
 	}

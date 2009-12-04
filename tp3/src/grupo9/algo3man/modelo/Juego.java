@@ -9,16 +9,12 @@ public class Juego {
 	
 	final private int VIDAS_INICIALES = 3;
 	final private int NIVEL_INICIAL = 0;
-	final private int VELOCIDAD_INICIAL = 1; //TODO (cripton) Esto es lo más rápido que puede ir
 	final private int PUNTOS_NIVEL_GANADO = 1000;
 	
 	private int nivel;
 	private int puntaje;
 	private int vidas;
 	private Mapa mapa;
-	private Pacman pacman;
-	private ArrayList fantasmas;
-	private Point dimensionesMapa;
 	
 	public Juego(){
 		this.nivel = NIVEL_INICIAL;
@@ -26,27 +22,6 @@ public class Juego {
 		this.vidas = VIDAS_INICIALES;
 		
 		this.mapa = FabricaDeMapas.obtenerMapa(this.nivel, this);
-		
-		Point iniFantasmas = this.mapa.getPosicionInicialFantasmas();
-		Point iniFantasmaRojo = this.mapa.getPosicionInicialFantasmaRojo();
-		Point iniPacman = this.mapa.getPosicionInicialPacman();
-		this.fantasmas = new ArrayList();
-		
-		//TODO 
-		/*(cripton) me había faltado poner la posicion preferida en el constructor
-		 así que tenés que agregar las posiciones preferidas, no quería arreglarlo
-		 porque hay que agregar cosas en mapa, acá y creo que en nivel
-		*/
-		
-		this.fantasmas.add(new FantasmaRojo(iniFantasmaRojo, new Point (1,1), VELOCIDAD_INICIAL,Fantasma.DERECHA, this));
-		this.fantasmas.add(new FantasmaCeleste(iniFantasmas, new Point (1,1), VELOCIDAD_INICIAL,Fantasma.DERECHA, this));
-		this.fantasmas.add(new FantasmaNaranja(iniFantasmas, new Point (1,1), VELOCIDAD_INICIAL,Fantasma.DERECHA, this));
-		this.fantasmas.add(new FantasmaVioleta(iniFantasmas, new Point (1,1), VELOCIDAD_INICIAL,Fantasma.DERECHA, this));
-		
-		this.pacman = new Pacman(iniPacman, VELOCIDAD_INICIAL,Pacman.IZQUIERDA, this);
-		
-		//Para saber el tamaño del mapa
-		this.dimensionesMapa = new Point(this.mapa.getColumnas(), this.mapa.getFilas());
 	}
 	
 	public void avanzarNivel(){
@@ -54,8 +29,9 @@ public class Juego {
 			throw new GameOverException();
 		
 		this.nivel++;
-		this.reiniciarPersonajes();
 		this.sumarPuntos(PUNTOS_NIVEL_GANADO);
+		
+		// TODO cambiar mapa
 	}
 	
 	public void sumarPuntos(int puntos){
@@ -74,9 +50,9 @@ public class Juego {
 	}
 	
 	public void reiniciarPersonajes(){
-		this.pacman.reiniciar();
-		for(int i=0; i< this.fantasmas.size(); i++){
-			((Fantasma)(this.fantasmas.get(i))).reiniciar();
+		this.mapa.getPacman().reiniciar();
+		for(int i=0; i< this.mapa.getFantasmas().size(); i++){
+			((Fantasma)(this.mapa.getFantasmas().get(i))).reiniciar();
 		}
 	}
 	
@@ -103,29 +79,24 @@ public class Juego {
 	public int getPuntaje(){
 		return this.puntaje;
 	}
-	public Pacman getPacman(){
-		return this.pacman;
-	}
 	
 	public int getVidas(){
 		return this.vidas;
 	}
 	
-	public ArrayList getFantasmas(){
-		return this.fantasmas;
+	public Pacman getPacman(){
+		return this.mapa.getPacman();
+	}
+	public ListaFantasma getFantasmas(){
+		return this.mapa.getFantasmas();
 	}
 	public Point getDimensiones(){
-		return this.dimensionesMapa;
+		return new Point(this.mapa.getColumnas(), this.mapa.getFilas());
 	}
 
 	public Mapa getMapa() {
 		return this.mapa;
 		
 	}
-
-	
-	
-
-	
 
 }

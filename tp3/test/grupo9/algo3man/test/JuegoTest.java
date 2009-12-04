@@ -5,6 +5,7 @@ import grupo9.algo3man.modelo.Celda;
 import grupo9.algo3man.modelo.Fantasma;
 import grupo9.algo3man.modelo.GameOverException;
 import grupo9.algo3man.modelo.Juego;
+import grupo9.algo3man.modelo.ListaFantasma;
 
 import java.awt.Point;
 import java.util.ArrayList;
@@ -28,10 +29,6 @@ public class JuegoTest extends TestCase {
 		assertEquals(this.juego.getVidas(),3);
 	}
 	
-	public void testGetCelda(){
-		Celda celda = this.juego.getCelda(0,0);
-	}
-	
 	public void testRestarVida(){
 		try{
 			this.juego.restarVida();
@@ -44,7 +41,7 @@ public class JuegoTest extends TestCase {
 	
 	public void testReiniciarPersonajes(){
 		this.juego.getPacman().setPosicion(new Point(0,5));
-		ArrayList fantasmas = this.juego.getFantasmas();
+		ListaFantasma fantasmas = this.juego.getFantasmas();
 		for(int i=0; i< fantasmas.size(); i++){
 			((Fantasma)(fantasmas.get(i))).setPosicion(new Point(0,6));
 		}

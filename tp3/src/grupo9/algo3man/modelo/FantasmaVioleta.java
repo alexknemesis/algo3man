@@ -10,21 +10,21 @@ import java.awt.Point;
  */
 public class FantasmaVioleta extends Fantasma {
 
-	public FantasmaVioleta(Point posicionInicial, Point posicionPreferida, int velocidad, int direccion, Juego juego) {
+	public FantasmaVioleta(Point posicionInicial, Celda posicionPreferida, int velocidad, int direccion, Juego juego) {
 		super(posicionInicial, posicionPreferida, velocidad, direccion, juego);
 		this.ticsParaSalirDeDisperso = TICS_ANTES_DE_CAZAR * 2;
 	}
 
 
 	protected int determinarSiguienteDireccion() {
-
+		Pacman pacman = juego.getPacman();
 		int irA=0;
 		switch (estado){
 			case DISPERSO:
 				irA = direccionParaMinimaDistanciaA(this.celdaPreferida);
 				break;
 			case HUYENDO:
-				irA = direccionParaMaximaDistanciaA(this.pacman);
+				irA = direccionParaMaximaDistanciaA(pacman);
 				break;
 			case CAZANDO:
 				irA = direccionParaMinimaDistanciaA(determinarObjetivo());
@@ -39,23 +39,25 @@ public class FantasmaVioleta extends Fantasma {
 		Point posiNuevaCelda;
 		Celda celdaObjetivo;
 		
+		Pacman pacman = juego.getPacman();
+		
 		posiNuevaCelda=new Point(pacman.getPosicion());
 		
 		switch (pacman.getDireccion()){
 			case Pacman.ABAJO:
-				posiNuevaCelda= new Point(this.pacman.getPosicion().x, this.pacman.getPosicion().y + 4);
+				posiNuevaCelda= new Point(pacman.getPosicion().x, pacman.getPosicion().y + 4);
 				
 				break;
 			case Pacman.ARRIBA:
-				posiNuevaCelda= new Point(this.pacman.getPosicion().x, this.pacman.getPosicion().y - 4);
+				posiNuevaCelda= new Point(pacman.getPosicion().x, pacman.getPosicion().y - 4);
 				
 				break;
 			case Pacman.IZQUIERDA:
-				posiNuevaCelda= new Point(this.pacman.getPosicion().x - 4, this.pacman.getPosicion().y);
+				posiNuevaCelda= new Point(pacman.getPosicion().x - 4, pacman.getPosicion().y);
 				
 				break;
 			case Pacman.DERECHA:
-				posiNuevaCelda= new Point(this.pacman.getPosicion().x + 4, this.pacman.getPosicion().y);
+				posiNuevaCelda= new Point(pacman.getPosicion().x + 4, pacman.getPosicion().y);
 				
 				break;
 		}
@@ -64,7 +66,7 @@ public class FantasmaVioleta extends Fantasma {
 		try{ 
 			celdaObjetivo = this.juego.getCelda(posiNuevaCelda);
 		}catch(RangoException re){
-			celdaObjetivo = this.juego.getCelda(this.pacman.getPosicion());
+			celdaObjetivo = this.juego.getCelda(pacman.getPosicion());
 		}
 		return celdaObjetivo;
 	}
