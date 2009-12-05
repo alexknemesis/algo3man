@@ -11,8 +11,10 @@ public class Premio extends CeldaPunto {
 	}
 
 	protected void comer() {
-		this.comido = true;
-		this.mapa.restarPunto();
+		if (!this.comido){
+			this.comido = true;
+			this.mapa.restarPunto();
+		}
 		
 	}
 
@@ -26,7 +28,7 @@ public class Premio extends CeldaPunto {
 	}
 
 	public int daPuntos() {
-		if(this.isComido())
+		if(this.comido)
 			return 0;
 		else
 			return this.PUNTAJE;

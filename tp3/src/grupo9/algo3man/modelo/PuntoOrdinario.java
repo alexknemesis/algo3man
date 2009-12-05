@@ -11,8 +11,10 @@ public class PuntoOrdinario extends CeldaPunto {
 	}
 
 	protected void comer() {
-		this.comido = true;
-		this.mapa.restarPunto();
+		if (!this.comido){
+			this.comido = true;
+			this.mapa.restarPunto();
+		}
 		
 	}
 
@@ -21,14 +23,12 @@ public class PuntoOrdinario extends CeldaPunto {
 	}
 
 	public boolean daPoder() {
-		if(this.isComido())
-			return false;
-		else
-			return true;
+		
+			return false;//No da poder Punto ordinario
 	}
 
 	public int daPuntos() {
-		if(this.isComido())
+		if(this.comido)
 			return 0;
 		else
 			return this.PUNTAJE;
