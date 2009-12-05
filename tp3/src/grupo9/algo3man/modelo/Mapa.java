@@ -18,6 +18,10 @@ public class Mapa {
 		private ListaFantasma fantasmas;
 		private int puntosSinComer;
 		private int puntajePremio;
+		private Point posPreferidaRojo;
+		private Point posPreferidaCeleste;
+		private Point posPreferidaNaranja;
+		private Point posFreferidaVioleta;
 		
 		public Mapa(int N,int M, Juego juego2,Point pacman,Point fantasmas ,int puntos){
 			if(N<=0 | M<=0){
@@ -36,11 +40,11 @@ public class Mapa {
 		public void crearPersonajes(){
 			this.pacman = new Pacman(this.iniPacman, VELOCIDAD_INICIAL,Pacman.IZQUIERDA, this.juego);
 			
-			this.fantasmas.add(new FantasmaCeleste(this.iniFantasmas, this.getCelda(new Point (1,1)), VELOCIDAD_INICIAL,Fantasma.DERECHA, this.juego));
-			this.fantasmas.add(new FantasmaRojo(this.iniFantasmas, this.getCelda(new Point (1,1)), VELOCIDAD_INICIAL,Fantasma.DERECHA, this.juego));
-			this.fantasmas.add(new FantasmaNaranja(this.iniFantasmas, this.getCelda(new Point (1,1)), VELOCIDAD_INICIAL,Fantasma.DERECHA, this.juego));
-			this.fantasmas.add(new FantasmaVioleta(this.iniFantasmas, this.getCelda(new Point (1,1)), VELOCIDAD_INICIAL,Fantasma.DERECHA, this.juego));
-			// TODO cambiar posicion preferida
+			this.fantasmas.add(new FantasmaCeleste(this.iniFantasmas, this.getCelda(this.posPreferidaCeleste), VELOCIDAD_INICIAL,Fantasma.DERECHA, this.juego));
+			this.fantasmas.add(new FantasmaRojo(this.iniFantasmas, this.getCelda(this.posPreferidaRojo), VELOCIDAD_INICIAL,Fantasma.DERECHA, this.juego));
+			this.fantasmas.add(new FantasmaNaranja(this.iniFantasmas, this.getCelda(this.posPreferidaNaranja), VELOCIDAD_INICIAL,Fantasma.DERECHA, this.juego));
+			this.fantasmas.add(new FantasmaVioleta(this.iniFantasmas, this.getCelda(this.posFreferidaVioleta), VELOCIDAD_INICIAL,Fantasma.DERECHA, this.juego));
+			
 		}
 		
 		public Pacman getPacman(){
@@ -85,12 +89,12 @@ public class Mapa {
 			return celda;
 		}
 
-		public int getFilas() {
+		public int getN() {
 			
 			return this.matriz.getFilas();
 		}
 
-		public int getColumnas() {
+		public int getM() {
 			
 			return this.matriz.getColumnas();
 		}
@@ -118,6 +122,38 @@ public class Mapa {
 		public Point getPosicionInicialPacman() {
 			
 			return this.iniPacman;
+		}
+
+		public void setPosPreferidaRojo(Point posPreferidaRojo) {
+			this.posPreferidaRojo = posPreferidaRojo;
+		}
+
+		public Point getPosPreferidaRojo() {
+			return posPreferidaRojo;
+		}
+
+		public void setPosPreferidaCeleste(Point posPreferidaCeleste) {
+			this.posPreferidaCeleste = posPreferidaCeleste;
+		}
+
+		public Point getPosPreferidaCeleste() {
+			return posPreferidaCeleste;
+		}
+
+		public void setPosPreferidaNaranja(Point posPreferidaNaranja) {
+			this.posPreferidaNaranja = posPreferidaNaranja;
+		}
+
+		public Point getPosPreferidaNaranja() {
+			return posPreferidaNaranja;
+		}
+
+		public void setPosFreferidaVioleta(Point posFreferidaVioleta) {
+			this.posFreferidaVioleta = posFreferidaVioleta;
+		}
+
+		public Point getPosFreferidaVioleta() {
+			return posFreferidaVioleta;
 		}
 
 }

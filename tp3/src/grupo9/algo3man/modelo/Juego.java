@@ -1,9 +1,6 @@
 package grupo9.algo3man.modelo;
 
 import java.awt.Point;
-import java.util.ArrayList;
-
-
 
 public class Juego {
 	
@@ -56,14 +53,26 @@ public class Juego {
 		}
 	}
 	
+	//TODO ¿Para que hay dos getCelda?
+	
 	public Celda getCelda(int x, int y){
-		// Puede tirar RangoException
-		return this.getCelda(new Point(x, y));
+		Celda celdaTrucha = null;
+		try{
+			celdaTrucha = this.getCelda(new Point(x, y));
+		}catch(RangoException e){
+			
+		}
+		return celdaTrucha;
 	}
 	
 	public Celda getCelda(Point punto){
-		// Puede tirar RangoException
-		return this.mapa.getCelda(punto);
+		Celda celdaTrucha = null;
+		try{
+			celdaTrucha = this.getCelda(punto);
+		}catch(RangoException e){
+			
+		}
+		return celdaTrucha;
 	}
 	
 	public boolean isGameOver(){
@@ -91,7 +100,7 @@ public class Juego {
 		return this.mapa.getFantasmas();
 	}
 	public Point getDimensiones(){
-		return new Point(this.mapa.getColumnas(), this.mapa.getFilas());
+		return new Point(this.mapa.getN(), this.mapa.getM());
 	}
 
 	public Mapa getMapa() {
