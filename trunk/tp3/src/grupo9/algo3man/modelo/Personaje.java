@@ -38,16 +38,16 @@ public abstract class Personaje implements Objetivo {
 		
 		switch (direccion){
 		case ARRIBA:
-			proximoLugar.x -= 1;
+			proximoLugar.y -= 1;
 			;break;
 		case ABAJO:
-			proximoLugar.x += 1;			
+			proximoLugar.y += 1;			
 			;break;
 		case DERECHA:   
-			proximoLugar.y += 1;
+			proximoLugar.x += 1;
 			;break;
 		case IZQUIERDA:   
-			proximoLugar.y -= 1;
+			proximoLugar.x -= 1;
 			;break;
 		}
 

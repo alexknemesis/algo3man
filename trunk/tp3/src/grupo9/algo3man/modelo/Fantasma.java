@@ -118,11 +118,16 @@ public abstract class Fantasma extends Personaje {
 		direccionAMinimaDistancia = -1;
 		
 		celdasAlrededor = new Celda[4];
-		
-		celdasAlrededor[ARRIBA] = this.juego.getCelda(this.posicion.x,this.posicion.y - 1);
+		//Cambie esto porque ya había un getCelda pero de Points y estaba mal pedida la posicion izq y der
+		celdasAlrededor[ARRIBA] = this.juego.getCelda(new Point(this.posicion.x,this.posicion.y - 1));
+		celdasAlrededor[ABAJO] = this.juego.getCelda(new Point(this.posicion.x,this.posicion.y + 1));
+		celdasAlrededor[IZQUIERDA] = this.juego.getCelda(new Point(this.posicion.x,this.posicion.y - 1));
+		celdasAlrededor[DERECHA] = this.juego.getCelda(new Point(this.posicion.x - 1,this.posicion.y));
+		celdasAlrededor[ARRIBA] = this.juego.getCelda(new Point(this.posicion.x + 1,this.posicion.y));
+		/*celdasAlrededor[ARRIBA] = this.juego.getCelda(this.posicion.x,this.posicion.y - 1);
 		celdasAlrededor[ABAJO] = this.juego.getCelda(this.posicion.x,this.posicion.y + 1);
 		celdasAlrededor[IZQUIERDA] = this.juego.getCelda(this.posicion.x,this.posicion.y - 1);
-		celdasAlrededor[DERECHA] = this.juego.getCelda(this.posicion.x,this.posicion.y + 1);
+		celdasAlrededor[DERECHA] = this.juego.getCelda(this.posicion.x,this.posicion.y + 1);*/
 		
 		//Descarto moverme hacia atrÃ¡s
 		celdasAlrededor[direccionContraria(this.direccion)]= null;
@@ -167,10 +172,16 @@ public abstract class Fantasma extends Personaje {
 		
 		celdasAlrededor = new Celda[4];
 		
+		//Cambie esto porque ya había un getCelda pero de Points y estaba mal pedida la posicion izq y der
+		celdasAlrededor[ARRIBA] = this.juego.getCelda(new Point(this.posicion.x,this.posicion.y - 1));
+		celdasAlrededor[ABAJO] = this.juego.getCelda(new Point(this.posicion.x,this.posicion.y + 1));
+		celdasAlrededor[IZQUIERDA] = this.juego.getCelda(new Point(this.posicion.x,this.posicion.y - 1));
+		celdasAlrededor[DERECHA] = this.juego.getCelda(new Point(this.posicion.x - 1,this.posicion.y));
+		/*celdasAlrededor[ARRIBA] = this.juego.getCelda(new Point(this.posicion.x + 1,this.posicion.y));
 		celdasAlrededor[ARRIBA] = this.juego.getCelda(this.posicion.x,this.posicion.y - 1);
 		celdasAlrededor[ABAJO] = this.juego.getCelda(this.posicion.x,this.posicion.y + 1);
 		celdasAlrededor[IZQUIERDA] = this.juego.getCelda(this.posicion.x,this.posicion.y - 1);
-		celdasAlrededor[DERECHA] = this.juego.getCelda(this.posicion.x,this.posicion.y + 1);
+		celdasAlrededor[DERECHA] = this.juego.getCelda(this.posicion.x,this.posicion.y + 1);*/
 		
 		//Descarto moverme hacia atrÃ¡s
 		celdasAlrededor[direccionContraria(this.direccion)]= null;

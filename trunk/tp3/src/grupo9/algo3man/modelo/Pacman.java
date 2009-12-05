@@ -1,7 +1,6 @@
 package grupo9.algo3man.modelo;
 
 import java.awt.Point;
-import java.util.ArrayList;
 
 public class Pacman extends Personaje {
 	public static final int VICTIMA = 1; 

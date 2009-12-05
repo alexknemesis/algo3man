@@ -53,7 +53,7 @@ public class Juego {
 		}
 	}
 	
-	//TODO ¿Para que hay dos getCelda?
+	/*TODO ¿Para que hay dos getCelda?
 	
 	public Celda getCelda(int x, int y){
 		Celda celdaTrucha = null;
@@ -63,12 +63,12 @@ public class Juego {
 			
 		}
 		return celdaTrucha;
-	}
+	}*/
 	
 	public Celda getCelda(Point punto){
 		Celda celdaTrucha = null;
 		try{
-			celdaTrucha = this.getCelda(punto);
+			celdaTrucha = this.mapa.getCelda(punto);
 		}catch(RangoException e){
 			
 		}
