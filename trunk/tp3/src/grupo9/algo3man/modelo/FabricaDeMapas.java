@@ -21,7 +21,10 @@ public class FabricaDeMapas { //crea los mapas
 		//(x,y) x columnas, y filas
 		
 		mapa = new Mapa(19,17, juego, new Point(9,9), new Point(9,6),104);
-		
+		mapa.setPosFreferidaVioleta(new Point(3,3));
+		mapa.setPosPreferidaCeleste(new Point(16,3));
+		mapa.setPosPreferidaNaranja(new Point(4,11));
+		mapa.setPosPreferidaRojo(new Point(14,11));
 		mapa.setPuntajePremio(200);
 		
 		// agrego las celdas desde (0,0) hasta (18,0)
@@ -482,6 +485,7 @@ public class FabricaDeMapas { //crea los mapas
 		}
 		
 		mapa.crearPersonajes();
+		
 		
 		return mapa;
 	}

@@ -22,14 +22,10 @@ public class MapaTest extends TestCase {
 	
 	protected void setUp() throws Exception {
 		super.setUp();
-		
-		// TODO revisar
 		this.juego = null;
 		this.mapa = new Mapa(2,4,this.juego,new Point(10,10), new Point(7,10),8);
-		
 		Point punto = new Point(1,1);
 		this.miCelda = new CeldaPared(this.mapa,punto);
-		
 		this.mapa.agregar(punto, this.miCelda);
 	}
 
@@ -41,7 +37,6 @@ public class MapaTest extends TestCase {
 		}catch (RangoException e){
 			Assert.assertEquals(true, true);
 		}
-		
 	}
 	
 	public void testMapa_Ok() {
@@ -52,16 +47,12 @@ public class MapaTest extends TestCase {
 			
 		}catch (RangoException e){
 			fail("No deber�a mandar excepcion pero lo hizo");
-			
 		}
-		
 	}
 
 	public void testRestarPunto_Ok() {
 		this.mapa.restarPunto();
 		Assert.assertEquals(this.mapa.getPuntos(), 7);
-		
-		
 	}
 	
 	public void testRestarPunto_Fail() {
@@ -74,7 +65,6 @@ public class MapaTest extends TestCase {
 		}catch(RestarPuntoException e){
 			Assert.assertEquals(true, true);
 		}
-		
 	}
 
 	public void testAgregar_Ok() {
@@ -83,7 +73,6 @@ public class MapaTest extends TestCase {
 		
 		try{
 			this.mapa.agregar(punto, celda);
-			
 			Assert.assertEquals(true, true);
 		}catch(RangoException e){
 			fail("No Deberia mandar excepcion pero lo hizo");
@@ -98,23 +87,19 @@ public class MapaTest extends TestCase {
 		try{
 			this.mapa.agregar(punto, celda);
 			fail("Deberia mandar excepcion pero lo hizo");
-			
 		}catch(RangoException e){
-			
 			Assert.assertEquals(true, true);
 		}
 		
 	}
 	
-	
-	
 	public void testGetFilas(){
-		Assert.assertEquals(this.mapa.getFilas(), 2);
+		Assert.assertEquals(this.mapa.getN(), 2);
 		
 	}
 	
 	public void testGetColumnas(){
-		Assert.assertEquals(this.mapa.getColumnas(), 4);
+		Assert.assertEquals(this.mapa.getM(), 4);
 		
 	}
 	
@@ -136,10 +121,13 @@ public class MapaTest extends TestCase {
 	public void testgetCelda_Ok(){
 			Point punto = new Point(1,1);
 			Celda otraCelda = this.mapa.getCelda(punto);
-			Assert.assertEquals(otraCelda,this.miCelda );
+			if (otraCelda instanceof CeldaPared){
+				Assert.assertEquals(true,true);
+			}else Assert.assertEquals(false,false);
 			
-		
 	}
+	
+	
 	
 	
 
