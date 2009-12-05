@@ -23,10 +23,10 @@ public class PacmanTest extends TestCase {
 	}
 	
 	public void testMoverVivir(){
-		this.pacman.setPosicion(new Point(3,3));
+		this.pacman.setPosicion(new Point(6,9));
 		this.pacman.moverArriba();
 		this.pacman.vivir();
-		assertEquals(new Point(2,3), this.pacman.getPosicion());
+		assertEquals(new Point(6,8), this.pacman.getPosicion());
 	}
 	
 	public void testMataFantasma(){
@@ -42,7 +42,7 @@ public class PacmanTest extends TestCase {
 	
 	public void testComePuntoPoder(){
 		this.pacman.moverDerecha();
-		this.pacman.setPosicion(new Point(3,1));
+		this.pacman.setPosicion(new Point(2,3));
 		this.pacman.vivir();
 		assertEquals(this.pacman.getEstado(), Pacman.VICTIMARIO);
 	}
