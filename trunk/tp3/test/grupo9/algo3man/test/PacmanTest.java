@@ -30,12 +30,13 @@ public class PacmanTest extends TestCase {
 	}
 	
 	public void testMataFantasma(){
-		this.pacman.moverDerecha();
+		//Al pedo esto porque la posicion 2,3 es punto de Poder
+		/*this.pacman.moverDerecha();
 		this.pacman.setPosicion(new Point(3,1));
-		this.pacman.vivir();
+		this.pacman.vivir();*/
 		Fantasma fantasma1 = this.juego.getFantasmas().get(0);
-		fantasma1.setPosicion(new Point(3,2));		
-		this.pacman.setPosicion(new Point(3,2));
+		fantasma1.setPosicion(new Point(2,3));		
+		this.pacman.setPosicion(new Point(2,3));
 		this.pacman.vivir();
 		assertEquals(fantasma1.getPosicion(), fantasma1.getPosicionInicial());		
 	}

@@ -11,8 +11,10 @@ public class PuntoPoder extends CeldaPunto {
 	}
 
 	protected void comer() {
-		this.comido = true;
-		this.mapa.restarPunto();
+		if (!this.comido){
+			this.comido = true;
+			this.mapa.restarPunto();
+		}
 	}
 
 	public boolean esTransitable() {
@@ -20,14 +22,14 @@ public class PuntoPoder extends CeldaPunto {
 	}
 	
 	public boolean daPoder() {
-		if(this.isComido())
+		if(this.comido)
 			return false;
 		else
 			return true;
 	}
 
 	public int daPuntos() {
-		if(this.isComido())
+		if(this.comido)
 			return 0;
 		else
 			return this.PUNTAJE;

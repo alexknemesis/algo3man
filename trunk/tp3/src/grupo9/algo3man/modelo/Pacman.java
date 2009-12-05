@@ -34,7 +34,7 @@ public class Pacman extends Personaje {
 			
 			this.moverseEnDireccionActual();
 			
-			this.juego.getCelda(this.getPosicion()).comer();
+			
 			int puntos = this.juego.getCelda(this.getPosicion()).daPuntos();
 			this.juego.sumarPuntos(puntos);
 			
@@ -43,6 +43,8 @@ public class Pacman extends Personaje {
 				this.setVictimario();
 				//TODO alterar fantasmas
 			}
+			//Debería estar aca está línea porque si comés primero no da puntos ni cambia el estado en caso de ser PuntoPoder
+			this.juego.getCelda(this.getPosicion()).comer();
 			
 			this.checkFantasmaEnCelda();
 		}
