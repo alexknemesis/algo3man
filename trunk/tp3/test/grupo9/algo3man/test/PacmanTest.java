@@ -30,10 +30,6 @@ public class PacmanTest extends TestCase {
 	}
 	
 	public void testMataFantasma(){
-		//Al pedo esto porque la posicion 2,3 es punto de Poder
-		/*this.pacman.moverDerecha();
-		this.pacman.setPosicion(new Point(3,1));
-		this.pacman.vivir();*/
 		Fantasma fantasma1 = this.juego.getFantasmas().get(0);
 		fantasma1.setPosicion(new Point(2,3));		
 		this.pacman.setPosicion(new Point(2,3));
