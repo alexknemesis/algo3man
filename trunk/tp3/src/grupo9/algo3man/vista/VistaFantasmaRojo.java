@@ -12,19 +12,16 @@ public class VistaFantasmaRojo implements Dibujable {
 		this.fantasma = fantasma;
 	}
 
-	@Override
 	public void dibujar(SuperficieDeDibujo superfice) {
 		// TODO Auto-generated method stub
 		
 	}
 
-	@Override
 	public Posicionable getPosicionable() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	@Override
 	public void setPosicionable(Posicionable posicionable) {
 		// TODO Auto-generated method stub
 		
