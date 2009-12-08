@@ -1,5 +1,8 @@
 package grupo9.algo3man.modelo;
 
+import grupo9.algo3man.titiritero.ControladorJuego;
+import grupo9.algo3man.vista.VistaPacman;
+
 import java.awt.Point;
 
 public class Juego {
@@ -12,6 +15,7 @@ public class Juego {
 	private int puntaje;
 	private int vidas;
 	private Mapa mapa;
+	private ControladorJuego controlador;
 	
 	public Juego(){
 		this.nivel = NIVEL_INICIAL;
@@ -19,6 +23,19 @@ public class Juego {
 		this.vidas = VIDAS_INICIALES;
 		
 		this.mapa = FabricaDeMapas.obtenerMapa(this.nivel, this);
+		this.controlador = new ControladorJuego();
+		this.controlador.agregarObjetoVivo(this.getPacman());
+		
+		ListaFantasma fantasmas = this.getFantasmas();
+		for(int i=0; i<fantasmas.size(); i++){
+			this.controlador.agregarObjetoVivo(fantasmas.get(i));
+		}
+		
+		this.controlador.agregarDibujable(new VistaPacman(this.getPacman()));
+		
+		//TODO agregar vistas de fantasmas
+		
+		this.controlador.comenzarJuego();
 	}
 	
 	public void avanzarNivel(){
@@ -52,19 +69,7 @@ public class Juego {
 			((Fantasma)(this.mapa.getFantasmas().get(i))).reiniciar();
 		}
 	}
-	
-	/*TODO ¿Para que hay dos getCelda?
-	
-	public Celda getCelda(int x, int y){
-		Celda celdaTrucha = null;
-		try{
-			celdaTrucha = this.getCelda(new Point(x, y));
-		}catch(RangoException e){
-			
-		}
-		return celdaTrucha;
-	}*/
-	
+
 	public Celda getCelda(Point punto){
 		Celda celdaTrucha = null;
 		try{
@@ -103,9 +108,8 @@ public class Juego {
 		return new Point(this.mapa.getN(), this.mapa.getM());
 	}
 
-	public Mapa getMapa() {
+	public Mapa getMapa() { // Para que? Deberia ser transparente.
 		return this.mapa;
-		
 	}
 
 }
