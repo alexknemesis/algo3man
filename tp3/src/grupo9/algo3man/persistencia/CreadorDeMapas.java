@@ -132,14 +132,14 @@ public class CreadorDeMapas extends JFrame implements KeyListener{
 				xGrilla=((ANCHO_MAPA-1) * ANCHO_CELDA);
 
 			break;
-		case KeyEvent.VK_NUMPAD8:
+		case KeyEvent.VK_PAGE_UP:
 			
 			yTools--;
 			if (yTools < 0)
 				yTools=0;
 
 			break;
-		case KeyEvent.VK_NUMPAD2:
+		case KeyEvent.VK_PAGE_DOWN:
 			yTools++;
 			if (yTools > (imagenes.size()-1))
 				yTools=imagenes.size()-1;
@@ -219,36 +219,36 @@ public class CreadorDeMapas extends JFrame implements KeyListener{
 	}
 	
 	public void cargarImagenes(){
-		imagenes.add ( new ImagenAGuardar("imagenes/vacio.png","CeldaVacia",new Point(0,1)));
-		imagenes.add ( new ImagenAGuardar("imagenes/dobleBordeDer.png","CeldaPared",new Point(0,2)));
-		imagenes.add ( new ImagenAGuardar("imagenes/dobleBordeInf.png","CeldaPared",new Point(0,3)));
-		imagenes.add ( new ImagenAGuardar("imagenes/dobleBordeIzq.png","CeldaPared",new Point(0,4)));
-		imagenes.add ( new ImagenAGuardar("imagenes/dobleBordeSup.png","CeldaPared",new Point(0,5)));
-		imagenes.add ( new ImagenAGuardar("imagenes/esquinaDobleInfDer.png","CeldaPared",new Point(0,6)));
-		imagenes.add ( new ImagenAGuardar("imagenes/esquinaDobleInfIzq.png","CeldaPared",new Point(0,7)));
-		imagenes.add ( new ImagenAGuardar("imagenes/esquinaDobleSupDer.png","CeldaPared",new Point(0,8)));
-		imagenes.add ( new ImagenAGuardar("imagenes/esquinaDobleSupIzq.png","CeldaPared",new Point(0,9)));
-		imagenes.add ( new ImagenAGuardar("imagenes/esquinaRectaInfDer.png","CeldaPared",new Point(0,10)));
-		imagenes.add ( new ImagenAGuardar("imagenes/esquinaRectaInfIzq.png","CeldaPared",new Point(0,11)));
-		imagenes.add ( new ImagenAGuardar("imagenes/esquinaRectaSupDer.png","CeldaPared",new Point(0,12)));
-		imagenes.add ( new ImagenAGuardar("imagenes/esquinaRectaSupIzq.png","CeldaPared",new Point(0,13)));
-		imagenes.add ( new ImagenAGuardar("imagenes/esquinaSimpleInfDer.png","CeldaPared",new Point(0,14)));
-		imagenes.add ( new ImagenAGuardar("imagenes/esquinaSimpleInfIzq.png","CeldaPared",new Point(0,15)));
-		imagenes.add ( new ImagenAGuardar("imagenes/esquinaSimpleSupDer.png","CeldaPared",new Point(0,16)));
-		imagenes.add ( new ImagenAGuardar("imagenes/esquinaSimpleSupIzq.png","CeldaPared",new Point(0,17)));
-		imagenes.add ( new ImagenAGuardar("imagenes/lineaHorizAlta.png","CeldaPared",new Point(0,18)));
-		imagenes.add ( new ImagenAGuardar("imagenes/lineaHorizBaja.png","CeldaPared",new Point(0,19)));
-		imagenes.add ( new ImagenAGuardar("imagenes/lineaVertDerecha.png","CeldaPared",new Point(0,20)));
-		imagenes.add ( new ImagenAGuardar("imagenes/lineaVertIzquierda.png","CeldaPared",new Point(0,21)));
-		imagenes.add ( new ImagenAGuardar("imagenes/puerta.png","CeldaPuerta",new Point(0,22)));
-		imagenes.add ( new ImagenAGuardar("imagenes/puntoChico.png","PuntoOrdinario",new Point(0,23)));
-		imagenes.add ( new ImagenAGuardar("imagenes/puntoGrande.png","PuntoPoder",new Point(0,24)));
-		imagenes.add ( new ImagenAGuardar("imagenes/esquinaSimpleInfDerLineaArriba.png","CeldaPared",new Point(0,25)));
-		imagenes.add ( new ImagenAGuardar("imagenes/esquinaSimpleInfIzqLineaArriba.png","CeldaPared",new Point(0,26)));
-		imagenes.add ( new ImagenAGuardar("imagenes/posPreferidaFantasmaCeleste.png","PosPreferidaFantasmaCeleste",new Point(0,27)));
-		imagenes.add ( new ImagenAGuardar("imagenes/posPreferidaFantasmaNaranja.png","PosPreferidaFantasmaNaranja",new Point(0,28)));
-		imagenes.add ( new ImagenAGuardar("imagenes/posPreferidaFantasmaRojo.png","PosPreferidaFantasmaRojo",new Point(0,29)));
-		imagenes.add ( new ImagenAGuardar("imagenes/posPreferidaFantasmaVioleta.png","PosPreferidaFantasmaVioleta",new Point(0,30)));
+		imagenes.add ( new ImagenAGuardar("tp3/imagenes/vacio.png","CeldaVacia",new Point(0,1)));
+		imagenes.add ( new ImagenAGuardar("tp3/imagenes/dobleBordeDer.png","CeldaPared",new Point(0,2)));
+		imagenes.add ( new ImagenAGuardar("tp3/imagenes/dobleBordeInf.png","CeldaPared",new Point(0,3)));
+		imagenes.add ( new ImagenAGuardar("tp3/imagenes/dobleBordeIzq.png","CeldaPared",new Point(0,4)));
+		imagenes.add ( new ImagenAGuardar("tp3/imagenes/dobleBordeSup.png","CeldaPared",new Point(0,5)));
+		imagenes.add ( new ImagenAGuardar("tp3/imagenes/esquinaDobleInfDer.png","CeldaPared",new Point(0,6)));
+		imagenes.add ( new ImagenAGuardar("tp3/imagenes/esquinaDobleInfIzq.png","CeldaPared",new Point(0,7)));
+		imagenes.add ( new ImagenAGuardar("tp3/imagenes/esquinaDobleSupDer.png","CeldaPared",new Point(0,8)));
+		imagenes.add ( new ImagenAGuardar("tp3/imagenes/esquinaDobleSupIzq.png","CeldaPared",new Point(0,9)));
+		imagenes.add ( new ImagenAGuardar("tp3/imagenes/esquinaRectaInfDer.png","CeldaPared",new Point(0,10)));
+		imagenes.add ( new ImagenAGuardar("tp3/imagenes/esquinaRectaInfIzq.png","CeldaPared",new Point(0,11)));
+		imagenes.add ( new ImagenAGuardar("tp3/imagenes/esquinaRectaSupDer.png","CeldaPared",new Point(0,12)));
+		imagenes.add ( new ImagenAGuardar("tp3/imagenes/esquinaRectaSupIzq.png","CeldaPared",new Point(0,13)));
+		imagenes.add ( new ImagenAGuardar("tp3/imagenes/esquinaSimpleInfDer.png","CeldaPared",new Point(0,14)));
+		imagenes.add ( new ImagenAGuardar("tp3/imagenes/esquinaSimpleInfIzq.png","CeldaPared",new Point(0,15)));
+		imagenes.add ( new ImagenAGuardar("tp3/imagenes/esquinaSimpleSupDer.png","CeldaPared",new Point(0,16)));
+		imagenes.add ( new ImagenAGuardar("tp3/imagenes/esquinaSimpleSupIzq.png","CeldaPared",new Point(0,17)));
+		imagenes.add ( new ImagenAGuardar("tp3/imagenes/lineaHorizAlta.png","CeldaPared",new Point(0,18)));
+		imagenes.add ( new ImagenAGuardar("tp3/imagenes/lineaHorizBaja.png","CeldaPared",new Point(0,19)));
+		imagenes.add ( new ImagenAGuardar("tp3/imagenes/lineaVertDerecha.png","CeldaPared",new Point(0,20)));
+		imagenes.add ( new ImagenAGuardar("tp3/imagenes/lineaVertIzquierda.png","CeldaPared",new Point(0,21)));
+		imagenes.add ( new ImagenAGuardar("tp3/imagenes/puerta.png","CeldaPuerta",new Point(0,22)));
+		imagenes.add ( new ImagenAGuardar("tp3/imagenes/puntoChico.png","PuntoOrdinario",new Point(0,23)));
+		imagenes.add ( new ImagenAGuardar("tp3/imagenes/puntoGrande.png","PuntoPoder",new Point(0,24)));
+		imagenes.add ( new ImagenAGuardar("tp3/imagenes/esquinaSimpleInfDerLineaArriba.png","CeldaPared",new Point(0,25)));
+		imagenes.add ( new ImagenAGuardar("tp3/imagenes/esquinaSimpleInfIzqLineaArriba.png","CeldaPared",new Point(0,26)));
+		imagenes.add ( new ImagenAGuardar("tp3/imagenes/posPreferidaFantasmaCeleste.png","PosPreferidaFantasmaCeleste",new Point(0,27)));
+		imagenes.add ( new ImagenAGuardar("tp3/imagenes/posPreferidaFantasmaNaranja.png","PosPreferidaFantasmaNaranja",new Point(0,28)));
+		imagenes.add ( new ImagenAGuardar("tp3/imagenes/posPreferidaFantasmaRojo.png","PosPreferidaFantasmaRojo",new Point(0,29)));
+		imagenes.add ( new ImagenAGuardar("tp3/imagenes/posPreferidaFantasmaVioleta.png","PosPreferidaFantasmaVioleta",new Point(0,30)));
 		
 		
 
@@ -265,10 +265,10 @@ public class CreadorDeMapas extends JFrame implements KeyListener{
 			    File file = new File (nombreArchivo);
     			FileWriter out = new FileWriter(file);
     			
-    			out.write("<?xml version=\"1.0\" encoding=\"ISO-8859-1\" ?>\n");
+    			out.write("<?xml version=\"1.0\" encoding=\""+ out.getEncoding() + "\" ?>\n");
 
     			out.write("\n<AnchoMapa>" + String.valueOf(ANCHO_MAPA)+"</AnchoMapa>\n");
-    			out.write("\n<AltoMapa>" + String.valueOf(ALTO_MAPA)+"</AltoMapa>\n");
+    			out.write("<AltoMapa>" + String.valueOf(ALTO_MAPA)+"</AltoMapa>\n");
     			
     			
     			for(int x =0; x < ANCHO_MAPA; x++){
