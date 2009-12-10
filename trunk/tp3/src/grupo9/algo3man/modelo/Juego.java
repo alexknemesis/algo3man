@@ -89,8 +89,9 @@ public class Juego {
 		Celda celdaTrucha = null;
 		try{
 			celdaTrucha = this.mapa.getCelda(punto);
-		}catch(RangoException e){
-			
+		}catch(RangoException e){/* issue de fantasma violeta era por esto, en el catch estaba vacío */
+			/* Devuelvo rangoException */
+			throw new RangoException();
 		}
 		return celdaTrucha;
 	}

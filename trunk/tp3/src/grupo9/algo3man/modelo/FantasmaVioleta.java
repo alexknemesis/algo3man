@@ -40,7 +40,6 @@ public class FantasmaVioleta extends Fantasma {
 		Celda celdaObjetivo;
 		
 		Pacman pacman = juego.getPacman();
-		
 		posiNuevaCelda=new Point(pacman.getPosicion());
 		
 		switch (pacman.getDireccion()){
