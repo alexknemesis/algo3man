@@ -31,7 +31,7 @@ public class CreadorDeMapas extends JFrame implements KeyListener{
 	private static final int ANCHO_CELDA = 16;
 	private static final int ANCHO_MAPA = 28;
 	private static final int ALTO_MAPA = 31;
-	private static final String ARCHIVO_XML = "mapa0.xml";
+	
 
 	private static final long serialVersionUID = 1L;
 
@@ -44,7 +44,6 @@ public class CreadorDeMapas extends JFrame implements KeyListener{
 	private int yGrilla;
 	private int yTools;
 	
-	private File archivo;
 
 	public static void main (String[] args) {
 		CreadorDeMapas ejemplo = new CreadorDeMapas();
@@ -148,7 +147,7 @@ public class CreadorDeMapas extends JFrame implements KeyListener{
 			break;
 		case KeyEvent.VK_ENTER:
 			auxImagen = (ImagenAGuardar) imagenes.get(yTools).clone();
-			auxImagen.setPosicion(new Point(xGrilla,yGrilla));
+			auxImagen.setPosicion(new Point(xGrilla / ANCHO_CELDA ,yGrilla / ANCHO_CELDA));
 			grillaImagenes[xGrilla / ANCHO_CELDA][yGrilla / ANCHO_CELDA]= auxImagen;
 			
 			break;
@@ -258,14 +257,28 @@ public class CreadorDeMapas extends JFrame implements KeyListener{
 	private void guardarComoXML(){
 		JFileChooser chooser = new JFileChooser();
 		int returnVal = chooser.showSaveDialog(this);
+		ImagenAGuardar auxImagen;
+		
         if (returnVal == JFileChooser.APPROVE_OPTION) {
         	String nombreArchivo = chooser.getSelectedFile().getPath();
 			try{
 			    File file = new File (nombreArchivo);
     			FileWriter out = new FileWriter(file);
-    			for(int x =0; x< ANCHO_MAPA; x++)
-    				for (int y = 0; y< ALTO_MAPA; y++)
-    					out.write(grillaImagenes[x][y].getXML());
+    			
+    			out.write("<?xml version=\"1.0\" encoding=\"ISO-8859-1\" ?>\n");
+
+    			out.write("\n<AnchoMapa>" + String.valueOf(ANCHO_MAPA)+"</AnchoMapa>\n");
+    			out.write("\n<AltoMapa>" + String.valueOf(ALTO_MAPA)+"</AltoMapa>\n");
+    			
+    			
+    			for(int x =0; x < ANCHO_MAPA; x++){
+    				for (int y = 0; y < ALTO_MAPA; y++){
+    					//Para que empiece desde 1,1
+    					auxImagen = (ImagenAGuardar) grillaImagenes[x][y].clone();
+    					auxImagen.setPosicion(new Point(x+1,y+1));
+    					out.write(auxImagen.getXML());
+    				}
+    			}
     			out.close();
     		}
   			catch (IOException e1) {
