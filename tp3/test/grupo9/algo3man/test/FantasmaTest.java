@@ -96,5 +96,12 @@ public class FantasmaTest extends TestCase {
 		assertEquals(this.juego, fantasmita.getJuego());
 		
 	}
+	
+	public void testEstarEnLaMismaCeldaConElPacmanDisperso(){
+
+		this.pacman.setPosicion(this.fantasma.getPosicion());
+		this.fantasma.vivir();
+		assertEquals(this.pacman.getPosicionInicial(),this.pacman.getPosicion());
+	}
 
 }
