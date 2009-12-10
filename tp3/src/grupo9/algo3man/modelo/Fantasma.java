@@ -18,6 +18,19 @@ public abstract class Fantasma extends Personaje {
 	protected int ticsParaSalirDeDisperso;
 	protected int contadorTicsParaSalirDeDisperso;
 	
+	/**
+	 * Construye el fantasma que hereda de Personaje, queda en estado disperso
+	 * 
+	 * @param  posicionInicial la Posicion en la que empieza el fantasma 
+	 * @param  celdaPreferida la posicion a la cual tenderá a ir estando en modo disperso
+	 * @param  velocidad lo que tardará en moverse, [1;inf)
+	 * @param  direccion la direccion en la que empezará a moverse 
+	 * @param  juego la clase principal
+	 * @see Personaje
+	 * @see Point
+	 * @see Juego
+	 * @see Celda
+	 */
 	public Fantasma(Point posicionInicial, Celda celdaPreferida, int velocidad, int direccion, Juego juego) {
 		super(posicionInicial, velocidad, direccion, juego);
 		this.celdaPreferida = celdaPreferida;
@@ -68,6 +81,7 @@ public abstract class Fantasma extends Personaje {
 		}
 
 	}
+	
 	
 	private void determinarEstado() {
 		//Cambia el estado solo si salió del modo disperso
