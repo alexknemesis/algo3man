@@ -1,6 +1,10 @@
 package grupo9.algo3man.modelo;
 
 import grupo9.algo3man.titiritero.ControladorJuego;
+import grupo9.algo3man.vista.VistaFantasmaCeleste;
+import grupo9.algo3man.vista.VistaFantasmaNaranja;
+import grupo9.algo3man.vista.VistaFantasmaRojo;
+import grupo9.algo3man.vista.VistaFantasmaVioleta;
 import grupo9.algo3man.vista.VistaPacman;
 
 import java.awt.Point;
@@ -32,10 +36,18 @@ public class Juego {
 		}
 		
 		this.controlador.agregarDibujable(new VistaPacman(this.getPacman()));
-		
-		//TODO agregar vistas de fantasmas
-		
+		this.controlador.agregarDibujable(new VistaFantasmaCeleste(this.mapa.getFantasmaCeleste()));
+		this.controlador.agregarDibujable(new VistaFantasmaNaranja(this.mapa.getFantasmaNaranja()));
+		this.controlador.agregarDibujable(new VistaFantasmaRojo(this.mapa.getFantasmaRojo()));
+		this.controlador.agregarDibujable(new VistaFantasmaVioleta(this.mapa.getFantasmaVioleta()));
+	}
+	
+	public void comenzarJuego(){
 		this.controlador.comenzarJuego();
+	}
+	
+	public void pausarJuego(){
+		this.controlador.detenerJuego();
 	}
 	
 	public void avanzarNivel(){
@@ -61,6 +73,9 @@ public class Juego {
 		
 		this.vidas--;
 		this.reiniciarPersonajes();
+		
+		if(this.isGameOver())
+			this.controlador.detenerJuego();
 	}
 	
 	public void reiniciarPersonajes(){
@@ -96,6 +111,10 @@ public class Juego {
 	
 	public int getVidas(){
 		return this.vidas;
+	}
+	
+	public ControladorJuego getControlador(){
+		return this.controlador;
 	}
 	
 	public Pacman getPacman(){
