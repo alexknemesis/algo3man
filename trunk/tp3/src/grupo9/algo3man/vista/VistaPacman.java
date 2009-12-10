@@ -1,5 +1,7 @@
 package grupo9.algo3man.vista;
 
+import java.awt.Color;
+
 import grupo9.algo3man.modelo.Pacman;
 import grupo9.algo3man.titiritero.Dibujable;
 import grupo9.algo3man.titiritero.Posicionable;
@@ -12,12 +14,12 @@ public class VistaPacman extends Circulo implements Dibujable{
 	
 	public VistaPacman(Pacman pacman){
 		super(RADIO);
+		this.setColor(Color.YELLOW);
 		this.pacman = pacman;
 	}
 
-	@Override
 	public void dibujar(SuperficieDeDibujo superfice) {
-		// TODO Auto-generated method stub
+		// TODO posicion
 		
 	}
 
