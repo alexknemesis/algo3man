@@ -53,6 +53,18 @@ public class Mapa {
 		public ListaFantasma getFantasmas(){
 			return this.fantasmas;
 		}
+		public Fantasma getFantasmaCeleste(){
+			return this.fantasmas.get(0);
+		}
+		public Fantasma getFantasmaRojo(){
+			return this.fantasmas.get(1);
+		}
+		public Fantasma getFantasmaNaranja(){
+			return this.fantasmas.get(2);
+		}
+		public Fantasma getFantasmaVioleta(){
+			return this.fantasmas.get(3);
+		}
 		
 		public void restarPunto(){
 			if (this.puntosSinComer == 0){
