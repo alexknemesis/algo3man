@@ -33,13 +33,20 @@ public abstract class Fantasma extends Personaje {
 		this.checkPacmanEnCelda();
 		
 		/* ACTUALIZACION: El fantasma sabe cuando cambia de estado, empezando en
+		 * 
 		 * modo DISPERSO
 		 */
 		
 		if (this.contadorTicsParaSalirDeDisperso < this.ticsParaSalirDeDisperso){
 			this.contadorTicsParaSalirDeDisperso++;
 		}
-
+		/* ACTUALIZACION: El fantasma no debe esperar a salir de disperso para 
+		 * huir del pacman en caso que este se haya comido un punto de poder
+		 */
+		if (this.juego.getPacman().getEstado() == Pacman.VICTIMARIO)
+			this.huirDelPacman();
+		
+		
 		// Esto es una versiÃ³n primitiva de la implementaciÃ³n del contador
 		// de tics, pero igual no creo que tenga mucha mÃ¡s vuelta..
 
@@ -118,7 +125,7 @@ public abstract class Fantasma extends Personaje {
 		direccionAMinimaDistancia = -1;
 		
 		celdasAlrededor = new Celda[4];
-		//Cambie esto porque ya había un getCelda pero de Points y estaba mal pedida la posicion izq y der
+		//Cambie esto porque ya habï¿½a un getCelda pero de Points y estaba mal pedida la posicion izq y der
 		celdasAlrededor[ARRIBA] = this.juego.getCelda(new Point(this.posicion.x,this.posicion.y - 1));
 		celdasAlrededor[ABAJO] = this.juego.getCelda(new Point(this.posicion.x,this.posicion.y + 1));
 		celdasAlrededor[IZQUIERDA] = this.juego.getCelda(new Point(this.posicion.x,this.posicion.y - 1));
@@ -172,7 +179,7 @@ public abstract class Fantasma extends Personaje {
 		
 		celdasAlrededor = new Celda[4];
 		
-		//Cambie esto porque ya había un getCelda pero de Points y estaba mal pedida la posicion izq y der
+		//Cambie esto porque ya habï¿½a un getCelda pero de Points y estaba mal pedida la posicion izq y der
 		celdasAlrededor[ARRIBA] = this.juego.getCelda(new Point(this.posicion.x,this.posicion.y - 1));
 		celdasAlrededor[ABAJO] = this.juego.getCelda(new Point(this.posicion.x,this.posicion.y + 1));
 		celdasAlrededor[IZQUIERDA] = this.juego.getCelda(new Point(this.posicion.x,this.posicion.y - 1));
