@@ -102,7 +102,6 @@ public class CreadorDeMapas extends JFrame implements KeyListener{
 	
 	}
 
-	@Override
 	public void keyPressed (KeyEvent e) {
 		ImagenAGuardar auxImagen;
 		boolean cambio = true;
@@ -288,10 +287,8 @@ public class CreadorDeMapas extends JFrame implements KeyListener{
     }	
 
 	
-	@Override
 	public void keyReleased(KeyEvent e) {}
 
-	@Override
 	public void keyTyped(KeyEvent e) {}
 
 }
