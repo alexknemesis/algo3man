@@ -3,6 +3,7 @@ package grupo9.algo3man.test;
 
 import grupo9.algo3man.modelo.Celda;
 import grupo9.algo3man.modelo.CeldaPared;
+import grupo9.algo3man.modelo.CeldaVacia;
 import grupo9.algo3man.modelo.Juego;
 import grupo9.algo3man.modelo.Mapa;
 import grupo9.algo3man.modelo.RangoException;
@@ -55,7 +56,7 @@ public class MapaTest extends TestCase {
 		Assert.assertEquals(this.mapa.getPuntos(), 7);
 	}
 	
-	public void testRestarPunto_Fail() {
+	/*public void testRestarPunto_Fail() {
 		
 		this.mapaTrucho = new Mapa(1,1,this.juego,new Point(10,10), new Point(7,10),1);
 		this.mapaTrucho.restarPunto();
@@ -65,7 +66,7 @@ public class MapaTest extends TestCase {
 		}catch(RestarPuntoException e){
 			Assert.assertEquals(true, true);
 		}
-	}
+	}*/
 
 	public void testAgregar_Ok() {
 		Point punto = new Point(1,3);
@@ -127,7 +128,7 @@ public class MapaTest extends TestCase {
 			
 	}
 	
-	
+
 	
 	
 
