@@ -103,5 +103,13 @@ public class FantasmaTest extends TestCase {
 		this.fantasma.vivir();
 		assertEquals(this.pacman.getPosicionInicial(),this.pacman.getPosicion());
 	}
+	
+	public void testMoverseDisperso(){
+		this.fantasma.setPosicion(new Point(6,5));
+		for(int i=0; i<20; i++){
+			System.out.println(this.fantasma.getPosicion());
+			this.fantasma.vivir();
+		}
+	}
 
 }
