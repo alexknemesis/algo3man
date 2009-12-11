@@ -1,12 +1,15 @@
 package grupo9.algo3man.test;
 
 
+import grupo9.algo3man.modelo.Celda;
 import grupo9.algo3man.modelo.Fantasma;
 import grupo9.algo3man.modelo.GameOverException;
 import grupo9.algo3man.modelo.Juego;
 import grupo9.algo3man.modelo.ListaFantasma;
 
 import java.awt.Point;
+
+import junit.framework.Assert;
 import junit.framework.TestCase;
 
 public class JuegoTest extends TestCase {
@@ -117,5 +120,14 @@ public class JuegoTest extends TestCase {
 		} catch (Exception e){
 			assertTrue(true);
 		}
+	}
+	
+	public void testComprobarCelda(){
+		Celda celda = this.juego.getCelda(new Point(15,13));
+		if (celda == null){
+			fail("es null");
+		}else Assert.assertEquals(true, true);
+		
+		
 	}
 }
