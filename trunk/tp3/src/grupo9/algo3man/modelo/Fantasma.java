@@ -15,8 +15,8 @@ public abstract class Fantasma extends Personaje {
 	//protected Pacman pacman;
 	
 	protected int estado;
-	protected int ticsParaSalirDeDisperso;
-	protected int contadorTicsParaSalirDeDisperso;
+	protected int ticsParaCambiarDeEstado;
+	protected int contadorTicsParaCambiarDeEstado;
 	
 	/**
 	 * Construye el fantasma que hereda de Personaje, queda en estado disperso
@@ -50,8 +50,11 @@ public abstract class Fantasma extends Personaje {
 		 * modo DISPERSO
 		 */
 		
-		if (this.contadorTicsParaSalirDeDisperso < this.ticsParaSalirDeDisperso){
-			this.contadorTicsParaSalirDeDisperso++;
+		if (this.contadorTicsParaCambiarDeEstado < this.ticsParaCambiarDeEstado){
+			this.contadorTicsParaCambiarDeEstado++;
+			/*ACTUALIZACIÓN LUCAS 12/12	cambie el nombre de estas variables
+			porque ahora cada 60 tics cambia de disperso a cazando y viceversa
+			siempre que el pacman no este en victimario*/
 		}
 		/* ACTUALIZACION: El fantasma no debe esperar a salir de disperso para 
 		 * huir del pacman en caso que este se haya comido un punto de poder
@@ -85,13 +88,26 @@ public abstract class Fantasma extends Personaje {
 	
 	private void determinarEstado() {
 		//Cambia el estado solo si saliÃ³ del modo disperso
-		if(this.contadorTicsParaSalirDeDisperso == this.ticsParaSalirDeDisperso){
-			if (juego.getPacman().getEstado() == Pacman.VICTIMA){ 
-				this.cazarAlPacman();
-			}else{
-				this.huirDelPacman();
+		if (this.getEstado()!=HUYENDO){
+			/*ACTUALIZACION 15/12 Lucas: Si verifica en el vivir que el Pacman es VICTIMARIO y si es así cambia
+			 * su estado a HUYENDO entonces no tenes que verificar otra vez lo mismo 
+			 * 
+			 */
+			if(this.contadorTicsParaCambiarDeEstado == this.ticsParaCambiarDeEstado){
+				if ((juego.getPacman().getEstado() == Pacman.VICTIMA) && (this.estado == DISPERSO)){ 
+					this.cazarAlPacman();
+				}else if ((juego.getPacman().getEstado() == Pacman.VICTIMA) && (this.estado == CAZANDO)){
+					/* ACTUALIZACION 15/12 
+					 * Si el pacman esta en victima y estaba el fantasma previamente en CAZANDO vuelve a 
+					 * DISPERSO
+					 **/
+					 
+					this.dispersarse();
+				
+				}
 			}
 		}
+		
 	}
 
 	private void checkPacmanEnCelda(){
@@ -113,6 +129,11 @@ public abstract class Fantasma extends Personaje {
 	 */
 	protected void cazarAlPacman(){
 		this.estado = CAZANDO;
+		this.contadorTicsParaCambiarDeEstado = 0;
+		/*ACTUALIZACIÓN 15/12 LUCAS: Ahora el fantasma cambia de cazar a disperso si el
+		 * pacman sigue en victimario
+		 * 
+		 */
 	}
 
 	protected void huirDelPacman(){
@@ -121,7 +142,7 @@ public abstract class Fantasma extends Personaje {
 	
 	protected void dispersarse(){
 		this.estado = DISPERSO;
-		this.contadorTicsParaSalirDeDisperso = 0;
+		this.contadorTicsParaCambiarDeEstado = 0;
 	}
 	
 	public int getEstado(){

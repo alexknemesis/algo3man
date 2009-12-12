@@ -14,7 +14,7 @@ public class FantasmaCeleste extends Fantasma {
 
 	public FantasmaCeleste(Point posicionInicial, Celda posicionPreferida, int velocidad, int direccion, Juego juego) {
 		super(posicionInicial, posicionPreferida, velocidad, direccion, juego);
-		this.ticsParaSalirDeDisperso = TICS_ANTES_DE_CAZAR * 3;
+		this.ticsParaCambiarDeEstado = TICS_ANTES_DE_CAZAR * 3;
 	}
 
 	protected int determinarSiguienteDireccion() {
