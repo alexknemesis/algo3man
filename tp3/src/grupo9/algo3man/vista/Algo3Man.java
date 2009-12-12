@@ -37,7 +37,9 @@ public class Algo3Man extends JFrame implements ActionListener{
 		this.setJMenuBar(barraMenu);
 		
 		this.juego = new Juego();
-		Panel panelPacman = new Panel(100, 100, juego.getControlador()); //TODO agregar dimensiones
+		int dimensionX = (int) (juego.getDimensiones().getX()*juego.TAMANIO_CELDA_PIXELES);
+		int dimensionY = (int) (juego.getDimensiones().getY()*juego.TAMANIO_CELDA_PIXELES);
+		Panel panelPacman = new Panel(dimensionX, dimensionY, juego.getControlador());
 		juego.getControlador().setSuperficieDeDibujo(panelPacman);
 		this.getContentPane().add(panelPacman);
 		

@@ -7,6 +7,10 @@ public abstract class CeldaTransitable extends Celda {
 	public CeldaTransitable(Mapa mapa, Point posicion) {
 		super(mapa, posicion);
 		
-	}	
+	}
+	
+	public boolean esTransitable(){
+		return true;
+	}
 
 }
