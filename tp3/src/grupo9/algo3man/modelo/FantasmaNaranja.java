@@ -13,7 +13,7 @@ public class FantasmaNaranja extends Fantasma {
 
 	public FantasmaNaranja(Point posicionInicial, Celda posicionPreferida, int velocidad, int direccion, Juego juego) {
 		super(posicionInicial, posicionPreferida, velocidad, direccion, juego);
-		this.ticsParaSalirDeDisperso = TICS_ANTES_DE_CAZAR * 4;
+		this.ticsParaCambiarDeEstado = TICS_ANTES_DE_CAZAR * 4;
 	}
 
 	protected int determinarSiguienteDireccion() {

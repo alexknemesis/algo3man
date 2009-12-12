@@ -18,12 +18,10 @@ public class PuntoPosicionable implements Posicionable {
 		this.punto = punto;
 	}
 	
-	@Override
 	public int getX() {
 		return (int) (punto.getX()*TRANSX);
 	}
 
-	@Override
 	public int getY() {
 		return (int) (punto.getX()*TRANSX);
 	}
