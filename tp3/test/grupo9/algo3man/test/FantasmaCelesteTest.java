@@ -1,6 +1,3 @@
-/**
- * 
- */
 package grupo9.algo3man.test;
 
 import java.awt.Point;
@@ -13,14 +10,12 @@ import junit.framework.Assert;
 import junit.framework.TestCase;
 
 /**
- * @author cripton
+ * @author Lucas Robles
  *
  */
 public class FantasmaCelesteTest extends TestCase {
 
-	/* (non-Javadoc)
-	 * @see junit.framework.TestCase#setUp()
-	 */
+	
 	private Juego juego;
 	private FantasmaCeleste fantasma;
 	private Pacman pacman;
@@ -31,7 +26,7 @@ public class FantasmaCelesteTest extends TestCase {
 		this.juego = new Juego();
 		this.fantasma = (FantasmaCeleste) this.juego.getFantasmas().get(0);
 		this.pacman = juego.getPacman();
-		//assertTrue(this.fantasma instanceof FantasmaCeleste);
+		
 	}
 	
 	public void testMorir() {
