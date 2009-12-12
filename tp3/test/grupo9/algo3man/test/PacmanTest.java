@@ -45,6 +45,7 @@ public class PacmanTest extends TestCase {
 	}
 	
 	public void testMorir(){
+		this.pacman.setPosicion(new Point(7,2));
 		this.pacman.morir();
 		assertEquals(2,this.juego.getVidas());
 		assertEquals(this.pacman.getPosicion(), this.pacman.getPosicionInicial());
@@ -57,7 +58,15 @@ public class PacmanTest extends TestCase {
 		Assert.assertEquals(this.pacman.getPosicion().y, 9);
 		
 	}
-
+	
+	public void testPacmanVaDeVictimarioAVictima(){
+		this.pacman.setPosicion(new Point(2,3));
+		this.pacman.vivir();
+		for (int i=0; i < 10; i++){ 
+			this.pacman.vivir();
+		}
+		Assert.assertEquals(Pacman.VICTIMA, this.pacman.getEstado());
+	}
 	
 	
 
