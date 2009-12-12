@@ -50,7 +50,7 @@ public class FantasmaCeleste extends Fantasma {
 				
 				break;
 			case Pacman.ARRIBA:
-				posiNuevaCelda= new Point(this.getPosicion().x, pacman.getPosicion().y - 4);
+				posiNuevaCelda= new Point(this.getPosicion().x, pacman.getPosicion().y - 2);
 				
 				break;
 			case Pacman.IZQUIERDA:
