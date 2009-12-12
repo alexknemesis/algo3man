@@ -1,6 +1,8 @@
 package grupo9.algo3man.modelo;
 
 import grupo9.algo3man.titiritero.ControladorJuego;
+import grupo9.algo3man.vista.VistaCeldaPared;
+import grupo9.algo3man.vista.VistaCeldaPunto;
 import grupo9.algo3man.vista.VistaFantasmaCeleste;
 import grupo9.algo3man.vista.VistaFantasmaNaranja;
 import grupo9.algo3man.vista.VistaFantasmaRojo;
@@ -14,6 +16,7 @@ public class Juego {
 	final private int VIDAS_INICIALES = 3;
 	final private int NIVEL_INICIAL = 0;
 	final private int PUNTOS_NIVEL_GANADO = 1000;
+	final public int TAMANIO_CELDA_PIXELES = 10;
 	
 	private int nivel;
 	private int puntaje;
@@ -40,6 +43,18 @@ public class Juego {
 		this.controlador.agregarDibujable(new VistaFantasmaNaranja(this.mapa.getFantasmaNaranja()));
 		this.controlador.agregarDibujable(new VistaFantasmaRojo(this.mapa.getFantasmaRojo()));
 		this.controlador.agregarDibujable(new VistaFantasmaVioleta(this.mapa.getFantasmaVioleta()));
+		
+		for(int i=0;i<this.getMapa().getN();i++){
+			for(int j=0;j<this.getMapa().getM();j++){
+				Celda celda = this.getCelda(new Point(i,j));
+				if(celda.esTransitable()){
+					this.controlador.agregarDibujable(new VistaCeldaPunto(TAMANIO_CELDA_PIXELES,TAMANIO_CELDA_PIXELES,(CeldaPunto) celda));
+				} else {
+					this.controlador.agregarDibujable(new VistaCeldaPared(TAMANIO_CELDA_PIXELES,TAMANIO_CELDA_PIXELES,(CeldaPared) celda));
+				}
+					
+			}
+		}
 	}
 	
 	public void comenzarJuego(){

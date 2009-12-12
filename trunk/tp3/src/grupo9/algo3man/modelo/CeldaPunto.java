@@ -10,7 +10,7 @@ public abstract class CeldaPunto extends CeldaTransitable {
 		this.comido = false;
 		
 	}
-	protected boolean isComido(){
+	public boolean isComido(){
 		return comido;
 	}
 

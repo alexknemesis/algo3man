@@ -2,7 +2,7 @@ package grupo9.algo3man.modelo;
 
 import java.awt.Point;
 
-public class CeldaPuerta extends CeldaTransitable {//TODO Es transitable una �nica vez cuando salen los fantasmas de las casitas
+public class CeldaPuerta extends CeldaTransitable {
 	
 	
 	

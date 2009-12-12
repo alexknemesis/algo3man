@@ -266,13 +266,13 @@ public class FabricaDeMapas { //crea los mapas
 		
 		//agrego puerta posicion (9,6)
 		punto = new Point(9,6);
-		celda = new CeldaPuerta(mapa, punto);
+		celda = new CeldaPared(mapa, punto);
 		mapa.agregar(punto, celda);
 		
 		//agrego las celdas desde (10,6) hasta (11,6)
 		for (x=10;x<11+1;x++){
 			punto = new Point(x,6);
-			celda = new CeldaPared(mapa, punto);
+			celda = new CeldaPared(mapa, punto); 
 			mapa.agregar(punto, celda);
 		}
 		
