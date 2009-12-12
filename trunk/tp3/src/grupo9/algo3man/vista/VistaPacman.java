@@ -9,29 +9,26 @@ import grupo9.algo3man.titiritero.SuperficieDeDibujo;
 import grupo9.algo3man.titiritero.vista.Circulo;
 
 public class VistaPacman extends Circulo implements Dibujable{
-	private Pacman pacman;
+	private Posicionable pacman;
 	final private static int RADIO = 3;
 	
 	public VistaPacman(Pacman pacman){
 		super(RADIO);
 		this.setColor(Color.YELLOW);
-		this.pacman = pacman;
+		this.setPosicionable(this.pacman);
 	}
 
 	public void dibujar(SuperficieDeDibujo superfice) {
-		// TODO posicion
 		
 	}
 
 	@Override
 	public Posicionable getPosicionable() {
-		// TODO Auto-generated method stub
-		return null;
+		return this.pacman;
 	}
 
 	@Override
 	public void setPosicionable(Posicionable posicionable) {
-		// TODO Auto-generated method stub
-		
+		this.pacman = posicionable;
 	}
 }

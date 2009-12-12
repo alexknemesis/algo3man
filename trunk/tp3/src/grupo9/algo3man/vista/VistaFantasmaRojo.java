@@ -14,7 +14,7 @@ public class VistaFantasmaRojo extends Circulo implements Dibujable {
 	
 	public VistaFantasmaRojo(Fantasma fantasma){
 		super(RADIO);
-		this.fantasma = fantasma;
+		this.setPosicionable(fantasma);
 	}
 
 	public void dibujar(SuperficieDeDibujo superfice) {
@@ -26,12 +26,10 @@ public class VistaFantasmaRojo extends Circulo implements Dibujable {
 	}
 
 	public Posicionable getPosicionable() {
-		// TODO Auto-generated method stub
-		return null;
+		return this.fantasma;
 	}
 
 	public void setPosicionable(Posicionable posicionable) {
-		// TODO Auto-generated method stub
-		
+		this.fantasma = (Fantasma) posicionable;
 	}
 }
