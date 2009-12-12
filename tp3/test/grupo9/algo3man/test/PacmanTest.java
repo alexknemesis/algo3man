@@ -68,6 +68,12 @@ public class PacmanTest extends TestCase {
 		Assert.assertEquals(Pacman.VICTIMA, this.pacman.getEstado());
 	}
 	
+	public void testComePuntoOrdinario(){
+			this.pacman.vivir();
+			Assert.assertEquals(10, this.juego.getPuntaje());
+			Assert.assertEquals(103, this.juego.getMapa().getPuntos());
+	}
+	
 	
 
 }
