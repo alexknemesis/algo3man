@@ -67,6 +67,18 @@ public class FantasmaCelesteTest extends TestCase {
 		
 	}
 	
+	public void testEstabaHuyendoYVuelveADisperso(){
+		this.pacman.setPosicion(new Point(2,3));
+		this.pacman.vivir();
+		this.fantasma.vivir();
+		for (int i=0; i < 10; i++){ 
+			this.pacman.vivir();
+		}
+		this.fantasma.vivir();
+		Assert.assertEquals(Fantasma.DISPERSO, this.fantasma.getEstado());
+		
+	}
+	
 	public void testEstaEnModoDispersoYSeDirijeASuPosicionPreferida(){
 		for (int i=0; i < 10; i++){ 
 			//System.out.println(this.fantasma.getPosicion());

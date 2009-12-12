@@ -56,13 +56,6 @@ public abstract class Fantasma extends Personaje {
 			porque ahora cada 60 tics cambia de disperso a cazando y viceversa
 			siempre que el pacman no este en victimario*/
 		}
-		/* ACTUALIZACION: El fantasma no debe esperar a salir de disperso para 
-		 * huir del pacman en caso que este se haya comido un punto de poder
-		 */
-		if (this.juego.getPacman().getEstado() == Pacman.VICTIMARIO)
-			this.huirDelPacman();
-		
-		
 		// Esto es una versión primitiva de la implementación del contador
 		// de tics, pero igual no creo que tenga mucha más vuelta..
 
@@ -88,15 +81,16 @@ public abstract class Fantasma extends Personaje {
 	
 	private void determinarEstado() {
 		//Cambia el estado solo si salió del modo disperso
-		if (this.getEstado()!=HUYENDO){
-			/*ACTUALIZACION 15/12 Lucas: Si verifica en el vivir que el Pacman es VICTIMARIO y si es as� cambia
-			 * su estado a HUYENDO entonces no tenes que verificar otra vez lo mismo 
-			 * 
-			 */
+		if ((this.juego.getPacman().getEstado() == Pacman.VICTIMARIO) && (this.getEstado()!=HUYENDO)){
+			this.huirDelPacman();
+		}else if ((this.juego.getPacman().getEstado() == Pacman.VICTIMA) && (this.getEstado()==HUYENDO)){
+			this.dispersarse();
+		}else if (this.juego.getPacman().getEstado()==Pacman.VICTIMA){
+			
 			if(this.contadorTicsParaCambiarDeEstado == this.ticsParaCambiarDeEstado){
-				if ((juego.getPacman().getEstado() == Pacman.VICTIMA) && (this.estado == DISPERSO)){ 
+				if (this.estado == DISPERSO){ 
 					this.cazarAlPacman();
-				}else if ((juego.getPacman().getEstado() == Pacman.VICTIMA) && (this.estado == CAZANDO)){
+				}else if (this.estado == CAZANDO){
 					/* ACTUALIZACION 15/12 
 					 * Si el pacman esta en victima y estaba el fantasma previamente en CAZANDO vuelve a 
 					 * DISPERSO

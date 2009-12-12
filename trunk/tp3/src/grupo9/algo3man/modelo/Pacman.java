@@ -5,12 +5,15 @@ import java.awt.Point;
 public class Pacman extends Personaje {
 	public static final int VICTIMA = 1; 
 	public static final int VICTIMARIO = 2; 
+	protected static final int TICS_PARA_VOLVER_A_VICTIMA = 10; 
 	
 	private int estado;
+	protected int ticsParaCambiarDeEstado;
 
 	public Pacman(Point posicionInicial, int velocidad, int direccion, Juego juego) {
 		super(posicionInicial, velocidad, direccion, juego);
 		this.estado = VICTIMA;
+		this.ticsParaCambiarDeEstado = 0;
 	}
 	
 	public void reiniciar(){
@@ -23,10 +26,22 @@ public class Pacman extends Personaje {
 	}
 
 	public void vivir() {
-		// TODO Esto es una versiÃ³n primitiva de la implementaciÃ³n del contador
-		// de tics, pero igual no creo que tenga mucha mÃ¡s vuelta..
+		
 		
 		this.checkFantasmaEnCelda();
+		/*ACTUALIZACIÓN 12/12 LUCAS: El pacman tiene un tic para que de VICTIMARIO vuelva a VICTIMA 
+		 * sino iba a estar siempre en VICTIMA.
+		 * 
+		 */
+		if (this.getEstado()==VICTIMARIO){
+			if (this.ticsParaCambiarDeEstado < TICS_PARA_VOLVER_A_VICTIMA){
+				this.ticsParaCambiarDeEstado++;
+			}
+			if (this.ticsParaCambiarDeEstado >= TICS_PARA_VOLVER_A_VICTIMA){
+				this.setVictima();
+			}
+		}
+		
 		
 		this.contadorDeTics++;
 		if (this.contadorDeTics == this.velocidad){
@@ -41,7 +56,10 @@ public class Pacman extends Personaje {
 			
 			if(this.juego.getCelda(this.getPosicion()).daPoder()){
 				this.setVictimario();
-				//TODO alterar fantasmas
+				/*
+				 * ACTUALIZACIÓN 12/12 LUCAS: El pacman no cambia el estado de los fantasmas, ellos lo 
+				 * chequean en su vivir
+				 */
 			}
 			//Debería estar aca está línea porque si comés primero no da puntos ni cambia el estado en caso de ser PuntoPoder
 			this.juego.getCelda(this.getPosicion()).comer();
@@ -75,6 +93,7 @@ public class Pacman extends Personaje {
 	
 	private void setVictimario(){
 		this.estado = VICTIMARIO;
+		this.ticsParaCambiarDeEstado = 0;
 	}
 	private void setVictima(){
 		this.estado = VICTIMA;
