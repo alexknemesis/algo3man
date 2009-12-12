@@ -14,7 +14,7 @@ public class VistaFantasmaNaranja extends Circulo implements Dibujable {
 	
 	public VistaFantasmaNaranja(Fantasma fantasma){
 		super(RADIO);
-		this.fantasma = fantasma;
+		this.setPosicionable(fantasma);
 	}
 
 	public void dibujar(SuperficieDeDibujo superfice) {
@@ -22,18 +22,13 @@ public class VistaFantasmaNaranja extends Circulo implements Dibujable {
 			this.setColor(Color.ORANGE);
 		else
 			this.setColor(Color.BLUE);
-		
-		//TODO definir posicion
-		
 	}
 
 	public Posicionable getPosicionable() {
-		// TODO Auto-generated method stub
-		return null;
+		return this.fantasma;
 	}
 
 	public void setPosicionable(Posicionable posicionable) {
-		// TODO Auto-generated method stub
-		
+		this.fantasma = (Fantasma) posicionable;
 	}
 }

@@ -3,8 +3,9 @@ package grupo9.algo3man.modelo;
 import java.awt.Point;
 import grupo9.algo3man.modelo.Juego;
 import grupo9.algo3man.titiritero.ObjetoVivo;
+import grupo9.algo3man.titiritero.Posicionable;
 
-public abstract class Personaje implements Objetivo, ObjetoVivo {
+public abstract class Personaje implements Objetivo, ObjetoVivo, Posicionable {
 	public static final int ARRIBA = 0; 
 	public static final int ABAJO = 1; 
 	public static final int DERECHA = 2; 
