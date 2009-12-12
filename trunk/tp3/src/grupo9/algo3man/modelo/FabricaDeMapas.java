@@ -270,7 +270,7 @@ public class FabricaDeMapas { //crea los mapas
 		mapa.agregar(punto, celda);
 		
 		//agrego las celdas desde (10,6) hasta (11,6)
-		for (x=10;x<11;x++){
+		for (x=10;x<11+1;x++){
 			punto = new Point(x,6);
 			celda = new CeldaPared(mapa, punto);
 			mapa.agregar(punto, celda);
