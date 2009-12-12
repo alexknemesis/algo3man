@@ -6,6 +6,7 @@ import grupo9.algo3man.modelo.Fantasma;
 import grupo9.algo3man.modelo.GameOverException;
 import grupo9.algo3man.modelo.Juego;
 import grupo9.algo3man.modelo.ListaFantasma;
+import grupo9.algo3man.modelo.Mapa;
 
 import java.awt.Point;
 
@@ -122,12 +123,19 @@ public class JuegoTest extends TestCase {
 		}
 	}
 	
-	public void testComprobarCelda(){
-		Celda celda = this.juego.getCelda(new Point(15,13));
-		if (celda == null){
-			fail("es null");
-		}else Assert.assertEquals(true, true);
+	public void testComprobarCeldasNoNull(){
 		
-		
+		for(int y=0;y<16+1;y++){
+			for(int x=0;x<18+1;x++){
+				Celda celda = this.juego.getCelda(new Point(x,y));
+				System.out.println(celda.getPosicion());
+				if (celda == null){
+					fail("es null");
+				}else Assert.assertEquals(true, true);
+				
+			}
+		}
 	}
+
 }
+
