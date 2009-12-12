@@ -23,7 +23,7 @@ public class PuntoPosicionable implements Posicionable {
 	}
 
 	public int getY() {
-		return (int) (punto.getX()*TRANSX);
+		return (int) (punto.getY()*TRANSY);
 	}
 
 }
