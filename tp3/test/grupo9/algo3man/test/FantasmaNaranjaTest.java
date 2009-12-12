@@ -80,6 +80,41 @@ public class FantasmaNaranjaTest extends TestCase {
 		
 	}
 
+	public void testEstaEnModoDispersoYSeDirijeASuPosicionPreferida(){
+		for (int i=0; i < 24; i++){ 
+			//System.out.println(this.fantasma.getPosicion());
+			this.fantasma.vivir();
+		}
+		Assert.assertEquals(new Point(2,11), this.fantasma.getPosicion());
+		
+	}
+	
+	public void testEstaEnModoDispersoSeComeAlPacmanYComeVida(){
+		this.pacman.setPosicion(new Point(6,5));
+		for (int i=0; i < 4; i++){ 
+			this.fantasma.vivir();
+		}
+		//System.out.println(this.fantasma.getPosicion());
+		
+		
+		Assert.assertEquals(2, this.juego.getVidas());
+		Assert.assertEquals(this.fantasma.getPosicionInicial(), this.fantasma.getPosicion());
+	}
+	
+	public void testEstaEnModoCazandoSeComeAlPacmanYComeVida(){
+		this.pacman.setPosicion(new Point(9,14));
+		for (int i=0; i < 80+1; i++){ 
+			this.fantasma.vivir();
+		}
+		System.out.println(this.fantasma.getPosicion());
+		this.fantasma.vivir();
+		
+		System.out.println(this.fantasma.getPosicion());
+		Assert.assertEquals(2, this.juego.getVidas());
+		Assert.assertEquals(this.fantasma.getPosicionInicial(), this.fantasma.getPosicion());
+		
+		
+	}
 	
 
 

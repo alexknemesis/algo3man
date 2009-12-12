@@ -100,7 +100,7 @@ public class Pacman extends Personaje {
 	}
 
 	public double getDistancia(Point posicion) {
-		// TODO Auto-generated method stub
+		
 		return 0;
 	}
 

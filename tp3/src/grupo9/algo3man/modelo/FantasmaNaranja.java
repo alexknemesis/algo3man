@@ -27,7 +27,7 @@ public class FantasmaNaranja extends Fantasma {
 				irA = direccionParaMaximaDistanciaA(pacman);
 				break;
 			case CAZANDO:
-				if (pacman.getDistancia(this.posicion) > 6)
+				if (this.getDistancia(pacman.getPosicion()) < 6)
 					irA = direccionParaMinimaDistanciaA(pacman);
 				else
 					irA = direccionParaMinimaDistanciaA(this.celdaPreferida);

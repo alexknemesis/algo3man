@@ -6,8 +6,6 @@ import grupo9.algo3man.modelo.Fantasma;
 import grupo9.algo3man.modelo.GameOverException;
 import grupo9.algo3man.modelo.Juego;
 import grupo9.algo3man.modelo.ListaFantasma;
-import grupo9.algo3man.modelo.Mapa;
-
 import java.awt.Point;
 
 import junit.framework.Assert;
