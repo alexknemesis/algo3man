@@ -56,18 +56,7 @@ public class MapaTest extends TestCase {
 		Assert.assertEquals(this.mapa.getPuntos(), 7);
 	}
 	
-	/*public void testRestarPunto_Fail() {
-		
-		this.mapaTrucho = new Mapa(1,1,this.juego,new Point(10,10), new Point(7,10),1);
-		this.mapaTrucho.restarPunto();
-		try{
-			this.mapaTrucho.restarPunto();
-			fail("Deberia mandar excepcion pero no lo hizo");
-		}catch(RestarPuntoException e){
-			Assert.assertEquals(true, true);
-		}
-	}*/
-
+	
 	public void testAgregar_Ok() {
 		Point punto = new Point(1,3);
 		Celda celda = new CeldaPared(this.mapa,punto);
