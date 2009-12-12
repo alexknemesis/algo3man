@@ -96,7 +96,7 @@ public class FantasmaCelesteTest extends TestCase {
 	
 	public void testEstaEnModoDispersoSeComeAlPacmanYComeVida(){
 		this.pacman.setPosicion(new Point(12,5));
-		for (int i=0; i < 4; i++){ // 60 
+		for (int i=0; i < 4; i++){ 
 			this.fantasma.vivir();
 		}
 		System.out.println(this.fantasma.getPosicion());
@@ -104,6 +104,25 @@ public class FantasmaCelesteTest extends TestCase {
 		
 		Assert.assertEquals(2, this.juego.getVidas());
 		Assert.assertEquals(this.fantasma.getPosicionInicial(), this.fantasma.getPosicion());
+	}
+	
+	public void testEstaEnModoCazandoSeComeAlPacmanYComeVida(){
+		this.pacman.setPosicion(new Point(12,6));
+		for (int i=0; i < 60+1; i++){ 
+			this.fantasma.vivir();
+		}
+		System.out.println(this.fantasma.getPosicion());
+		for (int i=0; i < 6; i++){ 
+			if (i==5){
+				this.pacman.setDireccion(1);
+			}
+			this.fantasma.vivir();
+		}
+		System.out.println(this.fantasma.getPosicion());
+		Assert.assertEquals(2, this.juego.getVidas());
+		Assert.assertEquals(this.fantasma.getPosicionInicial(), this.fantasma.getPosicion());
+		
+		
 	}
 	
 }
