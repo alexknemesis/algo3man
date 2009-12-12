@@ -16,7 +16,7 @@ public class Juego {
 	final private int VIDAS_INICIALES = 3;
 	final private int NIVEL_INICIAL = 0;
 	final private int PUNTOS_NIVEL_GANADO = 1000;
-	final public int TAMANIO_CELDA_PIXELES = 10;
+	final public int TAMANIO_CELDA_PIXELES = 30;
 	
 	private int nivel;
 	private int puntaje;
@@ -38,12 +38,6 @@ public class Juego {
 			this.controlador.agregarObjetoVivo(fantasmas.get(i));
 		}
 		
-		this.controlador.agregarDibujable(new VistaPacman(this.getPacman()));
-		this.controlador.agregarDibujable(new VistaFantasmaCeleste(this.mapa.getFantasmaCeleste()));
-		this.controlador.agregarDibujable(new VistaFantasmaNaranja(this.mapa.getFantasmaNaranja()));
-		this.controlador.agregarDibujable(new VistaFantasmaRojo(this.mapa.getFantasmaRojo()));
-		this.controlador.agregarDibujable(new VistaFantasmaVioleta(this.mapa.getFantasmaVioleta()));
-		
 		for(int i=0;i<this.getMapa().getN();i++){
 			for(int j=0;j<this.getMapa().getM();j++){
 				Celda celda = this.getCelda(new Point(i,j));
@@ -55,6 +49,12 @@ public class Juego {
 					
 			}
 		}
+		
+		this.controlador.agregarDibujable(new VistaPacman(this.getPacman()));
+		this.controlador.agregarDibujable(new VistaFantasmaCeleste(this.mapa.getFantasmaCeleste()));
+		this.controlador.agregarDibujable(new VistaFantasmaNaranja(this.mapa.getFantasmaNaranja()));
+		this.controlador.agregarDibujable(new VistaFantasmaRojo(this.mapa.getFantasmaRojo()));
+		this.controlador.agregarDibujable(new VistaFantasmaVioleta(this.mapa.getFantasmaVioleta()));
 	}
 	
 	public void comenzarJuego(){

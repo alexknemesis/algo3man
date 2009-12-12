@@ -48,7 +48,7 @@ public class Algo3Man extends JFrame implements ActionListener{
 	public static void main(String args[]){
 		Algo3Man algo3man = new Algo3Man();
 		
-		algo3man.setSize(600,400);
+		algo3man.setSize(600,600);
 		algo3man.setVisible(true);
 	}
 
