@@ -110,6 +110,7 @@ public class FantasmaTest extends TestCase {
 			System.out.println(this.fantasma.getPosicion());
 			this.fantasma.vivir();
 		}
+		
 	}
 
 }
