@@ -4,7 +4,7 @@ import java.awt.Point;
 import grupo9.algo3man.modelo.Juego;
 import grupo9.algo3man.titiritero.ObjetoVivo;
 import grupo9.algo3man.titiritero.Posicionable;
-import grupo9.algo3man.vista.PuntoPosicionable;
+import grupo9.algo3man.modelo.PuntoPosicionable;
 
 public abstract class Personaje implements Objetivo, ObjetoVivo, Posicionable {
 	public static final int ARRIBA = 0; 

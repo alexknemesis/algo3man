@@ -1,4 +1,4 @@
-package grupo9.algo3man.vista;
+package grupo9.algo3man.modelo;
 
 import java.awt.Point;
 
@@ -11,8 +11,8 @@ import grupo9.algo3man.titiritero.Posicionable;
 public class PuntoPosicionable implements Posicionable {
 
 	private Point punto;
-	private static final int TRANSX = 10;
-	private static final int TRANSY = 10;
+	private static final int TRANSX = 30;
+	private static final int TRANSY = 30;
 	
 	public PuntoPosicionable(Point punto){
 		this.punto = punto;

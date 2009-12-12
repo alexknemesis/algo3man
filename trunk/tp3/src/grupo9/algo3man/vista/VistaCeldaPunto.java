@@ -27,6 +27,7 @@ public class VistaCeldaPunto extends Cuadrado implements Dibujable {
 			else
 				this.setColor(Color.ORANGE);				
 		}
+		super.dibujar(superfice);
 	}
 
 	public Posicionable getPosicionable() {

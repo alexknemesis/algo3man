@@ -17,10 +17,6 @@ public class VistaCeldaPared extends Cuadrado implements Dibujable {
 		this.setColor(Color.RED);
 		this.setPosicionable(celda);
 	}
-	
-	public void dibujar(SuperficieDeDibujo superfice) {
-		
-	}
 
 	public Posicionable getPosicionable() {
 		return this.celda;

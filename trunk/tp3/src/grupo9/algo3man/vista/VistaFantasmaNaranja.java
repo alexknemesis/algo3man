@@ -10,7 +10,7 @@ import grupo9.algo3man.titiritero.vista.Circulo;
 
 public class VistaFantasmaNaranja extends Circulo implements Dibujable {
 	private Fantasma fantasma;
-	final private static int RADIO = 3;
+	final private static int RADIO = 30;
 	
 	public VistaFantasmaNaranja(Fantasma fantasma){
 		super(RADIO);
@@ -22,6 +22,8 @@ public class VistaFantasmaNaranja extends Circulo implements Dibujable {
 			this.setColor(Color.ORANGE);
 		else
 			this.setColor(Color.BLUE);
+		
+		super.dibujar(superfice);
 	}
 
 	public Posicionable getPosicionable() {
