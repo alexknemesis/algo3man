@@ -72,4 +72,8 @@ public class FantasmaCeleste extends Fantasma {
 		return celdaObjetivo;
 	}
 	
+	public void setVelocidad(int vel){
+		this.velocidad = vel;
+	}
+	
 }

@@ -28,6 +28,9 @@ public class FantasmaRojoTest extends TestCase {
 		this.juego = new Juego();
 		this.fantasma = (FantasmaRojo) this.juego.getFantasmas().get(1);
 		this.pacman = juego.getPacman();
+		this.pacman.setVelocidad(1);
+		this.pacman.setDireccion(3);
+		this.fantasma.setVelocidad(1);
 	}
 	
 	public void testMorir() {

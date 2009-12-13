@@ -50,12 +50,7 @@ public abstract class Fantasma extends Personaje {
 		 * modo DISPERSO
 		 */
 		
-		if (this.contadorTicsParaCambiarDeEstado < this.ticsParaCambiarDeEstado){
-			this.contadorTicsParaCambiarDeEstado++;
-			/*ACTUALIZACIÓN LUCAS 12/12	cambie el nombre de estas variables
-			porque ahora cada 60 tics cambia de disperso a cazando y viceversa
-			siempre que el pacman no este en victimario*/
-		}
+		
 		// Esto es una versiÃ³n primitiva de la implementaciÃ³n del contador
 		// de tics, pero igual no creo que tenga mucha mÃ¡s vuelta..
 
@@ -63,6 +58,13 @@ public abstract class Fantasma extends Personaje {
 		
 		if (this.contadorDeTics == this.velocidad){
 			this.contadorDeTics = 0;
+			
+			if (this.contadorTicsParaCambiarDeEstado < this.ticsParaCambiarDeEstado){
+				this.contadorTicsParaCambiarDeEstado++;
+				/*ACTUALIZACIÓN LUCAS 12/12	cambie el nombre de estas variables
+				porque ahora cada 60 tics cambia de disperso a cazando y viceversa
+				siempre que el pacman no este en victimario*/
+			}
 			
 			/*ACTUALIZACION: El fantasma setea su propio estado de acuerdo al
 			 * estado del Pacman.

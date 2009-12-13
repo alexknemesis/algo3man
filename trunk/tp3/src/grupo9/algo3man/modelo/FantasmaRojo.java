@@ -36,5 +36,9 @@ public class FantasmaRojo extends Fantasma {
 		}
 		return irA;
 	}
+	
+	public void setVelocidad(int vel){
+		this.velocidad = vel;
+	}
 
 }
