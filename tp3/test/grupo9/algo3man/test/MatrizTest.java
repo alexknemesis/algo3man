@@ -1,11 +1,8 @@
 package grupo9.algo3man.test;
 
 
-import java.awt.Point;
-
 import grupo9.algo3man.modelo.Celda;
 import grupo9.algo3man.modelo.CeldaPared;
-import grupo9.algo3man.modelo.CeldaVacia;
 import grupo9.algo3man.modelo.Matriz;
 import grupo9.algo3man.modelo.RangoException;
 import junit.framework.Assert;
