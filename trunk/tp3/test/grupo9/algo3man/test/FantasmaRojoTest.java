@@ -114,6 +114,7 @@ public class FantasmaRojoTest extends TestCase {
 		System.out.println(this.fantasma.getPosicion());
 		Assert.assertEquals(2, this.juego.getVidas());
 		Assert.assertEquals(this.fantasma.getPosicionInicial(), this.fantasma.getPosicion());
+		Assert.assertEquals(this.pacman.getPosicionInicial(), this.pacman.getPosicion());
 	}
 
 
