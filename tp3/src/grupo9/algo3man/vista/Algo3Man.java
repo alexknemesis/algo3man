@@ -3,6 +3,8 @@ package grupo9.algo3man.vista;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 
 import grupo9.algo3man.modelo.Juego;
 import grupo9.algo3man.titiritero.vista.Panel;
@@ -42,6 +44,16 @@ public class Algo3Man extends JFrame implements ActionListener{
 		Panel panelPacman = new Panel(dimensionX, dimensionY, juego.getControlador());
 		juego.getControlador().setSuperficieDeDibujo(panelPacman);
 		this.getContentPane().add(panelPacman);
+		
+		addWindowListener (new WindowAdapter(){
+
+			@Override
+			public void windowClosing (WindowEvent e) {
+				juego.pausarJuego();
+				System.exit(0);
+			}
+
+		});
 		
 	}
 	
