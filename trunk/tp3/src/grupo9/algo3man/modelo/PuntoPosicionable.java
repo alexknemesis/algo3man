@@ -19,11 +19,11 @@ public class PuntoPosicionable implements Posicionable {
 	}
 	
 	public int getX() {
-		return (int) (punto.getX()*TRANSX);
+		return (int) (this.punto.getX()*TRANSX);
 	}
 
 	public int getY() {
-		return (int) (punto.getY()*TRANSY);
+		return (int) (this.punto.getY()*TRANSY);
 	}
 
 }
