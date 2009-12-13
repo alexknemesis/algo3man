@@ -36,7 +36,7 @@ public class Matriz {
 	}
 
 	public Celda getCelda(int i, int j) {
-		if ((i >this.getFilas()) || (i < 0) || (j >this.getColumnas()) || (j < 0)){
+		if ((i >=this.getFilas()) || (i < 0) || (j >=this.getColumnas()) || (j < 0)){
 			throw new RangoException();
 		}
 		

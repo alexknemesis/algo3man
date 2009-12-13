@@ -33,19 +33,21 @@ public class Pacman extends Personaje {
 		 * sino iba a estar siempre en VICTIMA.
 		 * 
 		 */
-		if (this.getEstado()==VICTIMARIO){
-			if (this.ticsParaCambiarDeEstado < TICS_PARA_VOLVER_A_VICTIMA){
-				this.ticsParaCambiarDeEstado++;
-			}
-			if (this.ticsParaCambiarDeEstado >= TICS_PARA_VOLVER_A_VICTIMA){
-				this.setVictima();
-			}
-		}
 		
 		
 		this.contadorDeTics++;
 		if (this.contadorDeTics == this.velocidad){
 			this.contadorDeTics = 0;
+			
+			if (this.getEstado()==VICTIMARIO){
+				if (this.ticsParaCambiarDeEstado < TICS_PARA_VOLVER_A_VICTIMA){
+					this.ticsParaCambiarDeEstado++;
+				}
+				if (this.ticsParaCambiarDeEstado >= TICS_PARA_VOLVER_A_VICTIMA){
+					this.setVictima();
+				}
+			}
+			
 			
 			this.moverseEnDireccionActual();
 			
@@ -106,5 +108,9 @@ public class Pacman extends Personaje {
 
 	public int getEstado() {
 		return this.estado;
+	}
+	
+	public void setVelocidad(int vel){
+		this.velocidad = vel;
 	}
 }

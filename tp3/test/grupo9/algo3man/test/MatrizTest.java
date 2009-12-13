@@ -71,13 +71,29 @@ public class MatrizTest extends TestCase {
 	}
 	
 	public void testGetFilas(){
-		Assert.assertEquals(this.miMatriz.getFilas(), 2);
+		this.miMatrizOtra = new Matriz(19,17);
+		Assert.assertEquals(this.miMatrizOtra.getFilas(),19);
 		
 	}
 	
 	public void testGetColumnas(){
-		Assert.assertEquals(this.miMatriz.getColumnas(), 2);
+		this.miMatrizOtra = new Matriz(19,17);
+		Assert.assertEquals(this.miMatrizOtra.getColumnas(),17);
 		
+	}
+	
+	public void testGetCeldaCasiEnlosBordes(){
+		this.miMatrizOtra = new Matriz(19,17);
+		
+		try{
+			Celda otraCelda = this.miMatrizOtra.getCelda(19,1);
+			fail("deberia mandar excepcionn pero no lo hizo");
+			
+			
+		}catch (RangoException e){
+			Assert.assertEquals(true, true);
+			
+		}
 	}
 	
 

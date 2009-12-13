@@ -20,6 +20,9 @@ public class PacmanTest extends TestCase {
 		
 		this.juego = new Juego();
 		this.pacman = this.juego.getPacman();
+		this.pacman.setVelocidad(1);
+		this.pacman.setDireccion(3);
+		
 	}
 	
 	public void testMoverVivir(){
@@ -31,7 +34,8 @@ public class PacmanTest extends TestCase {
 	
 	public void testMataFantasma(){
 		Fantasma fantasma1 = this.juego.getFantasmas().get(0);
-		fantasma1.setPosicion(new Point(2,3));		
+		fantasma1.setPosicion(new Point(2,3));
+		fantasma1.setVelocidad(1);
 		this.pacman.setPosicion(new Point(2,3));
 		this.pacman.vivir();
 		assertEquals(fantasma1.getPosicion(), fantasma1.getPosicionInicial());		
