@@ -8,7 +8,7 @@ import grupo9.algo3man.modelo.FantasmaRojo;
 import grupo9.algo3man.modelo.FantasmaNaranja;
 
 public class Mapa {
-		final private int VELOCIDAD_INICIAL = 1;
+		final private int VELOCIDAD_INICIAL = 10;
 		
 		private Matriz matriz;
 		private Juego juego;
@@ -38,7 +38,7 @@ public class Mapa {
 		}
 		
 		public void crearPersonajes(){
-			this.pacman = new Pacman(this.iniPacman, VELOCIDAD_INICIAL,Pacman.IZQUIERDA, this.juego);
+			this.pacman = new Pacman(this.iniPacman, VELOCIDAD_INICIAL,Pacman.DERECHA, this.juego);
 			
 			this.fantasmas.add(new FantasmaCeleste(this.iniFantasmas, this.getCelda(this.posPreferidaCeleste), VELOCIDAD_INICIAL,Fantasma.DERECHA, this.juego));
 			this.fantasmas.add(new FantasmaRojo(this.iniFantasmas, this.getCelda(this.posPreferidaRojo), VELOCIDAD_INICIAL,Fantasma.DERECHA, this.juego));
@@ -94,8 +94,6 @@ public class Mapa {
 				celda = this.matriz.getCelda(punto.x, punto.y);
 			}catch (RangoException e){
 				throw new RangoException();
-			}catch (NullPointerException e){
-				System.out.println("hola");
 			}
 			
 			return celda;

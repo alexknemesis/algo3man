@@ -42,16 +42,16 @@ public abstract class Personaje implements Objetivo, ObjetoVivo, Posicionable {
 		switch (direccion){
 		case ARRIBA:
 			proximoLugar.y -= 1;
-			;break;
+			break;
 		case ABAJO:
 			proximoLugar.y += 1;			
-			;break;
+			break;
 		case DERECHA:   
 			proximoLugar.x += 1;
-			;break;
+			break;
 		case IZQUIERDA:   
 			proximoLugar.x -= 1;
-			;break;
+			break;
 		}
 
 		if(this.getJuego().getCelda(proximoLugar)!= null)

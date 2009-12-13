@@ -5,7 +5,6 @@ import java.awt.Color;
 import grupo9.algo3man.modelo.Pacman;
 import grupo9.algo3man.titiritero.Dibujable;
 import grupo9.algo3man.titiritero.Posicionable;
-import grupo9.algo3man.titiritero.SuperficieDeDibujo;
 import grupo9.algo3man.titiritero.vista.Circulo;
 
 public class VistaPacman extends Circulo implements Dibujable{

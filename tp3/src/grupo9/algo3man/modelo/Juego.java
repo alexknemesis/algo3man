@@ -16,7 +16,6 @@ public class Juego {
 	final private int VIDAS_INICIALES = 3;
 	final private int NIVEL_INICIAL = 0;
 	final private int PUNTOS_NIVEL_GANADO = 1000;
-	final public int TAMANIO_CELDA_PIXELES = 30;
 	
 	private int nivel;
 	private int puntaje;
@@ -41,10 +40,11 @@ public class Juego {
 		for(int i=0;i<this.getMapa().getN();i++){
 			for(int j=0;j<this.getMapa().getM();j++){
 				Celda celda = this.getCelda(new Point(i,j));
+				PuntoPosicionable posicionable = new PuntoPosicionable(new Point(1,1));
 				if(celda.esTransitable()){
-					this.controlador.agregarDibujable(new VistaCeldaPunto(TAMANIO_CELDA_PIXELES,TAMANIO_CELDA_PIXELES,(CeldaPunto) celda));
+					this.controlador.agregarDibujable(new VistaCeldaPunto(posicionable.getX(),posicionable.getY(),(CeldaPunto) celda));
 				} else {
-					this.controlador.agregarDibujable(new VistaCeldaPared(TAMANIO_CELDA_PIXELES,TAMANIO_CELDA_PIXELES,(CeldaPared) celda));
+					this.controlador.agregarDibujable(new VistaCeldaPared(posicionable.getX(),posicionable.getY(),(CeldaPared) celda));
 				}
 					
 			}

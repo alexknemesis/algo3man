@@ -1,5 +1,6 @@
 package grupo9.algo3man.vista;
 
+import java.awt.Point;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
@@ -7,6 +8,7 @@ import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
 import grupo9.algo3man.modelo.Juego;
+import grupo9.algo3man.modelo.PuntoPosicionable;
 import grupo9.algo3man.titiritero.vista.Panel;
 
 import javax.swing.JFrame;
@@ -21,6 +23,7 @@ public class Algo3Man extends JFrame implements ActionListener{
 	private JMenu menu;
 	private JMenuItem menuItemStart, menuItemPause;
 	private Juego juego;
+	private Panel panelPacman;
 	
 	public Algo3Man(){
 		super("Algo3Man");
@@ -39,9 +42,10 @@ public class Algo3Man extends JFrame implements ActionListener{
 		this.setJMenuBar(barraMenu);
 		
 		this.juego = new Juego();
-		int dimensionX = (int) (juego.getDimensiones().getX()*juego.TAMANIO_CELDA_PIXELES);
-		int dimensionY = (int) (juego.getDimensiones().getY()*juego.TAMANIO_CELDA_PIXELES);
-		Panel panelPacman = new Panel(dimensionX, dimensionY, juego.getControlador());
+		PuntoPosicionable posicionable = new PuntoPosicionable(new Point(1,1));
+		int dimensionX = (int) (juego.getDimensiones().getX()*posicionable.getX());
+		int dimensionY = (int) (juego.getDimensiones().getY()*posicionable.getY());
+		this.panelPacman = new Panel(dimensionX, dimensionY, juego.getControlador());
 		juego.getControlador().setSuperficieDeDibujo(panelPacman);
 		this.getContentPane().add(panelPacman);
 		
