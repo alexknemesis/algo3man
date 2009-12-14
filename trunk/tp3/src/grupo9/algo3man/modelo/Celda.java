@@ -6,7 +6,6 @@ import java.awt.Point;
 
 import grupo9.algo3man.modelo.Objetivo;
 import grupo9.algo3man.titiritero.Posicionable;
-import grupo9.algo3man.modelo.PuntoPosicionable;
 
 	public abstract class Celda implements Objetivo, Posicionable{
 		
@@ -27,12 +26,10 @@ import grupo9.algo3man.modelo.PuntoPosicionable;
 	}
 	
 	public int getX(){
-		PuntoPosicionable posicionable = new PuntoPosicionable(this.posicion);
-		return posicionable.getX();
+		return (int) this.posicion.getX();
 	}
 	public int getY(){
-		PuntoPosicionable posicionable = new PuntoPosicionable(this.posicion);
-		return posicionable.getY();
+		return (int) this.posicion.getY();
 	}
 
 	public abstract boolean esTransitable();

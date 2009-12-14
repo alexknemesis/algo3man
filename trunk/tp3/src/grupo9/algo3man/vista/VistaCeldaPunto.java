@@ -3,6 +3,7 @@ package grupo9.algo3man.vista;
 import java.awt.Color;
 
 import grupo9.algo3man.modelo.CeldaPunto;
+import grupo9.algo3man.vista.PuntoPosicionable;
 import grupo9.algo3man.titiritero.Dibujable;
 import grupo9.algo3man.titiritero.Posicionable;
 import grupo9.algo3man.titiritero.SuperficieDeDibujo;
@@ -31,7 +32,7 @@ public class VistaCeldaPunto extends Cuadrado implements Dibujable {
 	}
 
 	public Posicionable getPosicionable() {
-		return this.celda;
+		return new PuntoPosicionable(this.celda.getPosicion());
 	}
 
 	public void setPosicionable(Posicionable posicionable) {

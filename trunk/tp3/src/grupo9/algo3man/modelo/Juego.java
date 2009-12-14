@@ -1,6 +1,7 @@
 package grupo9.algo3man.modelo;
 
 import grupo9.algo3man.titiritero.ControladorJuego;
+import grupo9.algo3man.vista.PuntoPosicionable;
 import grupo9.algo3man.vista.VistaCeldaPared;
 import grupo9.algo3man.vista.VistaCeldaPunto;
 import grupo9.algo3man.vista.VistaFantasmaCeleste;

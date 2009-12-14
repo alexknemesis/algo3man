@@ -1,4 +1,4 @@
-package grupo9.algo3man.modelo;
+package grupo9.algo3man.vista;
 
 import java.awt.Point;
 

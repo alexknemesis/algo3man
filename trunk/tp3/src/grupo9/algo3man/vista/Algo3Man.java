@@ -8,7 +8,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import grupo9.algo3man.modelo.Juego;
-import grupo9.algo3man.modelo.PuntoPosicionable;
+import grupo9.algo3man.vista.PuntoPosicionable;
 import grupo9.algo3man.titiritero.vista.Ventana;
 
 public class Algo3Man extends Ventana implements ActionListener{
