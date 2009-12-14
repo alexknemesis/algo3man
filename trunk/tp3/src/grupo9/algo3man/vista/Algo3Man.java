@@ -1,68 +1,48 @@
 package grupo9.algo3man.vista;
 
+import java.awt.Menu;
+import java.awt.MenuBar;
+import java.awt.MenuItem;
 import java.awt.Point;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.KeyEvent;
-import java.awt.event.WindowAdapter;
-import java.awt.event.WindowEvent;
 
 import grupo9.algo3man.modelo.Juego;
 import grupo9.algo3man.modelo.PuntoPosicionable;
-import grupo9.algo3man.titiritero.vista.Panel;
+import grupo9.algo3man.titiritero.vista.Ventana;
 
-import javax.swing.JFrame;
-import javax.swing.JMenu;
-import javax.swing.JMenuBar;
-import javax.swing.JMenuItem;
-
-public class Algo3Man extends JFrame implements ActionListener{
+public class Algo3Man extends Ventana implements ActionListener{
 	
 	private static final long serialVersionUID = 1L;
 	
-	private JMenu menu;
-	private JMenuItem menuItemStart, menuItemPause;
 	private Juego juego;
-	private Panel panelPacman;
+	private MenuItem menuItemStart, menuItemPause;
 	
-	public Algo3Man(){
-		super("Algo3Man");
+	public Algo3Man(int dimensionX, int dimensionY, Juego juego){
+		super(dimensionX, dimensionY,juego.getControlador());
+		this.juego = juego;
+		this.juego.getControlador().setSuperficieDeDibujo(this);
 		
-		this.menu = new JMenu("Juego");
-		this.menuItemStart = new JMenuItem("Nuevo Juego");
-		this.menuItemStart.setMnemonic(KeyEvent.VK_F2);
+		Menu menu = new Menu("Juego");
+		this.menuItemStart = new MenuItem("Nuevo Juego");
 		this.menuItemStart.addActionListener(this);
-		this.menu.add(menuItemStart);
-		this.menuItemPause = new JMenuItem("Pausa");
+		menu.add(menuItemStart);
+		this.menuItemPause = new MenuItem("Pausa");
 		this.menuItemPause.addActionListener(this);
-		this.menu.add(menuItemPause);
+		menu.add(menuItemPause);
 		
-		JMenuBar barraMenu = new JMenuBar();
+		MenuBar barraMenu = new MenuBar();
 		barraMenu.add(menu);
-		this.setJMenuBar(barraMenu);
-		
-		this.juego = new Juego();
-		PuntoPosicionable posicionable = new PuntoPosicionable(new Point(1,1));
-		int dimensionX = (int) (juego.getDimensiones().getX()*posicionable.getX());
-		int dimensionY = (int) (juego.getDimensiones().getY()*posicionable.getY());
-		this.panelPacman = new Panel(dimensionX, dimensionY, juego.getControlador());
-		juego.getControlador().setSuperficieDeDibujo(panelPacman);
-		this.getContentPane().add(panelPacman);
-		
-		addWindowListener (new WindowAdapter(){
-
-			@Override
-			public void windowClosing (WindowEvent e) {
-				juego.pausarJuego();
-				System.exit(0);
-			}
-
-		});
+		this.setMenuBar(barraMenu);
 		
 	}
 	
 	public static void main(String args[]){
-		Algo3Man algo3man = new Algo3Man();
+		Juego juego = new Juego();
+		PuntoPosicionable posicionable = new PuntoPosicionable(new Point(1,1));
+		int dimensionX = (int) (juego.getDimensiones().getX()*posicionable.getX());
+		int dimensionY = (int) (juego.getDimensiones().getY()*posicionable.getY());
+		Algo3Man algo3man = new Algo3Man(dimensionX, dimensionY, juego);
 		
 		algo3man.setSize(600,600);
 		algo3man.setVisible(true);
