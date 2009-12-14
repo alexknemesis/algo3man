@@ -8,7 +8,7 @@ import grupo9.algo3man.modelo.FantasmaRojo;
 import grupo9.algo3man.modelo.FantasmaNaranja;
 
 public class Mapa {
-		final private int VELOCIDAD_INICIAL = 10;
+		final private int VELOCIDAD_INICIAL = 100;
 		
 		private Matriz matriz;
 		private Juego juego;

@@ -3,6 +3,7 @@ package grupo9.algo3man.vista;
 import java.awt.Color;
 
 import grupo9.algo3man.modelo.Fantasma;
+import grupo9.algo3man.vista.PuntoPosicionable;
 import grupo9.algo3man.titiritero.Dibujable;
 import grupo9.algo3man.titiritero.Posicionable;
 import grupo9.algo3man.titiritero.SuperficieDeDibujo;
@@ -18,7 +19,7 @@ public class VistaFantasmaRojo extends Circulo implements Dibujable {
 	}
 
 	public void dibujar(SuperficieDeDibujo superfice) {
-		if(this.fantasma.getEstado() == Fantasma.HUYENDO)
+		if(this.fantasma.getEstado() != Fantasma.HUYENDO)
 			this.setColor(Color.RED);
 		else
 			this.setColor(Color.BLUE);
@@ -27,7 +28,7 @@ public class VistaFantasmaRojo extends Circulo implements Dibujable {
 	}
 
 	public Posicionable getPosicionable() {
-		return this.fantasma;
+		return new PuntoPosicionable(this.fantasma.getPosicion());
 	}
 
 	public void setPosicionable(Posicionable posicionable) {
