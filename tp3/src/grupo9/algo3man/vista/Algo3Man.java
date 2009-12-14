@@ -45,6 +45,7 @@ public class Algo3Man extends Ventana implements ActionListener{
 		Algo3Man algo3man = new Algo3Man(dimensionX, dimensionY, juego);
 		
 		algo3man.setSize(600,600);
+		algo3man.setResizable(false);
 		algo3man.setVisible(true);
 	}
 
