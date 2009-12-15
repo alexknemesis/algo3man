@@ -6,7 +6,10 @@ import java.awt.MenuItem;
 import java.awt.Point;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 
+import grupo9.algo3man.controlador.EscuchadorDeTeclado;
 import grupo9.algo3man.modelo.Juego;
 import grupo9.algo3man.vista.PuntoPosicionable;
 import grupo9.algo3man.titiritero.vista.Ventana;
@@ -40,7 +43,9 @@ public class Algo3Man extends Ventana implements ActionListener{
 
 	public static void main(String args[]){
 		Juego juego = new Juego();
+		EscuchadorDeTeclado escuchador = null;
 
+		
 		PuntoPosicionable posicionable = new PuntoPosicionable(new Point(1,1));
 		int dimensionX = (int) (juego.getDimensiones().getX()*posicionable.getX());
 		int dimensionY = (int) (juego.getDimensiones().getY()*posicionable.getY());
@@ -49,12 +54,17 @@ public class Algo3Man extends Ventana implements ActionListener{
 		algo3man.setSize(600,600);
 		algo3man.setResizable(false);
 		algo3man.setVisible(true);
+		escuchador = new EscuchadorDeTeclado(juego);
+		algo3man.addKeyListener(escuchador);
+		
+		
 
 	}
 
 	public void actionPerformed(ActionEvent e) {
-		
+
 		if(e.getSource() == this.menuItemStart){
+			
 			this.juego.comenzarJuego();
 
 		}else if(e.getSource() == this.menuItemPause){
@@ -62,6 +72,7 @@ public class Algo3Man extends Ventana implements ActionListener{
 
 		}
 	}
+
 
 
 
