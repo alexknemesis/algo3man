@@ -20,7 +20,7 @@ public class VistaFantasmaNaranja extends Circulo implements Dibujable {
 
 	public void dibujar(SuperficieDeDibujo superfice) {
 		if(this.fantasma.getEstado() != Fantasma.HUYENDO)
-			this.setColor(Color.ORANGE);
+			this.setColor(Color.GREEN);
 		else
 			this.setColor(Color.BLUE);
 		
