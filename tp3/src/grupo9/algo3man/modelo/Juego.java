@@ -29,36 +29,12 @@ public class Juego {
 		this.puntaje = 0;
 		this.vidas = VIDAS_INICIALES;
 		
-		this.mapa = FabricaDeMapas.obtenerMapa(this.nivel, this);
 		this.controlador = new ControladorJuego();
-		this.controlador.agregarObjetoVivo(this.getPacman());
-		this.controlador.setIntervaloSimulacion(10);
-		ListaFantasma fantasmas = this.getFantasmas();
-		for(int i=0; i<fantasmas.size(); i++){
-			this.controlador.agregarObjetoVivo(fantasmas.get(i));
-		}
-		
-		for(int i=0;i<this.getMapa().getN();i++){
-			for(int j=0;j<this.getMapa().getM();j++){
-				Celda celda = this.getCelda(new Point(i,j));
-				PuntoPosicionable posicionable = new PuntoPosicionable(new Point(1,1));
-				if(celda.esTransitable()){
-					this.controlador.agregarDibujable(new VistaCeldaPunto(posicionable.getX(),posicionable.getY(),(CeldaPunto) celda));
-				} else {
-					this.controlador.agregarDibujable(new VistaCeldaPared(posicionable.getX(),posicionable.getY(),(CeldaPared) celda));
-				}
-					
-			}
-		}
-		
-		this.controlador.agregarDibujable(new VistaPacman(this.getPacman()));
-		this.controlador.agregarDibujable(new VistaFantasmaCeleste(this.mapa.getFantasmaCeleste()));
-		this.controlador.agregarDibujable(new VistaFantasmaNaranja(this.mapa.getFantasmaNaranja()));
-		this.controlador.agregarDibujable(new VistaFantasmaRojo(this.mapa.getFantasmaRojo()));
-		this.controlador.agregarDibujable(new VistaFantasmaVioleta(this.mapa.getFantasmaVioleta()));
+		this.inicializarJuego();
 	}
 	
 	public void comenzarJuego(){
+		this.inicializarJuego();
 		this.controlador.comenzarJuego();
 	}
 	
@@ -153,6 +129,39 @@ public class Juego {
 		return this.mapa;
 	}
 
-
+	public void inicializarJuego(){
+		this.vidas = this.VIDAS_INICIALES;
+		this.puntaje = 0;
+		this.mapa = FabricaDeMapas.obtenerMapa(this.nivel, this);
+		
+		this.controlador.vaciarDibujables();
+		this.controlador.vaciarObjetoVivo();
+		
+		this.controlador.agregarObjetoVivo(this.getPacman());
+		this.controlador.setIntervaloSimulacion(10);
+		ListaFantasma fantasmas = this.getFantasmas();
+		for(int i=0; i<fantasmas.size(); i++){
+			this.controlador.agregarObjetoVivo(fantasmas.get(i));
+		}
+		
+		for(int i=0;i<this.getMapa().getN();i++){
+			for(int j=0;j<this.getMapa().getM();j++){
+				Celda celda = this.getCelda(new Point(i,j));
+				PuntoPosicionable posicionable = new PuntoPosicionable(new Point(1,1));
+				if(celda.esTransitable()){
+					this.controlador.agregarDibujable(new VistaCeldaPunto(posicionable.getX(),posicionable.getY(),(CeldaPunto) celda));
+				} else {
+					this.controlador.agregarDibujable(new VistaCeldaPared(posicionable.getX(),posicionable.getY(),(CeldaPared) celda));
+				}
+					
+			}
+		}
+		
+		this.controlador.agregarDibujable(new VistaPacman(this.getPacman()));
+		this.controlador.agregarDibujable(new VistaFantasmaCeleste(this.mapa.getFantasmaCeleste()));
+		this.controlador.agregarDibujable(new VistaFantasmaNaranja(this.mapa.getFantasmaNaranja()));
+		this.controlador.agregarDibujable(new VistaFantasmaRojo(this.mapa.getFantasmaRojo()));
+		this.controlador.agregarDibujable(new VistaFantasmaVioleta(this.mapa.getFantasmaVioleta()));
+	}
 
 }
