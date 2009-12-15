@@ -55,6 +55,10 @@ public class ControladorJuego {
 	public void removerObjetoVivo(ObjetoVivo objetoVivo){
 		objetosVivos.remove(objetoVivo);
 	}
+	
+	public void vaciarObjetoVivo(){
+		this.objetosVivos.clear();
+	}
 
 	public void agregarDibujable(Dibujable unDibujable){
 		dibujables.add(unDibujable);
@@ -62,6 +66,10 @@ public class ControladorJuego {
 
 	public void removerDibujable(Dibujable unDibujable){
 		dibujables.remove(unDibujable);
+	}
+	
+	public void vaciarDibujables(){
+		dibujables.clear();
 	}
 
 	public long getIntervaloSimulacion() {
