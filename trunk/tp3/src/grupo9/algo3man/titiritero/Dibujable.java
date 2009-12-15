@@ -11,4 +11,4 @@ public interface Dibujable {
 	public Posicionable getPosicionable();
 	public void setPosicionable(Posicionable posicionable);
 
-}   
+}
