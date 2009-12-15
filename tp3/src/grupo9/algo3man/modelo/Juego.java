@@ -63,7 +63,12 @@ public class Juego {
 	}
 	
 	public void pausarJuego(){
+		
 		this.controlador.detenerJuego();
+	}
+	
+	public void continuarJuego() {
+		this.controlador.reanudarJuego();
 	}
 	
 	public void avanzarNivel(){
@@ -147,5 +152,7 @@ public class Juego {
 	public Mapa getMapa() { // Para que? Deberia ser transparente.
 		return this.mapa;
 	}
+
+
 
 }

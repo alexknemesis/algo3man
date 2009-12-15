@@ -20,8 +20,8 @@ public class ControladorJuego {
 	public void comenzarJuego(){
 
 		estaEnEjecucion = true;
-		threadDeDibujo = new ThreadDeDibujo();
-		threadDeDibujo.start();	
+		threadDelControlador = new ThreadDelControlador();
+		threadDelControlador.start();	
 	}
 
 	/**
@@ -31,8 +31,8 @@ public class ControladorJuego {
 	public void comenzarJuego(int cantidadDeCiclos){
 
 		estaEnEjecucion = true;
-		threadDeDibujo = new ThreadDeDibujo(cantidadDeCiclos);
-		threadDeDibujo.start();
+		threadDelControlador = new ThreadDelControlador(cantidadDeCiclos);
+		threadDelControlador.start();
 
 	}
 
@@ -41,6 +41,11 @@ public class ControladorJuego {
 	 */
 	public void detenerJuego(){
 		this.estaEnEjecucion = false;
+	}
+	
+	public void reanudarJuego() {
+		comenzarJuego();
+		
 	}
 
 	public void agregarObjetoVivo(ObjetoVivo objetoVivo){
@@ -67,7 +72,7 @@ public class ControladorJuego {
 		this.intervaloSimulacion = intervaloSimulacion;
 	}
 
-	public void dibujar() {
+	private void dibujar() {
 		Iterator<Dibujable> iterador = dibujables.iterator();
 		while(iterador.hasNext()){
 			Dibujable dibujable = iterador.next();
@@ -79,7 +84,7 @@ public class ControladorJuego {
 	/**
 	 * Ejecuta la simulacion recorriendo la coleccion de objetivos vivos.
 	 */
-	public void simular() {
+	private void simular() {
 		this.superficieDeDibujo.limpiar();
 		Iterator<ObjetoVivo> iterador = objetosVivos.iterator();
 		while(iterador.hasNext()){
@@ -116,19 +121,19 @@ public class ControladorJuego {
 	public void removerMouseClickObservador(MouseClickObservador unMouseClickObservador){
 		this.mouseClickObservadores.remove(unMouseClickObservador);
 	}
-	private class ThreadDeDibujo implements Runnable{
+	
+	private class ThreadDelControlador implements Runnable{
 		Thread animacion;
-		boolean corriendoAnimacion;
 		int ciclosARealizar;
 		boolean acotado;
 
-		ThreadDeDibujo(){
+		ThreadDelControlador(){
 
 			animacion = new Thread(this);
 			acotado = false;
 		}
 
-		ThreadDeDibujo(int cantidadDeCiclos){
+		ThreadDelControlador(int cantidadDeCiclos){
 			this();
 			animacion = new Thread(this);
 			this.ciclosARealizar = cantidadDeCiclos;
@@ -139,14 +144,13 @@ public class ControladorJuego {
 
 
 		public void start(){
-			corriendoAnimacion = true;
 			animacion.start();
 
 
 		}
 
 		public void stop(){
-			animacion.stop();
+			
 			animacion = null;
 		}
 
@@ -185,5 +189,6 @@ public class ControladorJuego {
 	private List<Dibujable> dibujables;
 	private List<MouseClickObservador> mouseClickObservadores;
 	private SuperficieDeDibujo superficieDeDibujo;	
-	private ThreadDeDibujo threadDeDibujo;
+	private ThreadDelControlador threadDelControlador;
+
 }
