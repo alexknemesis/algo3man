@@ -32,7 +32,7 @@ public class Juego {
 		this.mapa = FabricaDeMapas.obtenerMapa(this.nivel, this);
 		this.controlador = new ControladorJuego();
 		this.controlador.agregarObjetoVivo(this.getPacman());
-		
+		this.controlador.setIntervaloSimulacion(10);
 		ListaFantasma fantasmas = this.getFantasmas();
 		for(int i=0; i<fantasmas.size(); i++){
 			this.controlador.agregarObjetoVivo(fantasmas.get(i));
