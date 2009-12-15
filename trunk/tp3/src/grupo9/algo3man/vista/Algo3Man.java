@@ -6,9 +6,6 @@ import java.awt.MenuItem;
 import java.awt.Point;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
-
 import grupo9.algo3man.controlador.EscuchadorDeTeclado;
 import grupo9.algo3man.modelo.Juego;
 import grupo9.algo3man.vista.PuntoPosicionable;
@@ -20,6 +17,7 @@ public class Algo3Man extends Ventana implements ActionListener{
 
 	private Juego juego;
 	private MenuItem menuItemStart, menuItemPause;
+	private boolean pausado;
 
 
 	public Algo3Man(int dimensionX, int dimensionY, Juego juego){
@@ -34,6 +32,9 @@ public class Algo3Man extends Ventana implements ActionListener{
 		this.menuItemPause = new MenuItem("Pausa");
 		this.menuItemPause.addActionListener(this);
 		menu.add(menuItemPause);
+		this.menuItemPause.setEnabled(false);
+		
+		pausado = false;
 
 		MenuBar barraMenu = new MenuBar();
 		barraMenu.add(menu);
@@ -66,9 +67,21 @@ public class Algo3Man extends Ventana implements ActionListener{
 		if(e.getSource() == this.menuItemStart){
 			
 			this.juego.comenzarJuego();
+			this.menuItemPause.setEnabled(true);
+			
 
 		}else if(e.getSource() == this.menuItemPause){
-			this.juego.pausarJuego();
+			if (pausado){
+				this.juego.continuarJuego();
+				this.menuItemPause.setLabel("Pausa");
+				pausado = false;
+			}else{
+				this.juego.pausarJuego();
+				this.menuItemPause.setLabel("Continuar");
+				pausado = true;
+
+			}
+			
 
 		}
 	}
