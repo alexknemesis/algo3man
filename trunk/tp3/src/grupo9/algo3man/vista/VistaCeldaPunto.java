@@ -1,33 +1,34 @@
 package grupo9.algo3man.vista;
 
-import java.awt.Color;
-
 import grupo9.algo3man.modelo.CeldaPunto;
 import grupo9.algo3man.vista.PuntoPosicionable;
 import grupo9.algo3man.titiritero.Dibujable;
 import grupo9.algo3man.titiritero.Posicionable;
 import grupo9.algo3man.titiritero.SuperficieDeDibujo;
-import grupo9.algo3man.titiritero.vista.Cuadrado;
+import grupo9.algo3man.titiritero.vista.Imagen;
 
-public class VistaCeldaPunto extends Cuadrado implements Dibujable {
-
+public class VistaCeldaPunto extends Imagen implements Dibujable {
 	private CeldaPunto celda;
-	
+
 	public VistaCeldaPunto(int ancho, int alto, CeldaPunto celda) {
-		super(ancho, alto);
-		this.setColor(Color.BLACK);
+		super();
+
+
 		this.setPosicionable(celda);
+		this.setNombreArchivoImagen("imagenes/FantasmaCelesteAbajo.png");
 	}
-	
+
 	public void dibujar(SuperficieDeDibujo superfice) {
+		
 		if(this.celda.isComido())
-			this.setColor(Color.BLACK);
+			this.setNombreArchivoImagen("imagenes/Vacio.png");
 		else{
 			if(this.celda.daPoder())
-				this.setColor(Color.MAGENTA);
+				this.setNombreArchivoImagen("imagenes/puntoGrande.png");
 			else
-				this.setColor(Color.ORANGE);				
+				this.setNombreArchivoImagen("imagenes/puntoChico.png");
 		}
+
 		super.dibujar(superfice);
 	}
 
@@ -38,5 +39,8 @@ public class VistaCeldaPunto extends Cuadrado implements Dibujable {
 	public void setPosicionable(Posicionable posicionable) {
 		this.celda = (CeldaPunto) posicionable;
 	}
-
 }
+
+
+
+	
