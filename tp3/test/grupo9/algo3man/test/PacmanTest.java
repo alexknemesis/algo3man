@@ -56,9 +56,9 @@ public class PacmanTest extends TestCase {
 	}
 	
 	public void testPacmanNoSeMuevePorPared(){
-		this.pacman.moverArriba();
+		this.pacman.setDireccion(Pacman.ARRIBA);
 		this.pacman.vivir();
-		Assert.assertEquals(this.pacman.getPosicion().x, 9);
+		Assert.assertEquals(this.pacman.getPosicion().x, 10);
 		Assert.assertEquals(this.pacman.getPosicion().y, 9);
 		
 	}
