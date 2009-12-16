@@ -7,6 +7,7 @@ public class Pacman extends Personaje {
 	public static final int VICTIMARIO = 2; 
 	protected static final int TICS_PARA_VOLVER_A_VICTIMA = 10; 
 	
+	private int direccionFutura;
 	private int estado;
 	protected int ticsParaCambiarDeEstado;
 
@@ -14,6 +15,7 @@ public class Pacman extends Personaje {
 		super(posicionInicial, velocidad, direccion, juego);
 		this.estado = VICTIMA;
 		this.ticsParaCambiarDeEstado = 0;
+		this.direccionFutura = this.direccion;
 	}
 	
 	public void reiniciar(){
@@ -29,7 +31,7 @@ public class Pacman extends Personaje {
 		
 		
 		this.checkFantasmaEnCelda();
-		/*ACTUALIZACIÓN 12/12 LUCAS: El pacman tiene un tic para que de VICTIMARIO vuelva a VICTIMA 
+		/*ACTUALIZACIï¿½N 12/12 LUCAS: El pacman tiene un tic para que de VICTIMARIO vuelva a VICTIMA 
 		 * sino iba a estar siempre en VICTIMA.
 		 * 
 		 */
@@ -48,7 +50,7 @@ public class Pacman extends Personaje {
 				}
 			}
 			
-			
+			this.checkDireccion();
 			this.moverseEnDireccionActual();
 			
 			
@@ -59,14 +61,38 @@ public class Pacman extends Personaje {
 			if(this.juego.getCelda(this.getPosicion()).daPoder()){
 				this.setVictimario();
 				/*
-				 * ACTUALIZACIÓN 12/12 LUCAS: El pacman no cambia el estado de los fantasmas, ellos lo 
+				 * ACTUALIZACIï¿½N 12/12 LUCAS: El pacman no cambia el estado de los fantasmas, ellos lo 
 				 * chequean en su vivir
 				 */
 			}
-			//Debería estar aca está línea porque si comés primero no da puntos ni cambia el estado en caso de ser PuntoPoder
+			//Deberï¿½a estar aca estï¿½ lï¿½nea porque si comï¿½s primero no da puntos ni cambia el estado en caso de ser PuntoPoder
 			this.juego.getCelda(this.getPosicion()).comer();
 			
 			this.checkFantasmaEnCelda();
+		}
+	}
+	
+	private void checkDireccion() {
+		Point proximoLugar = new Point(this.posicion);
+		
+		switch (direccionFutura){
+		case ARRIBA:
+			proximoLugar.y -= 1;
+			break;
+		case ABAJO:
+			proximoLugar.y += 1;			
+			break;
+		case DERECHA:   
+			proximoLugar.x += 1;
+			break;
+		case IZQUIERDA:   
+			proximoLugar.x -= 1;
+			break;
+		}
+
+		if(this.getJuego().getCelda(proximoLugar)!= null){
+			if (this.getJuego().getCelda(proximoLugar).esTransitable())
+				this.direccion = this.direccionFutura;
 		}
 	}
 	
@@ -79,18 +105,22 @@ public class Pacman extends Personaje {
 	}
 	
 	public void moverDerecha(){
-		this.setDireccion(DERECHA);
+		this.setDireccionFutura(DERECHA);
 	}
 	
 	public void moverIzquierda(){
-		this.setDireccion(IZQUIERDA);
+		this.setDireccionFutura(IZQUIERDA);
 	}
 	
 	public void moverAbajo(){
-		this.setDireccion(ABAJO);
+		this.setDireccionFutura(ABAJO);
 	}
 	public void moverArriba(){
-		this.setDireccion(ARRIBA);
+		this.setDireccionFutura(ARRIBA);
+	}
+	
+	public void setDireccionFutura(int direccion){
+		this.direccionFutura = direccion;
 	}
 	
 	private void setVictimario(){
