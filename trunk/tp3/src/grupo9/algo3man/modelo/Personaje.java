@@ -53,9 +53,10 @@ public abstract class Personaje implements Objetivo, ObjetoVivo, Posicionable {
 			break;
 		}
 
-		if(this.getJuego().getCelda(proximoLugar)!= null)
+		if(this.getJuego().getCelda(proximoLugar)!= null){
 			if (this.getJuego().getCelda(proximoLugar).esTransitable())
 				this.posicion.setLocation(proximoLugar);
+		}
 	}
 	
 	public Juego getJuego(){

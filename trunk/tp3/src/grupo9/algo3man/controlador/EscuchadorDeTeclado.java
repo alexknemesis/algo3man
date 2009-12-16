@@ -16,19 +16,19 @@ public class EscuchadorDeTeclado implements KeyListener{
 		if (juego !=null){
 			switch (e.getKeyCode())	{
 			case KeyEvent.VK_UP:
-				juego.getPacman().setDireccion(Pacman.ARRIBA);
+				juego.getPacman().moverArriba();
 
 				break;
 			case KeyEvent.VK_DOWN:
-				juego.getPacman().setDireccion(Pacman.ABAJO);
+				juego.getPacman().moverAbajo();
 
 				break;
 			case KeyEvent.VK_LEFT:
-				juego.getPacman().setDireccion(Pacman.IZQUIERDA);
+				juego.getPacman().moverIzquierda();
 
 				break;
 			case KeyEvent.VK_RIGHT:
-				juego.getPacman().setDireccion(Pacman.DERECHA);
+				juego.getPacman().moverDerecha();
 
 				break;
 			}
