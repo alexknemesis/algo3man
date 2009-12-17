@@ -156,7 +156,7 @@ public abstract class Fantasma extends Personaje {
 		direccionAMinimaDistancia = -1;
 		
 		celdasAlrededor = new Celda[4];
-		//Cambie esto porque ya hab�a un getCelda pero de Points y estaba mal pedida la posicion izq y der
+		//Tomo las 4 celdas alrededor del fantasma
 		celdasAlrededor[ARRIBA] = this.juego.getCelda(new Point(this.posicion.x,this.posicion.y - 1));
 		celdasAlrededor[ABAJO] = this.juego.getCelda(new Point(this.posicion.x,this.posicion.y + 1));
 		celdasAlrededor[DERECHA] = this.juego.getCelda(new Point(this.posicion.x + 1,this.posicion.y));
@@ -165,6 +165,7 @@ public abstract class Fantasma extends Personaje {
 		//Descarto moverme hacia atrás
 		celdasAlrededor[direccionContraria(this.direccion)]= null;
 		
+	
 		for (int i = 0; i<4; i++){
 			if(celdasAlrededor[i] != null)
 				if(celdasAlrededor[i].esTransitable())
@@ -174,9 +175,11 @@ public abstract class Fantasma extends Personaje {
 					}
 		}
 		
+		
 		if (direccionAMinimaDistancia != -1){
 			return direccionAMinimaDistancia; //Encontró una dirección nueva
 		}
+		//Descartó todas las posibles
 		return direccionContraria(this.direccion); //Encontró una pared y debe dar vuelta
 	}
 	
@@ -205,7 +208,7 @@ public abstract class Fantasma extends Personaje {
 		
 		celdasAlrededor = new Celda[4];
 		
-		//Cambie esto porque ya hab�a un getCelda pero de Points y estaba mal pedida la posicion izq y der
+		//Tomo las 4 celdas alrededor del fantasma
 		celdasAlrededor[ARRIBA] = this.juego.getCelda(new Point(this.posicion.x,this.posicion.y - 1));
 		celdasAlrededor[ABAJO] = this.juego.getCelda(new Point(this.posicion.x,this.posicion.y + 1));
 		celdasAlrededor[IZQUIERDA] = this.juego.getCelda(new Point(this.posicion.x - 1,this.posicion.y));
@@ -227,6 +230,7 @@ public abstract class Fantasma extends Personaje {
 		if (direccionAMaximaDistancia != -1){
 			return direccionAMaximaDistancia; //Encontró una dirección nueva
 		}
+		//descartó todas las celdas
 		return direccionContraria(this.direccion); //Encontró una pared y debe dar vuelta
 	}
 	
