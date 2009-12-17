@@ -11,6 +11,7 @@ import grupo9.algo3man.modelo.Juego;
 import grupo9.algo3man.vista.PuntoPosicionable;
 import grupo9.algo3man.titiritero.vista.Ventana;
 
+
 public class Algo3Man extends Ventana implements ActionListener{
 
 	private static final long serialVersionUID = 1L;
@@ -18,6 +19,7 @@ public class Algo3Man extends Ventana implements ActionListener{
 	private Juego juego;
 	private MenuItem menuItemStart, menuItemPause;
 	private boolean pausado;
+	private SonidoThread sonidoComienzo;
 
 
 	public Algo3Man(int dimensionX, int dimensionY, Juego juego){
@@ -39,6 +41,9 @@ public class Algo3Man extends Ventana implements ActionListener{
 		MenuBar barraMenu = new MenuBar();
 		barraMenu.add(menu);
 		this.setMenuBar(barraMenu);
+		
+		 
+		
 
 	}
 
@@ -65,7 +70,8 @@ public class Algo3Man extends Ventana implements ActionListener{
 	public void actionPerformed(ActionEvent e) {
 
 		if(e.getSource() == this.menuItemStart){
-			
+			sonidoComienzo = new SonidoThread("sonidos/pac_start.wav");
+			sonidoComienzo.start();
 			this.juego.comenzarJuego();
 			this.menuItemPause.setEnabled(true);
 			
