@@ -33,13 +33,14 @@ public class VistaCeldaPunto extends Imagen implements Dibujable {
 			if(this.celda.isComido()){
 				this.setNombreArchivoImagen("imagenes/Vacio.png");
 				celdaComida = true;
-				if (daPoder){
+				
+				/*if (daPoder){
 					sonidoComidaPoderosa = new SonidoThread("sonidos/pac_powerup.wav");
 					sonidoComidaPoderosa.start();
 				}else{
 					sonidoComida = new SonidoThread("sonidos/pac_chomp.wav");
 					sonidoComida.start();
-				}
+				}*/
 			}
 		}
 		super.dibujar(superfice);

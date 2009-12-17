@@ -88,12 +88,11 @@ public class Algo3Man extends Ventana implements ActionListener{
 		if(e.getSource() == this.menuItemStart){
 			sonidoComienzo = new SonidoThread("sonidos/pac_start.wav");
 			sonidoComienzo.start();
-			try {
+			/*try { 
 				Thread.sleep(4000);
 			} catch (InterruptedException e1) {
-				// TODO Auto-generated catch block
 				e1.printStackTrace();
-			}
+			}*/
 			this.juego.comenzarJuego();
 			this.menuItemPause.setEnabled(true);
 			
