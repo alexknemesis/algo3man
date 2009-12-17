@@ -116,12 +116,15 @@ public class Algo3Man extends Ventana implements ActionListener{
 
 	public void printVidas(int vidas){
 		this.lblVidas.setText("Vidas: "+vidas);
+		this.lblVidas.repaint();
 	}
 	public void printPuntos(int puntos){
 		this.lblPuntos.setText("Puntos: "+puntos);
+		this.lblPuntos.repaint();
 	}
 	public void printNivel(int nivel){
 		this.lblNivel.setText("Nivel: "+nivel);
+		this.lblNivel.repaint();
 	}
 
 
