@@ -5,7 +5,8 @@ import java.awt.Point;
 public class Pacman extends Personaje {
 	public static final int VICTIMA = 1; 
 	public static final int VICTIMARIO = 2; 
-	protected static final int TICS_PARA_VOLVER_A_VICTIMA = 10; 
+	protected static final int TICS_PARA_VOLVER_A_VICTIMA = 10;
+	private static final int PUNTOS_COMER_FANTASMA = 200; 
 	
 	private int direccionFutura;
 	private int estado;
@@ -99,8 +100,10 @@ public class Pacman extends Personaje {
 	private void checkFantasmaEnCelda(){
 		ListaFantasma fantasmas = this.juego.getFantasmas();
 		for(int i=0; i< fantasmas.size(); i++){
-			if(((Fantasma)(fantasmas.get(i))).getPosicion().equals(this.getPosicion()) && (this.estado == VICTIMARIO))
+			if(((Fantasma)(fantasmas.get(i))).getPosicion().equals(this.getPosicion()) && (this.estado == VICTIMARIO)){
 				((Fantasma)(fantasmas.get(i))).morir();
+				this.juego.sumarPuntos(PUNTOS_COMER_FANTASMA);
+			}
 		}
 	}
 	
