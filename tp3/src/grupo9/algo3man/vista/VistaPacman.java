@@ -10,12 +10,27 @@ import grupo9.algo3man.titiritero.vista.Circulo;
 
 public class VistaPacman extends Circulo implements Dibujable{
 	private Pacman pacman;
+	private Algo3Man algo3man;
 	final private static int RADIO = 30;
 	
-	public VistaPacman(Pacman pacman){
+	public VistaPacman(Pacman pacman, Algo3Man ventana){
 		super(RADIO);
 		this.setColor(Color.YELLOW);
 		this.setPosicionable(pacman);
+		this.setVentanaPrincipal(ventana);
+	}
+	
+	public void setVentanaPrincipal(Algo3Man ventana){
+		this.algo3man = ventana;
+	}
+	
+	public void dibujar(){
+		int vidas = this.pacman.getJuego().getVidas();
+		this.algo3man.printVidas(vidas);
+		int nivel = this.pacman.getJuego().getNivel();
+		this.algo3man.printPuntos(nivel);
+		int puntos = this.pacman.getJuego().getPuntaje();
+		this.algo3man.printNivel(puntos);
 	}
 
 	@Override

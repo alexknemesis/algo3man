@@ -29,6 +29,7 @@ public class Algo3Man extends Ventana implements ActionListener{
 	public Algo3Man(int dimensionX, int dimensionY, Juego juego){
 		super(dimensionX, dimensionY,juego.getControlador());
 		this.juego = juego;
+		this.juego.setVentanaPrincipal(this);
 		
 		this.panel = new Panel(570,570, this.juego.getControlador());
 		this.panel.setLocation(0, 50);
@@ -113,7 +114,15 @@ public class Algo3Man extends Ventana implements ActionListener{
 		}
 	}
 
-
+	public void printVidas(int vidas){
+		this.lblVidas.setText("Vidas: "+vidas);
+	}
+	public void printPuntos(int puntos){
+		this.lblPuntos.setText("Puntos: "+puntos);
+	}
+	public void printNivel(int nivel){
+		this.lblNivel.setText("Nivel: "+nivel);
+	}
 
 
 }
