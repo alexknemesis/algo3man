@@ -9,26 +9,39 @@ import grupo9.algo3man.titiritero.vista.Imagen;
 
 public class VistaCeldaPunto extends Imagen implements Dibujable {
 	private CeldaPunto celda;
+	private boolean celdaComida;
+	private SonidoThread sonidoComida;
+	private SonidoThread sonidoComidaPoderosa;
+	private boolean daPoder;
 
 	public VistaCeldaPunto(int ancho, int alto, CeldaPunto celda) {
 		super();
-
+		celdaComida = false;
 
 		this.setPosicionable(celda);
-		this.setNombreArchivoImagen("imagenes/FantasmaCelesteAbajo.png");
+		daPoder = this.celda.daPoder();
+		if(daPoder)
+			this.setNombreArchivoImagen("imagenes/puntoGrande.png");
+		else
+			this.setNombreArchivoImagen("imagenes/puntoChico.png");
+
 	}
 
 	public void dibujar(SuperficieDeDibujo superfice) {
 		
-		if(this.celda.isComido())
-			this.setNombreArchivoImagen("imagenes/Vacio.png");
-		else{
-			if(this.celda.daPoder())
-				this.setNombreArchivoImagen("imagenes/puntoGrande.png");
-			else
-				this.setNombreArchivoImagen("imagenes/puntoChico.png");
+		if (!celdaComida){
+			if(this.celda.isComido()){
+				this.setNombreArchivoImagen("imagenes/Vacio.png");
+				celdaComida = true;
+				if (daPoder){
+					sonidoComidaPoderosa = new SonidoThread("sonidos/pac_powerup.wav");
+					sonidoComidaPoderosa.start();
+				}else{
+					sonidoComida = new SonidoThread("sonidos/pac_chomp.wav");
+					sonidoComida.start();
+				}
+			}
 		}
-
 		super.dibujar(superfice);
 	}
 
