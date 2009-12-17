@@ -61,7 +61,7 @@ public abstract class Fantasma extends Personaje {
 			
 			if (this.contadorTicsParaCambiarDeEstado < this.ticsParaCambiarDeEstado){
 				this.contadorTicsParaCambiarDeEstado++;
-				/*ACTUALIZACIÓN LUCAS 12/12	cambie el nombre de estas variables
+				/*ACTUALIZACIï¿½N LUCAS 12/12	cambie el nombre de estas variables
 				porque ahora cada 60 tics cambia de disperso a cazando y viceversa
 				siempre que el pacman no este en victimario*/
 			}
@@ -126,7 +126,7 @@ public abstract class Fantasma extends Personaje {
 	protected void cazarAlPacman(){
 		this.estado = CAZANDO;
 		this.contadorTicsParaCambiarDeEstado = 0;
-		/*ACTUALIZACIÓN 15/12 LUCAS: Ahora el fantasma cambia de cazar a disperso si el
+		/*ACTUALIZACIï¿½N 15/12 LUCAS: Ahora el fantasma cambia de cazar a disperso si el
 		 * pacman sigue en victimario
 		 * 
 		 */
@@ -226,7 +226,7 @@ public abstract class Fantasma extends Personaje {
 		for (int i = 0; i<4; i++){
 			if(celdasAlrededor[i] != null)
 				if(celdasAlrededor[i].esTransitable())
-					if (objetivo.getDistancia(celdasAlrededor[i].getPosicion()) > distanciaMaxima){
+					if (objetivo.getDistancia(celdasAlrededor[i].getPosicion()) < distanciaMaxima){
 						distanciaMaxima =objetivo.getDistancia(celdasAlrededor[i].getPosicion());
 						direccionAMaximaDistancia = i;
 					}
