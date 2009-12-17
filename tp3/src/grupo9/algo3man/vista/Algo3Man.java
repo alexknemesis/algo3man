@@ -1,5 +1,6 @@
 package grupo9.algo3man.vista;
 
+import java.awt.Label;
 import java.awt.Menu;
 import java.awt.MenuBar;
 import java.awt.MenuItem;
@@ -10,6 +11,7 @@ import java.awt.event.ActionListener;
 import grupo9.algo3man.controlador.EscuchadorDeTeclado;
 import grupo9.algo3man.modelo.Juego;
 import grupo9.algo3man.vista.PuntoPosicionable;
+import grupo9.algo3man.titiritero.vista.Panel;
 import grupo9.algo3man.titiritero.vista.Ventana;
 
 
@@ -21,12 +23,17 @@ public class Algo3Man extends Ventana implements ActionListener{
 	private MenuItem menuItemStart, menuItemPause;
 	private boolean pausado;
 	private SonidoThread sonidoComienzo;
-
+	private Panel panel;
+	private Label lblVidas, lblPuntos, lblNivel;
 
 	public Algo3Man(int dimensionX, int dimensionY, Juego juego){
 		super(dimensionX, dimensionY,juego.getControlador());
 		this.juego = juego;
-		this.juego.getControlador().setSuperficieDeDibujo(this);
+		
+		this.panel = new Panel(570,570, this.juego.getControlador());
+		this.panel.setLocation(0, 50);
+		this.add(panel);
+		this.juego.getControlador().setSuperficieDeDibujo(this.panel);
 
 		Menu menu = new Menu("Juego");
 		this.menuItemStart = new MenuItem("Nuevo Juego");
@@ -44,8 +51,15 @@ public class Algo3Man extends Ventana implements ActionListener{
 		this.setMenuBar(barraMenu);
 		this.setTitle("Algo3Man");
 		
-		 
-		
+		this.lblNivel = new Label("Nivel: ");
+		this.lblPuntos = new Label("Puntos: ");
+		this.lblVidas = new Label("Vidas: ");
+		this.lblNivel.setBounds(650, 100, 100, 30);
+		this.lblVidas.setBounds(650, 130, 100, 30);
+		this.lblPuntos.setBounds(650, 160, 100, 30);
+		this.add(this.lblNivel);
+		this.add(this.lblPuntos);
+		this.add(this.lblVidas);
 
 	}
 
@@ -59,7 +73,7 @@ public class Algo3Man extends Ventana implements ActionListener{
 		int dimensionY = (int) (juego.getDimensiones().getY()*posicionable.getY());
 		final Algo3Man algo3man = new Algo3Man(dimensionX, dimensionY, juego);
 		
-		algo3man.setSize(600,600);
+		algo3man.setSize(800,560);
 		algo3man.setResizable(false);
 		algo3man.setVisible(true);
 		escuchador = new EscuchadorDeTeclado(juego);
