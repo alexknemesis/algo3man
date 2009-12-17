@@ -1,6 +1,7 @@
 package grupo9.algo3man.modelo;
 
 import grupo9.algo3man.titiritero.ControladorJuego;
+import grupo9.algo3man.vista.Algo3Man;
 import grupo9.algo3man.vista.PuntoPosicionable;
 import grupo9.algo3man.vista.VistaCeldaPared;
 import grupo9.algo3man.vista.VistaCeldaPunto;
@@ -18,6 +19,7 @@ public class Juego {
 	final private int NIVEL_INICIAL = 0;
 	final private int PUNTOS_NIVEL_GANADO = 1000;
 	
+	private Algo3Man ventanaPrincipal;
 	private int nivel;
 	private int puntaje;
 	private int vidas;
@@ -157,11 +159,15 @@ public class Juego {
 			}
 		}
 		
-		this.controlador.agregarDibujable(new VistaPacman(this.getPacman()));
+		this.controlador.agregarDibujable(new VistaPacman(this.getPacman(),this.ventanaPrincipal));
 		this.controlador.agregarDibujable(new VistaFantasmaCeleste(this.mapa.getFantasmaCeleste()));
 		this.controlador.agregarDibujable(new VistaFantasmaNaranja(this.mapa.getFantasmaNaranja()));
 		this.controlador.agregarDibujable(new VistaFantasmaRojo(this.mapa.getFantasmaRojo()));
 		this.controlador.agregarDibujable(new VistaFantasmaVioleta(this.mapa.getFantasmaVioleta()));
+	}
+	
+	public void setVentanaPrincipal(Algo3Man ventana){
+		this.ventanaPrincipal = ventana;
 	}
 
 }
