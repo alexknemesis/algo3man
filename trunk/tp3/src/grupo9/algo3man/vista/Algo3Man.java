@@ -1,5 +1,6 @@
 package grupo9.algo3man.vista;
 
+import java.awt.Color;
 import java.awt.Label;
 import java.awt.Menu;
 import java.awt.MenuBar;
@@ -24,7 +25,7 @@ public class Algo3Man extends Ventana implements ActionListener{
 	private boolean pausado;
 	private SonidoThread sonidoComienzo;
 	private Panel panel;
-	private Label lblVidas, lblPuntos, lblNivel;
+	private Label lblVidas, lblPuntos, lblNivel, lblGameOver;
 
 	public Algo3Man(int dimensionX, int dimensionY, Juego juego){
 		super(dimensionX, dimensionY,juego.getControlador());
@@ -55,13 +56,17 @@ public class Algo3Man extends Ventana implements ActionListener{
 		this.lblNivel = new Label("Nivel: ");
 		this.lblPuntos = new Label("Puntos: ");
 		this.lblVidas = new Label("Vidas: ");
+		this.lblGameOver = new Label("Game Over");
 		this.lblNivel.setBounds(650, 100, 100, 30);
-		this.lblVidas.setBounds(650, 130, 100, 30);
-		this.lblPuntos.setBounds(650, 160, 100, 30);
+		this.lblVidas.setBounds(650, 160, 100, 30);
+		this.lblPuntos.setBounds(650, 130, 100, 30);
+		this.add(this.lblVidas);
 		this.add(this.lblNivel);
 		this.add(this.lblPuntos);
-		this.add(this.lblVidas);
-
+		this.add(this.lblGameOver);
+		this.lblNivel.setBackground(Color.WHITE);
+		this.lblVidas.setBackground(Color.WHITE);
+		this.lblPuntos.setBackground(Color.WHITE);
 	}
 
 	public static void main(String args[]){
