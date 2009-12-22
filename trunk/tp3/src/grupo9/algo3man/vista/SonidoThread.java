@@ -6,7 +6,7 @@ import javax.sound.sampled.AudioFormat;
 import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.DataLine;
-import javax.sound.sampled.FloatControl;
+/*import javax.sound.sampled.FloatControl;*/
 import javax.sound.sampled.LineUnavailableException;
 import javax.sound.sampled.SourceDataLine;
 import javax.sound.sampled.UnsupportedAudioFileException;
@@ -15,7 +15,8 @@ public class SonidoThread extends Thread {
  
     private String filename;
  
-    private Position curPosition;
+    @SuppressWarnings("unused")
+	private Position curPosition;
  
     private final int EXTERNAL_BUFFER_SIZE = 524288; // 128Kb
  
@@ -67,14 +68,14 @@ public class SonidoThread extends Thread {
             return;
         }
  
-        if (auline.isControlSupported(FloatControl.Type.PAN)) {
+        /*if (auline.isControlSupported(FloatControl.Type.)) {
             FloatControl pan = (FloatControl) auline
                     .getControl(FloatControl.Type.PAN);
             if (curPosition == Position.RIGHT)
                 pan.setValue(1.0f);
             else if (curPosition == Position.LEFT)
                 pan.setValue(-1.0f);
-        } 
+        }*/ 
  
         auline.start();
         int nBytesRead = 0;
