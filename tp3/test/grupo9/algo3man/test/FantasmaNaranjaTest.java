@@ -59,7 +59,7 @@ public class FantasmaNaranjaTest extends TestCase {
 	}
 	
 	public void testEstabaEnModoCazandoYVuelveAlEstadoDisperso(){
-		this.pacman.setPosicion(new Point(14,6)); //posición imposible de llegar
+		this.pacman.setPosicion(new Point(14,6)); //posicion imposible de llegar
 		
 		for (int i=0; i < 80+1; i++){ // 80 es tics para salir del modo disperso
 			this.fantasma.vivir();

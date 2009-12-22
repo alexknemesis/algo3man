@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="algo3Man" default="Pruebas" basedir=".">
+	
+	<target name="Compilacion" description="compila los fuentes">
+		<javac srcdir="." destdir="." >
+
+			<classpath path="junit.jar" />
+
+		</javac>
+	</target>
+
+	<target name="Pruebas" depends="Compilacion">
+		<junit>
+			<classpath>
+				<path location="junit.jar" />  
+				<path location="." />  
+			</classpath>
+			<formatter type="plain"	usefile="false" /> 
+			<test name="grupo9.algo3man.test.FantasmaTest" />
+			<test name="grupo9.algo3man.test.FantasmaCelesteTest" />
+			<test name="grupo9.algo3man.test.FantasmaNaranjaTest" />
+			<test name="grupo9.algo3man.test.FantasmaRojoTest" />
+			<test name="grupo9.algo3man.test.FantasmaVioletaTest" />
+			<test name="grupo9.algo3man.test.JuegoTest" />
+			<test name="grupo9.algo3man.test.MapaTest" />
+			<test name="grupo9.algo3man.test.MatrizTest" />
+			<test name="grupo9.algo3man.test.PacmanTest" />
+			
+		</junit>
+	</target>
+
+</project>

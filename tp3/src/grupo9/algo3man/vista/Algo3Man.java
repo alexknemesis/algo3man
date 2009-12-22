@@ -31,7 +31,7 @@ public class Algo3Man extends Ventana implements ActionListener{
 		super(dimensionX, dimensionY,juego.getControlador());
 		this.juego = juego;
 		this.juego.setVentanaPrincipal(this);
-		
+
 		this.panel = new Panel(570,570, this.juego.getControlador());
 		this.panel.setLocation(0, 50);
 		this.add(panel);
@@ -45,14 +45,14 @@ public class Algo3Man extends Ventana implements ActionListener{
 		this.menuItemPause.addActionListener(this);
 		menu.add(menuItemPause);
 		this.menuItemPause.setEnabled(false);
-		
+
 		pausado = false;
 
 		MenuBar barraMenu = new MenuBar();
 		barraMenu.add(menu);
 		this.setMenuBar(barraMenu);
 		this.setTitle("Algo3Man");
-		
+
 		this.lblNivel = new Label("Nivel: ");
 		this.lblPuntos = new Label("Puntos: ");
 		this.lblVidas = new Label("Vidas: ");
@@ -73,19 +73,19 @@ public class Algo3Man extends Ventana implements ActionListener{
 		Juego juego = new Juego();
 		EscuchadorDeTeclado escuchador = null;
 
-		
+
 		PuntoPosicionable posicionable = new PuntoPosicionable(new Point(1,1));
 		int dimensionX = (int) (juego.getDimensiones().getX()*posicionable.getX());
 		int dimensionY = (int) (juego.getDimensiones().getY()*posicionable.getY());
 		final Algo3Man algo3man = new Algo3Man(dimensionX, dimensionY, juego);
-		
+
 		algo3man.setSize(800,560);
 		algo3man.setResizable(false);
 		algo3man.setVisible(true);
 		escuchador = new EscuchadorDeTeclado(juego);
 		algo3man.addKeyListener(escuchador);
-		
-		
+
+
 
 	}
 
@@ -101,20 +101,22 @@ public class Algo3Man extends Ventana implements ActionListener{
 			}*/
 			this.juego.comenzarJuego();
 			this.menuItemPause.setEnabled(true);
-			
+
 
 		}else if(e.getSource() == this.menuItemPause){
-			if (pausado){
-				this.juego.continuarJuego();
-				this.menuItemPause.setLabel("Pausa");
-				pausado = false;
-			}else{
-				this.juego.pausarJuego();
-				this.menuItemPause.setLabel("Continuar");
-				pausado = true;
+			if (!this.juego.isGameOver()){
+				if (pausado){
+					this.juego.continuarJuego();
+					this.menuItemPause.setLabel("Pausa");
+					pausado = false;
+				}else{
+					this.juego.pausarJuego();
+					this.menuItemPause.setLabel("Continuar");
+					pausado = true;
 
+				}
 			}
-			
+
 
 		}
 	}

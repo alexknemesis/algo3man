@@ -157,10 +157,6 @@ public class ControladorJuego {
 
 		}
 
-		public void stop(){
-			
-			animacion = null;
-		}
 
 		public void run(){
 

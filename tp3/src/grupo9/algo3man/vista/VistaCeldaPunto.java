@@ -10,9 +10,10 @@ import grupo9.algo3man.titiritero.vista.Imagen;
 public class VistaCeldaPunto extends Imagen implements Dibujable {
 	private CeldaPunto celda;
 	private boolean celdaComida;
-	private SonidoThread sonidoComida;
-	private SonidoThread sonidoComidaPoderosa;
+	/*private SonidoThread sonidoComida;
+	private SonidoThread sonidoComidaPoderosa;*/
 	private boolean daPoder;
+
 
 	public VistaCeldaPunto(int ancho, int alto, CeldaPunto celda) {
 		super();

@@ -27,15 +27,16 @@ public class Juego {
 	private ControladorJuego controlador;
 	
 	public Juego(){
-		this.nivel = NIVEL_INICIAL;
-		this.puntaje = 0;
-		this.vidas = VIDAS_INICIALES;
 		
 		this.controlador = new ControladorJuego();
 		this.inicializarJuego();
 	}
 	
 	public void comenzarJuego(){
+		this.nivel = NIVEL_INICIAL;
+		this.puntaje = 0;
+		this.vidas = VIDAS_INICIALES;
+	
 		this.inicializarJuego();
 		this.controlador.comenzarJuego();
 	}
@@ -53,10 +54,11 @@ public class Juego {
 		if(this.isGameOver())
 			throw new GameOverException();
 		
-		this.nivel++;
+		//this.nivel++; /*Falta el mapa siguiente*/
 		this.sumarPuntos(PUNTOS_NIVEL_GANADO);
-		
-		// TODO cambiar mapa
+		this.pausarJuego();
+		this.inicializarJuego();
+		this.continuarJuego();
 	}
 	
 	public void sumarPuntos(int puntos){
@@ -132,8 +134,6 @@ public class Juego {
 	}
 
 	public void inicializarJuego(){
-		this.vidas = this.VIDAS_INICIALES;
-		this.puntaje = 0;
 		this.mapa = FabricaDeMapas.obtenerMapa(this.nivel, this);
 		
 		this.controlador.vaciarDibujables();
