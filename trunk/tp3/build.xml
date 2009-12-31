@@ -1,32 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project name="algo3Man" default="Pruebas" basedir=".">
+<project name="algo3Man" default="run" basedir=".">
 	
-	<target name="Compilacion" description="compila los fuentes">
-		<javac srcdir="." destdir="." >
+	<target name="clean" description="Borra la carpeta build">
+	        <delete dir="build"/>
+	    </target>
+	
+	<target name="Compilacion" depends="clean" description="compila los fuentes">
+	        <mkdir dir="build/classes"/>
+	        <javac srcdir="src" destdir="build/classes"/>
+	    </target>
+	
+	<target name="jar" depends= "Compilacion" description="Crea el jar">
+	        <mkdir dir="build/jar"/>
+	        <jar destfile="build/jar/Algo3Man.jar" basedir="build/classes">
+	            <manifest>
+	                <attribute name="Main-Class" value="grupo9.algo3man.vista.Algo3Man"/>
+	            </manifest>
+	        </jar>
+	    </target>
 
-			<classpath path="junit.jar" />
-
-		</javac>
-	</target>
-
-	<target name="Pruebas" depends="Compilacion">
-		<junit>
-			<classpath>
-				<path location="junit.jar" />  
-				<path location="." />  
-			</classpath>
-			<formatter type="plain"	usefile="false" /> 
-			<test name="grupo9.algo3man.test.FantasmaTest" />
-			<test name="grupo9.algo3man.test.FantasmaCelesteTest" />
-			<test name="grupo9.algo3man.test.FantasmaNaranjaTest" />
-			<test name="grupo9.algo3man.test.FantasmaRojoTest" />
-			<test name="grupo9.algo3man.test.FantasmaVioletaTest" />
-			<test name="grupo9.algo3man.test.JuegoTest" />
-			<test name="grupo9.algo3man.test.MapaTest" />
-			<test name="grupo9.algo3man.test.MatrizTest" />
-			<test name="grupo9.algo3man.test.PacmanTest" />
-			
-		</junit>
-	</target>
-
+	<target name="run" depends= "jar" description= "Ejecuta Algo3Man">
+	        <java jar="build/jar/Algo3Man.jar" fork="true"/>
+	    </target>
+	
+	
+	
 </project>
